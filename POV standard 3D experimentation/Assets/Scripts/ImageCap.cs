@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,17 +17,24 @@ public class ImageCap : MonoBehaviour
     public Texture2D texture;
 
     //Simple Character
+
+    List<Vector3> collisionVectors;
+
     public Transform player;
     float playerRadius = 25;
     float playerRadiusScaled;
-    public Color[] playerColors;
-
     Vector3 moveDirection;
+    public bool grounded;
+
 
     //screen units for movement
     public float playerSpd = 20;
+    public float grav = 20;
     float playerSpdScaled;
+    float playerGravScaled;
     float scaledPixelSize;
+
+    
 
     private void Start()
     {
@@ -53,15 +61,18 @@ public class ImageCap : MonoBehaviour
     {
         scaledPixelSize = Screen.width / 1920f;
 
-        playerRadiusScaled = (playerRadius / 1920f) * Screen.width;
-        playerSpdScaled = (playerSpd/1920f) * Screen.width;
+        playerRadiusScaled = playerRadius * scaledPixelSize;
+        playerSpdScaled = playerSpd * scaledPixelSize;
+        playerGravScaled = grav*scaledPixelSize;
     }
 
     void movePlayer()
     {
 
-        moveDirection = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
-        player.position += moveDirection * playerSpd * Time.deltaTime;
+        moveDirection = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0); 
+        player.position += moveDirection * playerSpdScaled * Time.deltaTime;
+
+        grounded = isGrounded();
 
         while (isOverlappingBlack(player.position, playerRadius))
         {
@@ -72,7 +83,12 @@ public class ImageCap : MonoBehaviour
         }
     }
 
-    List<Vector3> collisionVectors;
+    bool isGrounded()
+    {
+        Vector3Int v = roundVectorToInt(player.position);
+        Color[] groundPixels = texture.GetPixels(v.x-(Mathf.RoundToInt(playerRadiusScaled)), v.y - (Mathf.RoundToInt(playerRadiusScaled)+3), 50, 1);
+        return groundPixels.Contains<Color>(Color.black);
+    }
 
     bool isOverlappingBlack(Vector3 centerPos, float radius)
     {
@@ -88,7 +104,6 @@ public class ImageCap : MonoBehaviour
                 collisionVectors.Add(roundVectorToInt((new Vector3(Mathf.Sin((i / 12f) * (Mathf.PI * 2)), Mathf.Cos((i / 12f) * (Mathf.PI * 2)), 0) * playerRadiusScaled).normalized));
             }
         }
-
         return touchedBlackPixel;
     }
 

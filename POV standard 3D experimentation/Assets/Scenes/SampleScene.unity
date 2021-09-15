@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 438384102}
   - component: {fileID: 438384101}
   m_Layer: 5
-  m_Name: Cursor
+  m_Name: Player 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -224,7 +224,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 960, y: 719.41}
+  m_AnchoredPosition: {x: 960, y: 900}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &438384101
@@ -609,10 +609,8 @@ MonoBehaviour:
   mat: {fileID: 2100000, guid: 1e59ae4893f026443954b3ebd44d8d61, type: 2}
   texture: {fileID: 0}
   player: {fileID: 438384100}
-  playerColors:
-  - {r: 0.68756175, g: 1, b: 0, a: 0.6}
-  - {r: 1, g: 0.23272225, b: 0, a: 0.6}
-  playerSpd: 200
+  playerSpd: 400
+  grav: 150
 --- !u!1 &1294639070
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,14 +981,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1665613018}
-  m_LocalRotation: {x: 0, y: 0, z: -0.23386954, w: 0.972268}
-  m_LocalPosition: {x: 0, y: 0, z: -2}
-  m_LocalScale: {x: 0.6, y: 3, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2, y: 0, z: -2}
+  m_LocalScale: {x: 1, y: 3, z: 1}
   m_Children:
   - {fileID: 1671364459}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -27.05}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1671364458
 GameObject:
   m_ObjectHideFlags: 0
