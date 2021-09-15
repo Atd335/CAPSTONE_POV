@@ -7,6 +7,10 @@ using UnityEngine.Rendering;
 public class ImageCap : MonoBehaviour
 {
 
+    //Cameras
+    Camera CollisionCamera;
+    Camera VisualCamera;
+
     // A Material with the Unity shader you want to process the image with
     public Material mat;
     public Texture2D texture;
@@ -22,21 +26,33 @@ public class ImageCap : MonoBehaviour
     //screen units for movement
     public float playerSpd = 20;
     float playerSpdScaled;
+    float scaledPixelSize;
 
     private void Start()
     {
-
+        CollisionCamera = GetComponentsInChildren<Camera>()[0];
+        VisualCamera    = GetComponentsInChildren<Camera>()[1];
     }
 
     private void Update()
     {
-        updateRelativeUnits();
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            VisualCamera.enabled = !VisualCamera.enabled;
+        }
+    }
 
+    private void LateUpdate()
+    {
+        if (!texture) { return; }
+        updateRelativeUnits();
         movePlayer();
     }
 
     void updateRelativeUnits()
     {
+        scaledPixelSize = Screen.width / 1920f;
+
         playerRadiusScaled = (playerRadius / 1920f) * Screen.width;
         playerSpdScaled = (playerSpd/1920f) * Screen.width;
     }
@@ -45,24 +61,32 @@ public class ImageCap : MonoBehaviour
     {
 
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
-
-        player.GetComponent<Image>().color = playerColors[0];
-        if (isOverlappingBlack(player.position, playerRadius))
-        {
-            player.GetComponent<Image>().color = playerColors[1];
-        }
-
         player.position += moveDirection * playerSpd * Time.deltaTime;
+
+        while (isOverlappingBlack(player.position, playerRadius))
+        {
+            foreach (Vector3 cv in collisionVectors)
+            {
+                player.position -= cv * scaledPixelSize;
+            }
+        }
     }
+
+    List<Vector3> collisionVectors;
 
     bool isOverlappingBlack(Vector3 centerPos, float radius)
     {
         bool touchedBlackPixel = false;
+        collisionVectors = new List<Vector3>();
 
         for (int i = 0; i < 12; i++)// length of for loop = the amount of resolution of the collision. 
         {
             Vector3Int v = roundVectorToInt(centerPos) + roundVectorToInt((new Vector3(Mathf.Sin((i / 12f) * (Mathf.PI * 2)), Mathf.Cos((i / 12f) * (Mathf.PI * 2)), 0) * playerRadiusScaled));
-            if (texture.GetPixel(v.x, v.y) != Color.white) { touchedBlackPixel = true; }
+            if (texture.GetPixel(v.x, v.y) != Color.white) 
+            { 
+                touchedBlackPixel = true;
+                collisionVectors.Add(roundVectorToInt((new Vector3(Mathf.Sin((i / 12f) * (Mathf.PI * 2)), Mathf.Cos((i / 12f) * (Mathf.PI * 2)), 0) * playerRadiusScaled).normalized));
+            }
         }
 
         return touchedBlackPixel;
