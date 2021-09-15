@@ -16,46 +16,49 @@ public class ImageCap : MonoBehaviour
     public Vector2 onScreenPosition;
     public Vector2Int onScreenPositionInt;
 
-    //Debugging stuff
-    public RectTransform canvasCursor;
-    public RawImage searchDebug;
-
-    int debugBoxSize = 50;
+    //Simple Character
+    public Transform player;
+    float playerRadius = 25;
+    public float playerRadiusScaled;
 
     private void Start()
     {
-        debugBoxSize = Mathf.RoundToInt((50 / 1920f) * Screen.width);
+
     }
 
     private void Update()
     {
-        onScreenPosition = new Vector2(Input.mousePosition.x / Screen.width, Input.mousePosition.y / Screen.height);
-        
-        onScreenPosition.x *= 1920;
-        onScreenPosition.y *= 1080;
+        playerRadiusScaled = (playerRadius / 1920f) * Screen.width;
 
-        canvasCursor.localPosition = onScreenPosition - new Vector2(1920/2, 1080/2);
-
-        onScreenPositionInt = new Vector2Int(Mathf.RoundToInt(onScreenPosition.x), Mathf.RoundToInt(onScreenPosition.y));
-
-        readPixelsDebug();
+        movePlayer();
     }
 
-    void readPixelsDebug()
+    void movePlayer()
     {
-        textureSample = new Texture2D(debugBoxSize, debugBoxSize);
-        textureSample.SetPixels(texture.GetPixels(Mathf.RoundToInt(Input.mousePosition.x), Mathf.RoundToInt(Input.mousePosition.y), debugBoxSize, debugBoxSize));
-        textureSample.filterMode = FilterMode.Point;
-        textureSample.Apply();
-        searchDebug.texture = textureSample;
+        if (isOverlappingBlack(player.position, playerRadius))
+        {
+            print("hey");
+        }
     }
+    bool isOverlappingBlack(Vector3 centerPos, float radius)
+    {
+        bool touchedBlackPixel = false;
+
+        for (int i = 0; i < 12; i++)// length of for loop = the amount of resolution of the collision. 
+        {
+            Vector3Int v = roundVectorToInt(centerPos+ (new Vector3(Mathf.Sin((i / 12f) * (Mathf.PI * 2)), Mathf.Cos((i / 12f) * (Mathf.PI * 2)), 0) * playerRadiusScaled)); 
+            touchedBlackPixel = texture.GetPixel(v.x,v.y) != Color.white;
+        }
+
+        return touchedBlackPixel;
+    }
+
 
     void OnRenderImage(RenderTexture src, RenderTexture dest)
     {
         // Read pixels from the source RenderTexture, apply the material, copy the updated results to the destination RenderTexture
         Graphics.Blit(src, dest, mat);
         GrabCameraTexture(src);
-        //print($"{src.width}, {src.height}");
     }
 
     void GrabCameraTexture(RenderTexture src)
@@ -64,5 +67,27 @@ public class ImageCap : MonoBehaviour
         tex.ReadPixels(new Rect(0, 0, src.width, src.height), 0, 0);
         tex.Apply();
         texture = tex;
+    }
+
+    private void OnDrawGizmos()
+    {
+        //Vector3 v = Vector3.zero;
+        //float rad = 20;
+        //Gizmos.color = Color.red;
+        //for (int i = 0; i < 12; i++)
+        //{
+        //    Gizmos.DrawWireSphere(v+roundVectorToInt((new Vector3(Mathf.Sin((i / 12f) * (Mathf.PI * 2)), Mathf.Cos((i / 12f) * (Mathf.PI * 2)), 0) * rad)),1);
+        //}
+    }
+
+    Vector2 screenSpaceScaler(Vector2 v)
+    {
+        return Vector2.zero;
+    }
+
+    public Vector3Int roundVectorToInt(Vector3 v)
+    {
+        Vector3Int v2 = new Vector3Int(Mathf.RoundToInt(v.x), Mathf.RoundToInt(v.y), Mathf.RoundToInt(v.z));
+        return v2;
     }
 }
