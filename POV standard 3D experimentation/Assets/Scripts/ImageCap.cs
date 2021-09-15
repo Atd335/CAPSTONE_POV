@@ -28,11 +28,13 @@ public class ImageCap : MonoBehaviour
 
 
     //screen units for movement
+    public float jumpHeight;
     public float playerSpd = 20;
     public float grav = 20;
     float playerSpdScaled;
     float playerGravScaled;
     float scaledPixelSize;
+    float scaledJumpHeight;
 
     
 
@@ -64,15 +66,26 @@ public class ImageCap : MonoBehaviour
         playerRadiusScaled = playerRadius * scaledPixelSize;
         playerSpdScaled = playerSpd * scaledPixelSize;
         playerGravScaled = grav*scaledPixelSize;
+        scaledJumpHeight = jumpHeight * scaledPixelSize;
     }
 
     void movePlayer()
     {
 
-        moveDirection = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0); 
-        player.position += moveDirection * playerSpdScaled * Time.deltaTime;
-
+        moveDirection = new Vector3(Input.GetAxis("Horizontal"), moveDirection.y, 0);
         grounded = isGrounded();
+
+        if (grounded)
+        {
+            moveDirection.y = -.01f;
+            if (Input.GetKeyDown(KeyCode.Space)){ moveDirection.y = jumpHeight; };
+        }
+        else
+        {
+            moveDirection.y -= playerGravScaled * Time.deltaTime;
+        }
+
+        player.position += moveDirection * playerSpdScaled * Time.deltaTime;
 
         while (isOverlappingBlack(player.position, playerRadius))
         {
@@ -87,6 +100,7 @@ public class ImageCap : MonoBehaviour
     {
         Vector3Int v = roundVectorToInt(player.position);
         Color[] groundPixels = texture.GetPixels(v.x-(Mathf.RoundToInt(playerRadiusScaled)), v.y - (Mathf.RoundToInt(playerRadiusScaled)+3), 50, 1);
+        
         return groundPixels.Contains<Color>(Color.black);
     }
 

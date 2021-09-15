@@ -609,8 +609,10 @@ MonoBehaviour:
   mat: {fileID: 2100000, guid: 1e59ae4893f026443954b3ebd44d8d61, type: 2}
   texture: {fileID: 0}
   player: {fileID: 438384100}
+  grounded: 0
+  jumpHeight: 4
   playerSpd: 400
-  grav: 150
+  grav: 50
 --- !u!1 &1294639070
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,7 +901,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1665613019
 MonoBehaviour:
   m_ObjectHideFlags: 0
