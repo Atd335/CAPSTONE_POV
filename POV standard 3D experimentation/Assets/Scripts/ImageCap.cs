@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
 
@@ -49,7 +50,8 @@ public class ImageCap : MonoBehaviour
     float scaledAccel;
     float scaledDeccel;
     float scaledMaxSpd;
-    
+
+    int[] penis = { 1 };
 
     private void Start()
     {
@@ -66,6 +68,10 @@ public class ImageCap : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             startSim = true;
+        }
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
@@ -114,7 +120,6 @@ public class ImageCap : MonoBehaviour
         {
             gravityMultiplier = 1;
             moveDirection.y = -.05f;
-            
         }
         else
         {
@@ -154,21 +159,42 @@ public class ImageCap : MonoBehaviour
 
     bool isGroundedForjump()
     {
+        
         Vector3Int v = roundVectorToInt(player.position);
+
+        Vector3Int p1 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2), v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * scaledPixelSize))),0);
+        Vector3Int p2 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2) + Mathf.RoundToInt(playerRadiusScaled) / 2, v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * scaledPixelSize))),0);
+
+        if (!withinBoundsOfTexture(p1,texture) || !withinBoundsOfTexture(p2,texture)) { return false; }
+
         Color[] groundPixels = texture.GetPixels(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2), v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * scaledPixelSize))), Mathf.RoundToInt(playerRadiusScaled) / 2, 1);
 
         return groundPixels.Contains<Color>(Color.black);
     }
     bool isGrounded()
     {
+
         Vector3Int v = roundVectorToInt(player.position);
-        Color[] groundPixels = texture.GetPixels(v.x-(Mathf.RoundToInt(playerRadiusScaled)/2), v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(3*scaledPixelSize))), Mathf.RoundToInt(playerRadiusScaled)/2, 1);
+
+        Vector3Int p1 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2), v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * scaledPixelSize))), 0);
+        Vector3Int p2 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2) + Mathf.RoundToInt(playerRadiusScaled) / 2, v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(3 * scaledPixelSize))), 0);
+
+        if (!withinBoundsOfTexture(p1, texture) || !withinBoundsOfTexture(p2, texture)) { return false; }
+
+        Color[] groundPixels = texture.GetPixels(v.x-(Mathf.RoundToInt(playerRadiusScaled)/2), v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(3*scaledPixelSize))), Mathf.RoundToInt(playerRadiusScaled) / 2, 1);
         
         return groundPixels.Contains<Color>(Color.black);
     }
     bool isRoofed()
     {
+
         Vector3Int v = roundVectorToInt(player.position);
+
+        Vector3Int p1 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled)), v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * scaledPixelSize))), 0);
+        Vector3Int p2 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled)) + Mathf.RoundToInt(playerRadiusScaled), v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(3 * scaledPixelSize))), 0);
+
+        if (!withinBoundsOfTexture(p1, texture) || !withinBoundsOfTexture(p2, texture)) { return false; }
+
         Color[] groundPixels = texture.GetPixels(v.x - (Mathf.RoundToInt(playerRadiusScaled)), v.y + (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(3 * scaledPixelSize))), Mathf.RoundToInt(playerRadiusScaled), 1);
 
         return groundPixels.Contains<Color>(Color.black);
@@ -182,7 +208,7 @@ public class ImageCap : MonoBehaviour
         for (int i = 0; i < 12; i++)// length of for loop = the amount of resolution of the collision. 
         {
             Vector3Int v = roundVectorToInt(centerPos) + roundVectorToInt((new Vector3(Mathf.Sin((i / 12f) * (Mathf.PI * 2)), Mathf.Cos((i / 12f) * (Mathf.PI * 2)), 0) * playerRadiusScaled));
-            if (texture.GetPixel(v.x, v.y) != Color.white) 
+            if (withinBoundsOfTexture(v, texture) && texture.GetPixel(v.x, v.y) != Color.white) 
             { 
                 touchedBlackPixel = true;
                 collisionVectors.Add(roundVectorToInt((new Vector3(Mathf.Sin((i / 12f) * (Mathf.PI * 2)), Mathf.Cos((i / 12f) * (Mathf.PI * 2)), 0) * playerRadiusScaled).normalized));
@@ -210,5 +236,10 @@ public class ImageCap : MonoBehaviour
     {
         Vector3Int v2 = new Vector3Int(Mathf.RoundToInt(v.x), Mathf.RoundToInt(v.y), Mathf.RoundToInt(v.z));
         return v2;
+    }
+
+    public bool withinBoundsOfTexture(Vector3Int v, Texture tex)
+    {
+        return v.x > 0 && v.x < tex.width && v.y > 0 && v.y < tex.height;
     }
 }
