@@ -3,57 +3,23 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using UnityEngine.Rendering;
 
 public class ImageCap : MonoBehaviour
 {
-
-    //Debug Stuff
-    bool startSim;
-    int whileChecker;
-    int collisionTimeOut = 100;
-
-    //Cameras
     Camera CollisionCamera;
     Camera VisualCamera;
 
-    // A Material with the Unity shader you want to process the image with
     public Material mat;
     public Texture2D texture;
 
-    //Simple Character
-    List<Vector3> collisionVectors;
+    public float scaledPixelSize;
 
-    public Transform player;
-    float playerRadius = 25;
-    float playerRadiusScaled;
-    Vector3 moveDirection;
-    bool grounded;
-    bool groundedForJump;
-    bool roofed;
-    float inputDirection;
-    bool risingJump;
-    float gravityMultiplier = 1;
+    public void Awake()
+    {
+        UpdateController.imageCap = this;
+    }
 
-    //screen units for movement
-    public float jumpHeight;
-    public float playerSpd;
-    public float grav;
-    public float acceleration;
-    public float decelleration;
-    public float maxSpd;
-
-    float playerGravScaled;
-    float scaledPixelSize;
-    float scaledJumpHeight;
-    float scaledAccel;
-    float scaledDeccel;
-    float scaledMaxSpd;
-
-    int[] penis = { 1 };
-
-    private void Start()
+    public void _Start()
     {
         CollisionCamera = GetComponentsInChildren<Camera>()[0];
         VisualCamera    = GetComponentsInChildren<Camera>()[1];
@@ -65,156 +31,17 @@ public class ImageCap : MonoBehaviour
         {
             VisualCamera.enabled = !VisualCamera.enabled;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            startSim = true;
-        }
-        if (Input.GetKeyUp(KeyCode.R))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
     }
 
-    private void LateUpdate()
+    public void manualUpdate()
     {
-        if (!startSim) { return; }
         if (!texture) { return; }
         updateRelativeUnits();
-        movePlayer();
     }
 
     void updateRelativeUnits()
     {
         scaledPixelSize = Screen.width / 1920f;
-
-        playerRadiusScaled = playerRadius * scaledPixelSize;
-        playerGravScaled = grav*scaledPixelSize;
-        scaledJumpHeight = jumpHeight * scaledPixelSize;
-        scaledAccel = acceleration * scaledPixelSize;
-        scaledDeccel = decelleration * scaledPixelSize;
-        scaledMaxSpd = maxSpd * scaledPixelSize;
-    }
-
-    void movePlayer()
-    {
-
-        moveDirection = new Vector3(moveDirection.x, moveDirection.y, 0);
-        
-        if (Input.GetAxisRaw("Horizontal") != 0)
-        {
-            playerSpd += scaledAccel * Time.deltaTime;
-            inputDirection = Input.GetAxisRaw("Horizontal");
-        }
-        else
-        {
-            playerSpd -= scaledDeccel * Time.deltaTime;
-        }
-
-        playerSpd = Mathf.Clamp(playerSpd, 0, scaledMaxSpd);
-
-        groundedForJump = isGroundedForjump();
-        grounded = isGrounded();
-        roofed = isRoofed();
-
-        if (grounded)
-        {
-            gravityMultiplier = 1;
-            moveDirection.y = -.05f;
-        }
-        else
-        {
-            moveDirection.y -= playerGravScaled * Time.deltaTime * gravityMultiplier;
-            if (moveDirection.y > 0)
-            {
-                if (Input.GetButtonUp("Jump"))
-                {
-                    gravityMultiplier = 2.75f;
-                }
-                risingJump = true;
-            }
-            if (risingJump && moveDirection.y <= 0)
-            {
-                risingJump = false;
-            }
-        }
-
-        if (Input.GetButtonDown("Jump") && groundedForJump) { moveDirection.y = scaledJumpHeight; };
-
-        if (roofed && moveDirection.y > 0) { moveDirection.y = 0; }
-
-        moveDirection.x = playerSpd * inputDirection;
-        player.position += moveDirection  * Time.deltaTime;
-
-        whileChecker = 0;
-        while (isOverlappingBlack(player.position, playerRadius))
-        {
-            whileChecker++;
-            foreach (Vector3 cv in collisionVectors)
-            {
-                player.position -= cv * scaledPixelSize;
-            }
-            if (whileChecker > collisionTimeOut) { Destroy(player.gameObject); }
-        }
-    }
-
-    bool isGroundedForjump()
-    {
-        
-        Vector3Int v = roundVectorToInt(player.position);
-
-        Vector3Int p1 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2), v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * scaledPixelSize))),0);
-        Vector3Int p2 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2) + Mathf.RoundToInt(playerRadiusScaled) / 2, v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * scaledPixelSize))),0);
-
-        if (!withinBoundsOfTexture(p1,texture) || !withinBoundsOfTexture(p2,texture)) { return false; }
-
-        Color[] groundPixels = texture.GetPixels(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2), v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * scaledPixelSize))), Mathf.RoundToInt(playerRadiusScaled) / 2, 1);
-
-        return groundPixels.Contains<Color>(Color.black);
-    }
-    bool isGrounded()
-    {
-
-        Vector3Int v = roundVectorToInt(player.position);
-
-        Vector3Int p1 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2), v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * scaledPixelSize))), 0);
-        Vector3Int p2 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2) + Mathf.RoundToInt(playerRadiusScaled) / 2, v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(3 * scaledPixelSize))), 0);
-
-        if (!withinBoundsOfTexture(p1, texture) || !withinBoundsOfTexture(p2, texture)) { return false; }
-
-        Color[] groundPixels = texture.GetPixels(v.x-(Mathf.RoundToInt(playerRadiusScaled)/2), v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(3*scaledPixelSize))), Mathf.RoundToInt(playerRadiusScaled) / 2, 1);
-        
-        return groundPixels.Contains<Color>(Color.black);
-    }
-    bool isRoofed()
-    {
-
-        Vector3Int v = roundVectorToInt(player.position);
-
-        Vector3Int p1 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled)), v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * scaledPixelSize))), 0);
-        Vector3Int p2 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled)) + Mathf.RoundToInt(playerRadiusScaled), v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(3 * scaledPixelSize))), 0);
-
-        if (!withinBoundsOfTexture(p1, texture) || !withinBoundsOfTexture(p2, texture)) { return false; }
-
-        Color[] groundPixels = texture.GetPixels(v.x - (Mathf.RoundToInt(playerRadiusScaled)), v.y + (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(3 * scaledPixelSize))), Mathf.RoundToInt(playerRadiusScaled), 1);
-
-        return groundPixels.Contains<Color>(Color.black);
-    }
-
-    bool isOverlappingBlack(Vector3 centerPos, float radius)
-    {
-        bool touchedBlackPixel = false;
-        collisionVectors = new List<Vector3>();
-
-        for (int i = 0; i < 12; i++)// length of for loop = the amount of resolution of the collision. 
-        {
-            Vector3Int v = roundVectorToInt(centerPos) + roundVectorToInt((new Vector3(Mathf.Sin((i / 12f) * (Mathf.PI * 2)), Mathf.Cos((i / 12f) * (Mathf.PI * 2)), 0) * playerRadiusScaled));
-            if (withinBoundsOfTexture(v, texture) && texture.GetPixel(v.x, v.y) != Color.white) 
-            { 
-                touchedBlackPixel = true;
-                collisionVectors.Add(roundVectorToInt((new Vector3(Mathf.Sin((i / 12f) * (Mathf.PI * 2)), Mathf.Cos((i / 12f) * (Mathf.PI * 2)), 0) * playerRadiusScaled).normalized));
-            }
-        }
-        return touchedBlackPixel;
     }
 
     void OnRenderImage(RenderTexture src, RenderTexture dest)
