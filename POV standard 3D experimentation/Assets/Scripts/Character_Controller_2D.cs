@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Character_Controller_2D : MonoBehaviour
 {
     //Debugging 
-    bool startSim;
+    public bool startSim;
     int whileChecker;
     int collisionTimeOut = 100;
 
@@ -28,12 +28,12 @@ public class Character_Controller_2D : MonoBehaviour
     bool risingJump;
 
     //Movement Variables
-    public float jumpHeight;
-    public float playerSpd;
-    public float grav;
-    public float acceleration;
-    public float decelleration;
-    public float maxSpd;
+    public float jumpHeight = 800;     //800
+    public float playerSpd;            //0
+    public float grav = 2400;          //2400
+    public float acceleration = 1400;  //1400
+    public float decelleration = 1200; //1200
+    public float maxSpd = 400;         //400
 
     //Scaled Variables
     float playerGravScaled;
@@ -44,6 +44,7 @@ public class Character_Controller_2D : MonoBehaviour
 
     //image capture class
     ImageCap imageCap;
+
 
     private void Awake()
     {
@@ -56,18 +57,18 @@ public class Character_Controller_2D : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player2D").transform;
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)) { startSim = true; }
-        if (Input.GetKeyUp(KeyCode.R)) { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
-    }
-
     public void manualUpdate()
     {
-        if (!startSim) { return; }
+        if (UpdateController.switcher.fpsMode) 
+        {
+            player.position = new Vector3(Screen.width/2,Screen.height/2);
+            moveDirection = Vector3.zero;
+            return; 
+        }
         if (!imageCap.texture) { return; }
         updateRelativeUnits();
         movePlayer();
+        if (!withinBoundsOfTexture(roundVectorToInt(player.position), UpdateController.imageCap.texture)) { DIE(); }
     }
 
     void updateRelativeUnits()
@@ -138,7 +139,7 @@ public class Character_Controller_2D : MonoBehaviour
             {
                 player.position -= cv * imageCap.scaledPixelSize;
             }
-            if (whileChecker > collisionTimeOut) { Destroy(player.gameObject); }
+            if (whileChecker > collisionTimeOut) { DIE(); break; }
         }
     }
 
@@ -213,5 +214,11 @@ public class Character_Controller_2D : MonoBehaviour
     public bool withinBoundsOfTexture(Vector3Int v, Texture2D tex)
     {
         return v.x > 0 && v.x < tex.width && v.y > 0 && v.y < tex.height;
+    }
+
+    public void DIE()
+    {
+        UpdateController.switcher.fpsMode = true;
+        moveDirection = Vector3.zero;
     }
 }

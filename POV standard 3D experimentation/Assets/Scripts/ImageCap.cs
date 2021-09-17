@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class ImageCap : MonoBehaviour
 {
-    Camera CollisionCamera;
-    Camera VisualCamera;
+    public Camera CollisionCamera;
+    public Camera VisualCamera;
 
     public Material mat;
     public Texture2D texture;
@@ -25,16 +25,10 @@ public class ImageCap : MonoBehaviour
         VisualCamera    = GetComponentsInChildren<Camera>()[1];
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            VisualCamera.enabled = !VisualCamera.enabled;
-        }
-    }
-
     public void manualUpdate()
     {
+        CollisionCamera.enabled = !UpdateController.switcher.fpsMode;
+        if (UpdateController.switcher.fpsMode) { return; }
         if (!texture) { return; }
         updateRelativeUnits();
     }
@@ -46,6 +40,7 @@ public class ImageCap : MonoBehaviour
 
     void OnRenderImage(RenderTexture src, RenderTexture dest)
     {
+        if (UpdateController.switcher.fpsMode) { return; }
         // Read pixels from the source RenderTexture, apply the material, copy the updated results to the destination RenderTexture
         Graphics.Blit(src, dest, mat);
         GrabCameraTexture(src);
