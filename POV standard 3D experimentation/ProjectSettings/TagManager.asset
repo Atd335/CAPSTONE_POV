@@ -7,6 +7,8 @@ TagManager:
   - plat
   - cut
   - Player2D
+  - colliderVisual
+  - ouch
   layers:
   - Default
   - TransparentFX

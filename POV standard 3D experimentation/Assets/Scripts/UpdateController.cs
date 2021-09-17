@@ -19,7 +19,7 @@ public class UpdateController : MonoBehaviour
         switcher._Start();
         cc3D._Start();
         cc2D._Start();
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()

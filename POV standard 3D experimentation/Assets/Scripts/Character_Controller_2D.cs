@@ -63,6 +63,7 @@ public class Character_Controller_2D : MonoBehaviour
         {
             player.position = new Vector3(Screen.width/2,Screen.height/2);
             moveDirection = Vector3.zero;
+            playerSpd = 0;
             return; 
         }
         if (!imageCap.texture) { return; }
@@ -198,6 +199,7 @@ public class Character_Controller_2D : MonoBehaviour
             Vector3Int v = roundVectorToInt(centerPos) + roundVectorToInt((new Vector3(Mathf.Sin((i / 12f) * (Mathf.PI * 2)), Mathf.Cos((i / 12f) * (Mathf.PI * 2)), 0) * playerRadiusScaled));
             if (withinBoundsOfTexture(v, imageCap.texture) && imageCap.texture.GetPixel(v.x, v.y) != Color.white)
             {
+                if (imageCap.texture.GetPixel(v.x, v.y) == Color.red) { DIE(); }
                 touchedBlackPixel = true;
                 collisionVectors.Add(roundVectorToInt((new Vector3(Mathf.Sin((i / 12f) * (Mathf.PI * 2)), Mathf.Cos((i / 12f) * (Mathf.PI * 2)), 0) * playerRadiusScaled).normalized));
             }
