@@ -35,6 +35,8 @@ public class Character_Controller_3D : MonoBehaviour
     {
         cc = GetComponent<CharacterController>();
         headCamera = head.GetComponentInChildren<Camera>();
+        rot.x = head.transform.rotation.eulerAngles.x;
+        rot.y = head.transform.rotation.eulerAngles.y;
     }
 
     // Update is called once per frame

@@ -11,6 +11,9 @@ public class UpdateController : MonoBehaviour
     public static Character_Controller_3D cc3D;
     public static QoLDebuggingTools qol;
     public static ModeSwitcher switcher;
+
+    float debugtimer = 0;
+    
     void Start()
     {
         UC = this;
@@ -24,6 +27,11 @@ public class UpdateController : MonoBehaviour
 
     void Update()
     {
+
+        debugtimer += Time.deltaTime;
+        debugtimer = Mathf.Clamp(debugtimer,0,2);
+
+        if (debugtimer != 2) { return; }
 
         qol.manualUpdate();
         imageCap.manualUpdate();

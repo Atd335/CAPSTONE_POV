@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Character_Controller_2D : MonoBehaviour
@@ -45,6 +46,7 @@ public class Character_Controller_2D : MonoBehaviour
     //image capture class
     ImageCap imageCap;
 
+    public Image playerImage;
 
     private void Awake()
     {
@@ -55,13 +57,16 @@ public class Character_Controller_2D : MonoBehaviour
     {
         imageCap = UpdateController.imageCap;
         player = GameObject.FindGameObjectWithTag("Player2D").transform;
+        UpdateController.switcher.assign3DPoint(roundVectorToInt(player.position));
     }
 
     public void manualUpdate()
-    {
+    {        
+        updateColor();
         if (UpdateController.switcher.fpsMode) 
         {
-            player.position = new Vector3(Screen.width/2,Screen.height/2);
+            player.position = UpdateController.imageCap.VisualCamera.WorldToScreenPoint(UpdateController.switcher.hitPosition);
+            UpdateController.switcher.spawnPosition = UpdateController.switcher.hitPosition;
             moveDirection = Vector3.zero;
             playerSpd = 0;
             return; 
@@ -72,6 +77,18 @@ public class Character_Controller_2D : MonoBehaviour
         if (!withinBoundsOfTexture(roundVectorToInt(player.position), UpdateController.imageCap.texture)) { DIE(); }
     }
 
+    void updateColor()
+    {
+        playerImage.color = Color.white;
+        if (UpdateController.switcher.colliderBetween)
+        {
+            playerImage.color = Color.red;
+        }
+        if (!UpdateController.switcher.playerOnScreen)
+        {
+            playerImage.color = Color.clear;
+        }
+    }
     void updateRelativeUnits()
     {
         playerRadiusScaled = playerRadius * imageCap.scaledPixelSize;
@@ -142,6 +159,8 @@ public class Character_Controller_2D : MonoBehaviour
             }
             if (whileChecker > collisionTimeOut) { DIE(); break; }
         }
+
+        UpdateController.switcher.assign3DPoint(roundVectorToInt(player.position));
     }
 
     bool isGroundedForjump()
@@ -221,6 +240,7 @@ public class Character_Controller_2D : MonoBehaviour
     public void DIE()
     {
         UpdateController.switcher.fpsMode = true;
+        UpdateController.switcher.hitPosition = UpdateController.switcher.spawnPosition;
         moveDirection = Vector3.zero;
     }
 }

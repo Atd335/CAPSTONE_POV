@@ -28,6 +28,10 @@ public class objProperties : MonoBehaviour
         Material mat = new Material(Shader.Find("Unlit/Color"));
         mat.color = Color.black;
 
+        Material mat2 = new Material(Shader.Find("Standard"));
+        mat2.color = Color.black;
+
+        GetComponent<MeshRenderer>().material = mat2;
         vis.GetComponent<MeshRenderer>().material = mat;
 
 
@@ -54,6 +58,10 @@ public class objProperties : MonoBehaviour
         Material mat = new Material(Shader.Find("Unlit/Color"));
         mat.color = Color.white;
 
+        Material mat2 = new Material(Shader.Find("Standard"));
+        mat2.color = Color.white;
+
+        GetComponent<MeshRenderer>().material = mat2;
         vis.GetComponent<MeshRenderer>().material = mat;
     }
 
@@ -78,6 +86,10 @@ public class objProperties : MonoBehaviour
         Material mat = new Material(Shader.Find("Unlit/Color"));
         mat.color = Color.red;
 
+        Material mat2 = new Material(Shader.Find("Standard"));
+        mat2.color = Color.red;
+
+        GetComponent<MeshRenderer>().material = mat2;
         vis.GetComponent<MeshRenderer>().material = mat;
     }
 
