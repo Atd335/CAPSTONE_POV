@@ -69,6 +69,7 @@ public class Character_Controller_2D : MonoBehaviour
             UpdateController.switcher.spawnPosition = UpdateController.switcher.hitPosition;
             moveDirection = Vector3.zero;
             playerSpd = 0;
+            interacting = false;
             return; 
         }
         if (!imageCap.texture) { return; }
@@ -216,14 +217,32 @@ public class Character_Controller_2D : MonoBehaviour
         for (int i = 0; i < 12; i++)// length of for loop = the amount of resolution of the collision. 
         {
             Vector3Int v = roundVectorToInt(centerPos) + roundVectorToInt((new Vector3(Mathf.Sin((i / 12f) * (Mathf.PI * 2)), Mathf.Cos((i / 12f) * (Mathf.PI * 2)), 0) * playerRadiusScaled));
-            if (withinBoundsOfTexture(v, imageCap.texture) && imageCap.texture.GetPixel(v.x, v.y) != Color.white)
+            if (withinBoundsOfTexture(v, imageCap.texture) && imageCap.texture.GetPixel(v.x, v.y) == Color.black)
             {
-                if (imageCap.texture.GetPixel(v.x, v.y) == Color.red) { DIE(); }
                 touchedBlackPixel = true;
                 collisionVectors.Add(roundVectorToInt((new Vector3(Mathf.Sin((i / 12f) * (Mathf.PI * 2)), Mathf.Cos((i / 12f) * (Mathf.PI * 2)), 0) * playerRadiusScaled).normalized));
             }
+            else if (withinBoundsOfTexture(v, imageCap.texture) && imageCap.texture.GetPixel(v.x, v.y) == Color.red)
+            {
+                DIE();
+            }
+            else if (withinBoundsOfTexture(v, imageCap.texture) && imageCap.texture.GetPixel(v.x, v.y) == Color.yellow)
+            {
+                overlappedInteractable(v);
+            }
         }
         return touchedBlackPixel;
+    }
+
+    bool interacting;
+    public GameObject interactingObject;
+    void overlappedInteractable(Vector3 point)
+    {
+        if (interacting) { return; }
+        Physics.Raycast(UpdateController.imageCap.VisualCamera.ScreenPointToRay(point),out RaycastHit rch);
+        interactingObject = rch.collider.gameObject;
+        interacting = true;
+        interactingObject.GetComponent<ScaleResizer>().resize = true;
     }
 
     public Vector3Int roundVectorToInt(Vector3 v)

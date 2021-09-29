@@ -25,6 +25,8 @@ public class Character_Controller_3D : MonoBehaviour
 
     Vector2 rot;
 
+    public Vector3 position;
+
     private void Awake()
     {
         UpdateController.cc3D = this;
@@ -94,6 +96,7 @@ public class Character_Controller_3D : MonoBehaviour
         head.rotation = Quaternion.Euler(rot);
         headMast.rotation = Quaternion.Euler(0, rot.y, 0);
 
+        position = head.position;
     }
 
     public void DIE()

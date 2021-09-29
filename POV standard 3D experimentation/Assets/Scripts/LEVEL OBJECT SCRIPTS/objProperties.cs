@@ -93,6 +93,34 @@ public class objProperties : MonoBehaviour
         vis.GetComponent<MeshRenderer>().material = mat;
     }
 
+    public void makeInteractable()
+    {
+        if (objType == "interact") { return; }
+        objType = "interact";
+        transform.tag = "interact";
+        clearChildColliders();
+
+        GameObject vis = new GameObject(this.gameObject.name + " 2D");
+        vis.tag = "colliderVisual";
+        vis.layer = 6;
+        vis.transform.parent = transform;
+        vis.transform.localScale = Vector3.one;
+        vis.transform.localPosition = Vector3.zero;
+        vis.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        vis.AddComponent<MeshFilter>();
+        vis.GetComponent<MeshFilter>().sharedMesh = transform.GetComponent<MeshFilter>().sharedMesh;
+        vis.AddComponent<MeshRenderer>();
+
+        Material mat = new Material(Shader.Find("Unlit/Color"));
+        mat.color = Color.yellow;
+
+        Material mat2 = new Material(Shader.Find("Standard"));
+        mat2.color = Color.yellow;
+
+        GetComponent<MeshRenderer>().material = mat2;
+        vis.GetComponent<MeshRenderer>().material = mat;
+    }
+
     void clearChildColliders()
     {
         if (transform.childCount > 0 && transform.GetChild(0).tag == "colliderVisual")

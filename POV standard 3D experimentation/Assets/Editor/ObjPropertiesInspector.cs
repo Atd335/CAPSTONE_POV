@@ -25,5 +25,10 @@ public class ObjPropertiesInspector : Editor
         {
             myScript.makeDamage();
         }
+
+        if (GUILayout.Button("Make Interactable"))
+        {
+            myScript.makeInteractable();
+        }
     }
 }

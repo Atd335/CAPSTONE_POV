@@ -44,6 +44,11 @@ public class ModeSwitcher : MonoBehaviour
         if (!colliderBetween && playerOnScreen &&(Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.V)))
         {
             fpsMode = !fpsMode;
+            if(fpsMode && UpdateController.cc2D.interactingObject)
+            {
+                UpdateController.cc2D.interactingObject.GetComponent<ScaleResizer>().resize = false;
+                UpdateController.cc2D.interactingObject = null;
+            }
         }
     }
 
@@ -56,7 +61,7 @@ public class ModeSwitcher : MonoBehaviour
         }
         else
         {
-            UpdateController.imageCap.VisualCamera.ScreenToWorldPoint(screenPosition-new Vector3Int(0,0,10));
+            hitPosition = UpdateController.imageCap.VisualCamera.ScreenToWorldPoint(screenPosition+new Vector3Int(0,0,10));
         }
     }
 
