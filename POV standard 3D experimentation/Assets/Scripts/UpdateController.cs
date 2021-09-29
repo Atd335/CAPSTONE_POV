@@ -29,9 +29,8 @@ public class UpdateController : MonoBehaviour
     {
 
         debugtimer += Time.deltaTime;
-        debugtimer = Mathf.Clamp(debugtimer,0,2);
-
-        if (debugtimer != 2) { return; }
+        debugtimer = Mathf.Clamp(debugtimer,0,1);
+        if (debugtimer != 1) { return; }
 
         qol.manualUpdate();
         imageCap.manualUpdate();
