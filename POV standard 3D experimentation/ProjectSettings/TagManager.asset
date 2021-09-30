@@ -9,6 +9,7 @@ TagManager:
   - Player2D
   - colliderVisual
   - ouch
+  - interact
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - Water
   - UI
   - Colliders
-  - 
-  - 
+  - Shared
+  - OnTop
   - 
   - 
   - 
