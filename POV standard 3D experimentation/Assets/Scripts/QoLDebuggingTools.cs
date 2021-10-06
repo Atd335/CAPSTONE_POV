@@ -12,18 +12,41 @@ public class QoLDebuggingTools : MonoBehaviour
     }
 
     public void _Start()
-    { 
-    
+    {
+        Toggle2DCharacter(false);
+    }
+
+    public void Toggle2DCharacter(bool b,float x = -1, float y = -1, float z = -1)
+    {
+        if (new Vector3(x, y, z) != Vector3.one * -1) { UpdateController.switcher.hitPosition = new Vector3(x, y, z); }
+        UpdateController.cc2D.player.gameObject.SetActive(b);
     }
 
     // Update is called once per frame
     public void manualUpdate()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Toggle2DCharacter(false);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            bool r = Physics.Raycast(UpdateController.cc3D.head.position, UpdateController.cc3D.head.forward, out RaycastHit rh);
+            UpdateController.switcher.hitPosition = rh.point;
+            Toggle2DCharacter(true);
+        }
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             UpdateController.imageCap.VisualCamera.enabled = !UpdateController.imageCap.VisualCamera.enabled;
         }
         if (Input.GetKeyDown(KeyCode.Space)) { UpdateController.cc2D.startSim = true; }
-        if (Input.GetKeyUp(KeyCode.R)) { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
+        if (Input.GetKeyUp(KeyCode.R)) { UpdateController.cc3D.DIE(); }
+    }
+
+    public Vector3Int roundVectorToInt(Vector3 v)
+    {
+        Vector3Int v2 = new Vector3Int(Mathf.RoundToInt(v.x), Mathf.RoundToInt(v.y), Mathf.RoundToInt(v.z));
+        return v2;
     }
 }

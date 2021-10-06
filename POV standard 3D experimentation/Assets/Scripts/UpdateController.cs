@@ -11,17 +11,19 @@ public class UpdateController : MonoBehaviour
     public static Character_Controller_3D cc3D;
     public static QoLDebuggingTools qol;
     public static ModeSwitcher switcher;
-
+    public static DrawOnWalls dow;
     float debugtimer = 0;
     
     void Start()
     {
         UC = this;
-        qol._Start();
         imageCap._Start();
         switcher._Start();
         cc3D._Start();
         cc2D._Start();
+        dow._Start();
+
+        qol._Start();
         //Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -37,5 +39,6 @@ public class UpdateController : MonoBehaviour
         switcher.manualUpdate();
         cc3D.manualUpdate();
         cc2D.manualUpdate();
+        dow.manualUpdate();
     }
 }

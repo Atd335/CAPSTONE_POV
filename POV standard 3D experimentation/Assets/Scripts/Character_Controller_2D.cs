@@ -14,6 +14,7 @@ public class Character_Controller_2D : MonoBehaviour
 
     //Simple Character
     public Transform player;
+    public RectTransform playerRect;
 
     List<Vector3> collisionVectors;
     Vector3 moveDirection;
@@ -57,6 +58,8 @@ public class Character_Controller_2D : MonoBehaviour
     {
         imageCap = UpdateController.imageCap;
         player = GameObject.FindGameObjectWithTag("Player2D").transform;
+        playerRect = GameObject.FindGameObjectWithTag("Player2D").GetComponent<RectTransform>();
+        playerRadius = playerRect.sizeDelta.x / 2;
         UpdateController.switcher.assign3DPoint(roundVectorToInt(player.position));
     }
 
@@ -235,14 +238,20 @@ public class Character_Controller_2D : MonoBehaviour
     }
 
     bool interacting;
-    public GameObject interactingObject;
+    public InteractableObjectScript heldObj2D;
     void overlappedInteractable(Vector3 point)
     {
         if (interacting) { return; }
+        //execute commands
+
         Physics.Raycast(UpdateController.imageCap.VisualCamera.ScreenPointToRay(point),out RaycastHit rch);
-        interactingObject = rch.collider.gameObject;
+        heldObj2D = rch.collider.gameObject.GetComponent<InteractableObjectScript>();
+        if (heldObj2D)
+        {
+            heldObj2D.ToggleResizeItem();
+        }
+        //execute commands
         interacting = true;
-        interactingObject.GetComponent<ScaleResizer>().resize = true;
     }
 
     public Vector3Int roundVectorToInt(Vector3 v)
@@ -260,6 +269,8 @@ public class Character_Controller_2D : MonoBehaviour
     {
         UpdateController.switcher.fpsMode = true;
         UpdateController.switcher.hitPosition = UpdateController.switcher.spawnPosition;
+        UpdateController.cc2D.heldObj2D.ToggleResizeItem("false");
+        UpdateController.cc2D.heldObj2D = null;
         moveDirection = Vector3.zero;
     }
 }

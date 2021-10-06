@@ -16,6 +16,8 @@ public class ModeSwitcher : MonoBehaviour
 
     public bool playerOnScreen;
 
+
+
     private void Awake()
     {
         UpdateController.switcher = this;
@@ -29,6 +31,7 @@ public class ModeSwitcher : MonoBehaviour
 
     public void manualUpdate()
     {
+        if (!UpdateController.cc2D.player.gameObject.activeInHierarchy) { return; }
         bool LC = Physics.Linecast(UpdateController.cc3D.head.position, 
                                    hitPosition - ((hitPosition - UpdateController.cc3D.head.position).normalized*.1f), 
                                    out lineCastHit);
@@ -44,10 +47,10 @@ public class ModeSwitcher : MonoBehaviour
         if (!colliderBetween && playerOnScreen &&(Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.V)))
         {
             fpsMode = !fpsMode;
-            if(fpsMode && UpdateController.cc2D.interactingObject)
+            if(fpsMode && UpdateController.cc2D.heldObj2D)
             {
-                UpdateController.cc2D.interactingObject.GetComponent<ScaleResizer>().resize = false;
-                UpdateController.cc2D.interactingObject = null;
+                UpdateController.cc2D.heldObj2D.ToggleResizeItem();
+                UpdateController.cc2D.heldObj2D = null;
             }
         }
     }

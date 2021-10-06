@@ -26,6 +26,8 @@ public class Character_Controller_3D : MonoBehaviour
     Vector2 rot;
 
     public Vector3 position;
+    Vector3 spawnPosition;
+    Vector2 spawnRot;
 
     private void Awake()
     {
@@ -39,6 +41,8 @@ public class Character_Controller_3D : MonoBehaviour
         headCamera = head.GetComponentInChildren<Camera>();
         rot.x = head.transform.rotation.eulerAngles.x;
         rot.y = head.transform.rotation.eulerAngles.y;
+        spawnPosition = transform.position;
+        spawnRot = rot;
     }
 
     // Update is called once per frame
@@ -101,6 +105,31 @@ public class Character_Controller_3D : MonoBehaviour
 
     public void DIE()
     {
-        UpdateController.switcher.fpsMode = false;
+        rot = spawnRot;
+
+        head.rotation = Quaternion.Euler(rot);
+        headMast.rotation = Quaternion.Euler(0, rot.y, 0);
+
+        cc.enabled = false;
+        transform.position = spawnPosition;
+        cc.enabled = true;
+
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "killVolume")
+        {
+            DIE();
+        }
+        if(other.tag == "reposition")
+        {
+            string s = other.gameObject.name;
+            string[] ss = s.Split(':');
+            Vector3 v = new Vector3(float.Parse(ss[0]), float.Parse(ss[1]), float.Parse(ss[2]));
+
+            UpdateController.qol.Toggle2DCharacter(true, v.x, v.y, v.z);
+        }
     }
 }

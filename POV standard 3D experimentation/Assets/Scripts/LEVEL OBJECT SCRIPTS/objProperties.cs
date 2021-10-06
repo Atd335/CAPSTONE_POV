@@ -34,7 +34,7 @@ public class objProperties : MonoBehaviour
         GetComponent<MeshRenderer>().material = mat2;
         vis.GetComponent<MeshRenderer>().material = mat;
 
-
+        DestroyImmediate(GetComponent<InteractableObjectScript>());
     }
 
     public void makeCutOut()
@@ -63,6 +63,7 @@ public class objProperties : MonoBehaviour
 
         GetComponent<MeshRenderer>().material = mat2;
         vis.GetComponent<MeshRenderer>().material = mat;
+        DestroyImmediate(GetComponent<InteractableObjectScript>());
     }
 
     public void makeDamage()
@@ -91,6 +92,7 @@ public class objProperties : MonoBehaviour
 
         GetComponent<MeshRenderer>().material = mat2;
         vis.GetComponent<MeshRenderer>().material = mat;
+        DestroyImmediate(GetComponent<InteractableObjectScript>());
     }
 
     public void makeInteractable()
@@ -119,6 +121,7 @@ public class objProperties : MonoBehaviour
 
         GetComponent<MeshRenderer>().material = mat2;
         vis.GetComponent<MeshRenderer>().material = mat;
+        this.gameObject.AddComponent<InteractableObjectScript>();
     }
 
     void clearChildColliders()

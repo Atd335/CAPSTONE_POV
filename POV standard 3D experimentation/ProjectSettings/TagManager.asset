@@ -10,6 +10,9 @@ TagManager:
   - colliderVisual
   - ouch
   - interact
+  - killVolume
+  - reposition
+  - whiteBoard
   layers:
   - Default
   - TransparentFX
