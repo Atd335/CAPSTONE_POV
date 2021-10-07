@@ -19,6 +19,12 @@ public class QoLDebuggingTools : MonoBehaviour
     public void Toggle2DCharacter(bool b,float x = -1, float y = -1, float z = -1)
     {
         if (new Vector3(x, y, z) != Vector3.one * -1) { UpdateController.switcher.hitPosition = new Vector3(x, y, z); }
+        else
+        {
+            bool r = Physics.Raycast(UpdateController.cc3D.head.position, UpdateController.cc3D.head.forward, out RaycastHit rh);
+            UpdateController.switcher.hitPosition = rh.point;
+        }
+
         UpdateController.cc2D.player.gameObject.SetActive(b);
     }
 
@@ -31,16 +37,9 @@ public class QoLDebuggingTools : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            bool r = Physics.Raycast(UpdateController.cc3D.head.position, UpdateController.cc3D.head.forward, out RaycastHit rh);
-            UpdateController.switcher.hitPosition = rh.point;
             Toggle2DCharacter(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            UpdateController.imageCap.VisualCamera.enabled = !UpdateController.imageCap.VisualCamera.enabled;
-        }
-        if (Input.GetKeyDown(KeyCode.Space)) { UpdateController.cc2D.startSim = true; }
         if (Input.GetKeyUp(KeyCode.R)) { UpdateController.cc3D.DIE(); }
     }
 

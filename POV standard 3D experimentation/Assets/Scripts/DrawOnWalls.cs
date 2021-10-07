@@ -28,7 +28,7 @@ public class DrawOnWalls : MonoBehaviour
         }
         else
         { 
-            xResize = transform.localScale.y / transform.localScale.x;
+            xResize = transform.localScale.x / transform.localScale.y;
         }
     }
 
@@ -48,7 +48,11 @@ public class DrawOnWalls : MonoBehaviour
 
             if (Input.GetKey(KeyCode.Mouse1))
             {
-                tex.SetPixels(realTexCoord.x,realTexCoord.y,Mathf.RoundToInt((tex.width/20) * xResize), Mathf.RoundToInt((tex.height / 20) * yResize),c);
+                if (tex.width>realTexCoord.x+20 && tex.height > realTexCoord.y + 20)
+                {
+                    tex.SetPixels(realTexCoord.x, realTexCoord.y, 20, 20, c);
+                }
+                
                 tex.Apply();
             }
 
