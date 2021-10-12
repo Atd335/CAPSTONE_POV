@@ -20,13 +20,31 @@ public class InteractableObjectScript : MonoBehaviour
     Vector3 startPoint;
     float moveTimer;
 
+    //point
+    Vector3 spawnPos;
+    Vector3 spawnScale;
+    Vector3 spawnRot;
+
+    MeshRenderer mrenderer;
+
     private void Start()
     {
+        mrenderer = GetComponent<MeshRenderer>();
         if (transform.childCount > 0 && transform.GetChild(0).tag == "colliderVisual")
         {
             flatComponent = transform.GetChild(0).gameObject;
         }
         collider = GetComponent<Collider>();
+        spawnPos = transform.position;
+        spawnScale = transform.localScale;
+        spawnRot = transform.rotation.eulerAngles;
+    }
+
+    public void resetMe()
+    {
+        transform.position = spawnPos;
+        transform.localScale = spawnScale;
+        transform.rotation = Quaternion.Euler(spawnRot);
     }
 
     public void ToggleResizeItem(string manualBool = "-")
@@ -58,10 +76,10 @@ public class InteractableObjectScript : MonoBehaviour
 
     void LateUpdate()
     {
-        if (UpdateController.cc2D.heldObj2D != this) { return; }        
+        if (UpdateController.cc2D.heldObj2D && UpdateController.cc2D.heldObj2D != this) { return; }        
         if (!resize) { return; }
 
-        moveTimer += Time.deltaTime * 10;
+        moveTimer += Time.deltaTime * 8;
         moveTimer = Mathf.Clamp(moveTimer,0,1);
 
 
@@ -70,5 +88,7 @@ public class InteractableObjectScript : MonoBehaviour
         //transform.position = (UpdateController.switcher.hitPosition + ((UpdateController.cc3D.head.up) * 3 * (distanceFromPlayer / initialDistance) * baseScale));
         transform.position = Vector3.Lerp(startPoint, (UpdateController.switcher.hitPosition + ((UpdateController.cc3D.head.up) * 3 * (distanceFromPlayer / initialDistance) * baseScale)),moveTimer);
         transform.forward = Vector3.Lerp(transform.forward,UpdateController.cc3D.head.forward,moveTimer);
+
+        if (!mrenderer.isVisible && UpdateController.cc2D.heldObj2D == this) { resetMe(); }
     }
 }

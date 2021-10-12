@@ -11,12 +11,32 @@ public class ObjPropertiesInspector : Editor
 
         objProperties myScript = (objProperties)target;
 
-        if (GUILayout.Button("Make Solid"))
+        if (GUILayout.Button("Make Black"))
         {
             myScript.makePlat();
         }
 
-        if (GUILayout.Button("Make Cut Out"))
+        if (GUILayout.Button("Make Orange"))
+        {
+            myScript.makePlatOrange();
+        }
+
+        if (GUILayout.Button("Make Blue"))
+        {
+            myScript.makePlatBlue();
+        }
+
+        if (GUILayout.Button("Make Green"))
+        {
+            myScript.makePlatGreen();
+        }
+
+        if (GUILayout.Button("Make Purple"))
+        {
+            myScript.makePlatPurple();
+        }
+
+        if (GUILayout.Button("Make White"))
         {
             myScript.makeCutOut();
         }
@@ -29,6 +49,11 @@ public class ObjPropertiesInspector : Editor
         if (GUILayout.Button("Make Interactable"))
         {
             myScript.makeInteractable();
+        }
+
+        if (GUILayout.Button("Remove Component"))
+        {
+            myScript.removeThisComponent();
         }
     }
 }

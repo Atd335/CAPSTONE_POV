@@ -49,6 +49,11 @@ public class Character_Controller_2D : MonoBehaviour
 
     public Image playerImage;
 
+    public Color platformColor;
+    public Color ouchColor;
+    public Color cutOutColor;
+    public Color objectColor;
+
     private void Awake()
     {
         UpdateController.cc2D = this;
@@ -61,10 +66,17 @@ public class Character_Controller_2D : MonoBehaviour
         playerRect = GameObject.FindGameObjectWithTag("Player2D").GetComponent<RectTransform>();
         playerRadius = playerRect.sizeDelta.x / 2;
         UpdateController.switcher.assign3DPoint(roundVectorToInt(player.position));
+
+        platformColor = ColorContainer.black;
+        ouchColor = ColorContainer.red;
+        cutOutColor = ColorContainer.white;
+        objectColor = ColorContainer.yellow;
     }
 
     public void manualUpdate()
-    {        
+    {
+        player.localScale = Vector3.Lerp(player.localScale,Vector3.one,Time.deltaTime * 6);
+
         updateColor();
         if (UpdateController.switcher.fpsMode) 
         {
@@ -75,6 +87,7 @@ public class Character_Controller_2D : MonoBehaviour
             interacting = false;
             return; 
         }
+        player.localScale = Vector3.one;
         if (!imageCap.texture) { return; }
         updateRelativeUnits();
         movePlayer();
@@ -179,7 +192,7 @@ public class Character_Controller_2D : MonoBehaviour
 
         Color[] groundPixels = imageCap.texture.GetPixels(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2), v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * imageCap.scaledPixelSize))), Mathf.RoundToInt(playerRadiusScaled) / 2, 1);
 
-        return groundPixels.Contains<Color>(Color.black);
+        return groundPixels.Contains<Color>(platformColor);
     }
 
     bool isGrounded()
@@ -194,7 +207,8 @@ public class Character_Controller_2D : MonoBehaviour
 
         Color[] groundPixels = imageCap.texture.GetPixels(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2), v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(3 * imageCap.scaledPixelSize))), Mathf.RoundToInt(playerRadiusScaled) / 2, 1);
 
-        return groundPixels.Contains<Color>(Color.black);
+        print(CheckColorApproximate(groundPixels[0],platformColor));
+        return groundPixels.Contains<Color>(platformColor);
     }
 
     bool isRoofed()
@@ -209,7 +223,7 @@ public class Character_Controller_2D : MonoBehaviour
 
         Color[] groundPixels = imageCap.texture.GetPixels(v.x - (Mathf.RoundToInt(playerRadiusScaled)), v.y + (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(3 * imageCap.scaledPixelSize))), Mathf.RoundToInt(playerRadiusScaled), 1);
 
-        return groundPixels.Contains<Color>(Color.black);
+        return groundPixels.Contains<Color>(platformColor);
     }
 
     bool isOverlappingBlack(Vector3 centerPos, float radius)
@@ -220,16 +234,16 @@ public class Character_Controller_2D : MonoBehaviour
         for (int i = 0; i < 12; i++)// length of for loop = the amount of resolution of the collision. 
         {
             Vector3Int v = roundVectorToInt(centerPos) + roundVectorToInt((new Vector3(Mathf.Sin((i / 12f) * (Mathf.PI * 2)), Mathf.Cos((i / 12f) * (Mathf.PI * 2)), 0) * playerRadiusScaled));
-            if (withinBoundsOfTexture(v, imageCap.texture) && imageCap.texture.GetPixel(v.x, v.y) == Color.black)
+            if (withinBoundsOfTexture(v, imageCap.texture) && imageCap.texture.GetPixel(v.x, v.y) == platformColor) //check for ground
             {
                 touchedBlackPixel = true;
                 collisionVectors.Add(roundVectorToInt((new Vector3(Mathf.Sin((i / 12f) * (Mathf.PI * 2)), Mathf.Cos((i / 12f) * (Mathf.PI * 2)), 0) * playerRadiusScaled).normalized));
             }
-            else if (withinBoundsOfTexture(v, imageCap.texture) && imageCap.texture.GetPixel(v.x, v.y) == Color.red)
+            else if (withinBoundsOfTexture(v, imageCap.texture) && imageCap.texture.GetPixel(v.x, v.y) == ouchColor) //check for damage 
             {
                 DIE();
             }
-            else if (withinBoundsOfTexture(v, imageCap.texture) && imageCap.texture.GetPixel(v.x, v.y) == Color.yellow)
+            else if (withinBoundsOfTexture(v, imageCap.texture) && imageCap.texture.GetPixel(v.x, v.y) == objectColor) //check for interactable object
             {
                 overlappedInteractable(v);
             }
@@ -267,10 +281,32 @@ public class Character_Controller_2D : MonoBehaviour
 
     public void DIE()
     {
+        player.localScale = Vector3.zero;
         UpdateController.switcher.fpsMode = true;
         UpdateController.switcher.hitPosition = UpdateController.switcher.spawnPosition;
-        UpdateController.cc2D.heldObj2D.ToggleResizeItem("false");
-        UpdateController.cc2D.heldObj2D = null;
+        if (UpdateController.cc2D.heldObj2D)
+        {
+            heldObj2D.resetMe();
+            UpdateController.cc2D.heldObj2D.ToggleResizeItem("false");
+            UpdateController.cc2D.heldObj2D = null;
+        }
         moveDirection = Vector3.zero;
+    }
+
+    void resetAllInteractables()
+    {
+        foreach (GameObject g in GameObject.FindGameObjectsWithTag("interact"))
+        {
+            g.GetComponent<InteractableObjectScript>().resetMe();
+        }
+    }
+    public bool CheckColorApproximate(Color c1, Color c2)
+    {
+        return WithinRange(c1.r, c2.r) && WithinRange(c1.g, c2.g) && WithinRange(c1.b, c2.b);
+    }
+
+    public bool WithinRange(float f1, float f2, float thresh = .015f)
+    {
+        return Mathf.Abs(f1 - f2) <= thresh;
     }
 }

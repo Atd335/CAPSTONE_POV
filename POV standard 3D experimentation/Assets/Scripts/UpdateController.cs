@@ -12,6 +12,7 @@ public class UpdateController : MonoBehaviour
     public static QoLDebuggingTools qol;
     public static ModeSwitcher switcher;
     public static DrawOnWalls dow;
+    public static ChangeCharacterCollisionColors col;
     float debugtimer = 0;
     
     void Start()
@@ -29,7 +30,7 @@ public class UpdateController : MonoBehaviour
 
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.K)) { col.ChangeColor("platform","green");}
         debugtimer += Time.deltaTime;
         debugtimer = Mathf.Clamp(debugtimer,0,1);
         if (debugtimer != 1) { return; }

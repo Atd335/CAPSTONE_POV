@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 433835549016487818}
   - component: {fileID: 2548274847880734053}
   - component: {fileID: 5703076750285756509}
+  - component: {fileID: 9065435448561034108}
   m_Layer: 0
   m_Name: UpdateController
   m_TagString: Untagged
@@ -219,6 +220,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bf2d3adca2b2c4a87b0bbf3029a993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9065435448561034108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433835549016487863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef956561e5dd434469dfa8ef46f282d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &433835549099154633
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +263,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 433835550145944811}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -317,6 +330,10 @@ MonoBehaviour:
   decelleration: 1200
   maxSpd: 400
   playerImage: {fileID: 433835549099154639}
+  platformColor: {r: 0, g: 0, b: 0, a: 0}
+  ouchColor: {r: 0, g: 0, b: 0, a: 0}
+  cutOutColor: {r: 0, g: 0, b: 0, a: 0}
+  objectColor: {r: 0, g: 0, b: 0, a: 0}
   heldObj2D: {fileID: 0}
 --- !u!1 &433835549567075234
 GameObject:
@@ -572,8 +589,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 433835549567075233}
-  - {fileID: 4228939344404917810}
   - {fileID: 433835549099154638}
+  - {fileID: 4228939344404917810}
   m_Father: {fileID: 433835550304432298}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -652,6 +669,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 433835550304432298}
+  - component: {fileID: 5786834964912903161}
   m_Layer: 0
   m_Name: WORLD
   m_TagString: Untagged
@@ -676,6 +694,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5786834964912903161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433835550304432213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 740c88a1ef3fe6c4fb25d535e459e37b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _red: {r: 1, g: 0, b: 0, a: 1}
+  _yellow: {r: 1, g: 0.83413935, b: 0, a: 1}
+  _orange: {r: 1, g: 0.44059038, b: 0, a: 1}
+  _purple: {r: 0.6731477, g: 0, b: 1, a: 1}
+  _blue: {r: 0, g: 0.40923834, b: 1, a: 1}
+  _white: {r: 1, g: 1, b: 1, a: 1}
+  _black: {r: 0, g: 0, b: 0, a: 1}
+  _green: {r: 0.5524682, g: 1, b: 0, a: 1}
 --- !u!1 &433835550367223634
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +756,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0.5897913, b: 1, a: 0}
+  m_BackGroundColor: {r: 0.5330188, g: 0.8077137, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -837,7 +875,7 @@ GameObject:
   - component: {fileID: 2464000315702962443}
   - component: {fileID: 5532853865088421587}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -855,7 +893,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 433835550145944811}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -883,14 +921,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.47843137}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.6117647}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2413806693520163455, guid: aae4a62009a985a48bc36ed1d2f84c01, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e36f769eead7d44baaabb1168a6e90a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

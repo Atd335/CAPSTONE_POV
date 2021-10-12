@@ -13,6 +13,12 @@ TagManager:
   - killVolume
   - reposition
   - whiteBoard
+  - checkPoint2D
+  - blue
+  - orange
+  - purple
+  - green
+  - 3D PLAYER
   layers:
   - Default
   - TransparentFX

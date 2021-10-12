@@ -101,6 +101,8 @@ public class Character_Controller_3D : MonoBehaviour
         headMast.rotation = Quaternion.Euler(0, rot.y, 0);
 
         position = head.position;
+
+        checkFor2DCheckPoint();
     }
 
     public void DIE()
@@ -113,9 +115,18 @@ public class Character_Controller_3D : MonoBehaviour
         cc.enabled = false;
         transform.position = spawnPosition;
         cc.enabled = true;
-
+        //resetAllInteractables();
     }
 
+    void checkFor2DCheckPoint()
+    {
+        bool b = Physics.Raycast(head.position,head.forward, out RaycastHit rch);
+
+        if (Input.GetKeyDown(KeyCode.Mouse1) && b && rch.collider.tag == "checkPoint2D")
+        {
+            UpdateController.qol.Toggle2DCharacter(true);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -130,6 +141,14 @@ public class Character_Controller_3D : MonoBehaviour
             Vector3 v = new Vector3(float.Parse(ss[0]), float.Parse(ss[1]), float.Parse(ss[2]));
 
             UpdateController.qol.Toggle2DCharacter(true, v.x, v.y, v.z);
+        }
+    }
+
+    void resetAllInteractables()
+    {
+        foreach (GameObject g in GameObject.FindGameObjectsWithTag("interact"))
+        {
+            g.GetComponent<InteractableObjectScript>().resetMe();
         }
     }
 }
