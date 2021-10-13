@@ -30,7 +30,6 @@ public class UpdateController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K)) { col.ChangeColor("platform","green");}
         debugtimer += Time.deltaTime;
         debugtimer = Mathf.Clamp(debugtimer,0,1);
         if (debugtimer != 1) { return; }

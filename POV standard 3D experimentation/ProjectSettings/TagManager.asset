@@ -19,6 +19,8 @@ TagManager:
   - purple
   - green
   - 3D PLAYER
+  - DebugText
+  - Installerbutton
   layers:
   - Default
   - TransparentFX

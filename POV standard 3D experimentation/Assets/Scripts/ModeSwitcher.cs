@@ -47,10 +47,15 @@ public class ModeSwitcher : MonoBehaviour
         if (!colliderBetween && playerOnScreen &&(Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.V)))
         {
             fpsMode = !fpsMode;
-            if(fpsMode && UpdateController.cc2D.heldObj2D)
+            if (fpsMode && UpdateController.cc2D.heldObj2D)
             {
                 UpdateController.cc2D.heldObj2D.ToggleResizeItem();
                 UpdateController.cc2D.heldObj2D = null;
+            }
+            else
+            {
+                assign3DPoint(roundVectorToInt(UpdateController.cc2D.player.position));
+                UpdateController.cc2D.respawnPosition = hitPosition;
             }
         }
     }

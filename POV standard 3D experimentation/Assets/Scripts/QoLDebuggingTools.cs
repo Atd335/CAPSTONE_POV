@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using TMPro;
 public class QoLDebuggingTools : MonoBehaviour
 {
+    public TextMeshProUGUI debugText;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -14,6 +16,12 @@ public class QoLDebuggingTools : MonoBehaviour
     public void _Start()
     {
         Toggle2DCharacter(false);
+
+    }
+
+    public void debugPrint(string txt)
+    {
+        debugText.text = txt;
     }
 
     public void Toggle2DCharacter(bool b,float x = -1, float y = -1, float z = -1)
@@ -32,14 +40,17 @@ public class QoLDebuggingTools : MonoBehaviour
     // Update is called once per frame
     public void manualUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            Toggle2DCharacter(false);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             Toggle2DCharacter(true);
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1)) { UpdateController.col.ChangeColor("platform", "black"); }
+        if (Input.GetKeyDown(KeyCode.Alpha2)) { UpdateController.col.ChangeColor("platform", "blue"); }
+        if (Input.GetKeyDown(KeyCode.Alpha3)) { UpdateController.col.ChangeColor("platform", "green"); }
+        if (Input.GetKeyDown(KeyCode.Alpha4)) { UpdateController.col.ChangeColor("platform", "orange"); }
+        if (Input.GetKeyDown(KeyCode.Alpha5)) { UpdateController.col.ChangeColor("platform", "purple"); }
+        if (Input.GetKeyDown(KeyCode.Alpha6)) { UpdateController.col.ChangeColor("platform", "white"); }
 
         if (Input.GetKeyUp(KeyCode.R)) { UpdateController.cc3D.DIE(); }
     }

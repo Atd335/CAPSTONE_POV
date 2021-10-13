@@ -20,7 +20,7 @@ public class ChangeCharacterCollisionColors : MonoBehaviour
                 break;
             case "platform":
                 UpdateController.cc2D.platformColor = selectColor(col);
-                print(col);
+                //print(col);
                 break;
             case "cutout":
                 UpdateController.cc2D.cutOutColor = selectColor(col);
