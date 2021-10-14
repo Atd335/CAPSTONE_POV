@@ -56,6 +56,9 @@ public class Character_Controller_2D : MonoBehaviour
 
     public Vector3 respawnPosition;
 
+    //InstallerResizer
+    public Vector2 positionRatio;
+    public bool makeInvis;
     private void Awake()
     {
         UpdateController.cc2D = this;
@@ -77,6 +80,9 @@ public class Character_Controller_2D : MonoBehaviour
 
     public void manualUpdate()
     {
+        positionRatio.x = player.position.x / Screen.width;
+        positionRatio.y = player.position.y / Screen.height;
+
         //UpdateController.qol.debugText.color = platformColor;
         //UpdateController.qol.debugPrint(platformColor.ToString());
 
@@ -85,7 +91,7 @@ public class Character_Controller_2D : MonoBehaviour
         updateColor();
         if (UpdateController.switcher.fpsMode) 
         {
-            player.position = UpdateController.imageCap.VisualCamera.WorldToScreenPoint(UpdateController.switcher.hitPosition);
+            player.position = UpdateController.imageCap.CollisionCamera.WorldToScreenPoint(UpdateController.switcher.hitPosition);
             UpdateController.switcher.spawnPosition = UpdateController.switcher.hitPosition;
             moveDirection = Vector3.zero;
             playerSpd = 0;
@@ -102,11 +108,13 @@ public class Character_Controller_2D : MonoBehaviour
     void updateColor()
     {
         playerImage.color = Color.white;
+
+
         if (UpdateController.switcher.colliderBetween)
         {
             playerImage.color = Color.red;
         }
-        if (!UpdateController.switcher.playerOnScreen)
+        if (!UpdateController.switcher.playerOnScreen || makeInvis)
         {
             playerImage.color = Color.clear;
         }
@@ -289,7 +297,7 @@ public class Character_Controller_2D : MonoBehaviour
         if (interacting) { return; }
         //execute commands
         print("hm");
-        Physics.Raycast(UpdateController.imageCap.VisualCamera.ScreenPointToRay(point),out RaycastHit rch);
+        Physics.Raycast(UpdateController.imageCap.CollisionCamera.ScreenPointToRay(point),out RaycastHit rch);
         heldObj2D = rch.collider.gameObject.GetComponent<InteractableObjectScript>();
         if (heldObj2D)
         {

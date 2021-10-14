@@ -62,14 +62,14 @@ public class ModeSwitcher : MonoBehaviour
 
     public void assign3DPoint(Vector3Int screenPosition)
     {
-        bool CR = Physics.Raycast(UpdateController.imageCap.VisualCamera.ScreenPointToRay(screenPosition), out cursorRayHit);
+        bool CR = Physics.Raycast(UpdateController.imageCap.CollisionCamera.ScreenPointToRay(screenPosition), out cursorRayHit);
         if (CR)
         {
             hitPosition = cursorRayHit.point;
         }
         else
         {
-            hitPosition = UpdateController.imageCap.VisualCamera.ScreenToWorldPoint(screenPosition+new Vector3Int(0,0,10));
+            hitPosition = UpdateController.imageCap.CollisionCamera.ScreenToWorldPoint(screenPosition+new Vector3Int(0,0,10));
         }
     }
 
