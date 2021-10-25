@@ -53,6 +53,8 @@ public class Character_Controller_2D : MonoBehaviour
     public Color ouchColor;
     public Color cutOutColor;
     public Color objectColor;
+    public Color doorColor;
+    public Color buttonColor;
 
     public Vector3 respawnPosition;
 
@@ -76,6 +78,10 @@ public class Character_Controller_2D : MonoBehaviour
         ouchColor = ColorContainer.red;
         cutOutColor = ColorContainer.white;
         objectColor = ColorContainer.yellow;
+        doorColor = ColorContainer.doorColor;
+        buttonColor = ColorContainer.buttonColor;
+
+        touchedDoor = false;
     }
 
     public void manualUpdate()
@@ -87,10 +93,12 @@ public class Character_Controller_2D : MonoBehaviour
         //UpdateController.qol.debugPrint(platformColor.ToString());
 
         player.localScale = Vector3.Lerp(player.localScale,Vector3.one,Time.deltaTime * 6);
+        //player.localScale = Vector3.one;
 
         updateColor();
-        if (UpdateController.switcher.fpsMode) 
+        if (UpdateController.switcher.fpsMode || !UpdateController.UC.windowSelected) 
         {
+            //player.position = UpdateController.imageCap.CollisionCamera.WorldToScreenPoint(UpdateController.switcher.hitPosition);
             player.position = UpdateController.imageCap.CollisionCamera.WorldToScreenPoint(UpdateController.switcher.hitPosition);
             UpdateController.switcher.spawnPosition = UpdateController.switcher.hitPosition;
             moveDirection = Vector3.zero;
@@ -131,7 +139,7 @@ public class Character_Controller_2D : MonoBehaviour
 
     void movePlayer()
     {
-
+        if (!UpdateController.SUL.platformerCharacterEnabled) { return; }
         moveDirection = new Vector3(moveDirection.x, moveDirection.y, 0);
 
         if (Input.GetAxisRaw("Horizontal") != 0)
@@ -286,8 +294,26 @@ public class Character_Controller_2D : MonoBehaviour
             {
                 overlappedInteractable(v);
             }
+            else if (withinBoundsOfTexture(v, imageCap.texture) && CheckColorApproximate(imageCap.texture.GetPixel(v.x, v.y), doorColor)) //check for door object
+            {
+                overlappedDoor();
+            }
+            else if (withinBoundsOfTexture(v, imageCap.texture) && CheckColorApproximate(imageCap.texture.GetPixel(v.x, v.y), buttonColor)) //check for door object
+            {
+                overlappedButton(v);
+            }
         }
         return touchedBlackPixel;
+    }
+
+    bool touchedDoor;
+    void overlappedDoor()
+    {
+        if (touchedDoor) { return; }
+
+        UpdateController.SUL.switchLevel();
+
+        touchedDoor = true;
     }
 
     bool interacting;
@@ -305,6 +331,17 @@ public class Character_Controller_2D : MonoBehaviour
         }
         //execute commands
         interacting = true;
+    }
+
+    void overlappedButton(Vector3 point)
+    {
+        //execute commands
+        Physics.Raycast(UpdateController.imageCap.CollisionCamera.ScreenPointToRay(point), out RaycastHit rch);
+        GameObject button = rch.collider.gameObject;
+
+        if (button.GetComponent<trigger2D>() != null) { button.GetComponent<trigger2D>().trigger(); }
+
+        //execute commands
     }
 
     public Vector3Int roundVectorToInt(Vector3 v)

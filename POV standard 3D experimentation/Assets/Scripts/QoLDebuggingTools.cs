@@ -45,13 +45,6 @@ public class QoLDebuggingTools : MonoBehaviour
             Toggle2DCharacter(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1)) { UpdateController.col.ChangeColor("platform", "black"); }
-        if (Input.GetKeyDown(KeyCode.Alpha2)) { UpdateController.col.ChangeColor("platform", "blue"); }
-        if (Input.GetKeyDown(KeyCode.Alpha3)) { UpdateController.col.ChangeColor("platform", "green"); }
-        if (Input.GetKeyDown(KeyCode.Alpha4)) { UpdateController.col.ChangeColor("platform", "orange"); }
-        if (Input.GetKeyDown(KeyCode.Alpha5)) { UpdateController.col.ChangeColor("platform", "purple"); }
-        if (Input.GetKeyDown(KeyCode.Alpha6)) { UpdateController.col.ChangeColor("platform", "white"); }
-
         if (Input.GetKeyUp(KeyCode.R)) { UpdateController.cc3D.DIE(); }
     }
 

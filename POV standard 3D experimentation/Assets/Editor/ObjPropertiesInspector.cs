@@ -51,6 +51,21 @@ public class ObjPropertiesInspector : Editor
             myScript.makeInteractable();
         }
 
+        if (GUILayout.Button("Make Door"))
+        {
+            myScript.makeDoor();
+        }
+
+        if (GUILayout.Button("Make Button"))
+        {
+            myScript.makeButton();
+        }
+
+        if (GUILayout.Button("Make Flat"))
+        {
+            myScript.makeFlat();
+        }
+
         if (GUILayout.Button("Remove Component"))
         {
             myScript.removeThisComponent();

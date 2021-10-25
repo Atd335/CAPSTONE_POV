@@ -21,6 +21,8 @@ TagManager:
   - 3D PLAYER
   - DebugText
   - Installerbutton
+  - door
+  - 2dbutton
   layers:
   - Default
   - TransparentFX
@@ -31,7 +33,7 @@ TagManager:
   - Colliders
   - Shared
   - OnTop
-  - 
+  - BGLAYER
   - 
   - 
   - 

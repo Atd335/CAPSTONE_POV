@@ -29,6 +29,10 @@ public class Character_Controller_3D : MonoBehaviour
     Vector3 spawnPosition;
     Vector2 spawnRot;
 
+    public float scrollSpd;
+    public MeshRenderer bgQuad;
+    Material bgMat;
+
     private void Awake()
     {
         UpdateController.cc3D = this;
@@ -43,12 +47,15 @@ public class Character_Controller_3D : MonoBehaviour
         rot.y = head.transform.rotation.eulerAngles.y;
         spawnPosition = transform.position;
         spawnRot = rot;
+        bgMat = bgQuad.material;
     }
 
     // Update is called once per frame
     public void manualUpdate()
     {
-        if (!UpdateController.switcher.fpsMode) { return; }
+        bgMat.SetTextureOffset("_MainTex", new Vector2(Time.time*scrollSpd, Time.time*scrollSpd));
+
+        if (!UpdateController.switcher.fpsMode || !UpdateController.SUL.fpsCharacterEnabled || !UpdateController.UC.windowSelected) { return; }
         rot.x -= Input.GetAxisRaw("Mouse Y") * mouseSensitivity * Time.deltaTime;
         rot.y += Input.GetAxisRaw("Mouse X") * mouseSensitivity * Time.deltaTime;
 
@@ -125,6 +132,7 @@ public class Character_Controller_3D : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1) && b && rch.collider.tag == "checkPoint2D")
         {
             UpdateController.qol.Toggle2DCharacter(true);
+            //print(UpdateController.switcher.hitPosition);
         }
     }
 

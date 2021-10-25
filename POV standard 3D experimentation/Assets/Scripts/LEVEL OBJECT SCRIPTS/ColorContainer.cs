@@ -12,6 +12,8 @@ public class ColorContainer : MonoBehaviour
     public Color _white;
     public Color _black;
     public Color _green;
+    public Color _doorColor;
+    public Color _buttonColor;
 
     public static Color red;
     public static Color blue;
@@ -21,6 +23,8 @@ public class ColorContainer : MonoBehaviour
     public static Color orange;
     public static Color purple;
     public static Color yellow;
+    public static Color doorColor;
+    public static Color buttonColor;
 
     void Awake()
     {
@@ -32,6 +36,8 @@ public class ColorContainer : MonoBehaviour
         orange = _orange;
         purple = _purple;
         yellow = _yellow;
+        doorColor = _doorColor;
+        buttonColor = _buttonColor;
     }
 
 }

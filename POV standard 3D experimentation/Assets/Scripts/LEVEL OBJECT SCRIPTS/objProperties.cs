@@ -255,6 +255,73 @@ public class objProperties : MonoBehaviour
         this.gameObject.AddComponent<InteractableObjectScript>();
     }
 
+    public void makeDoor()
+    {
+        cc = GameObject.FindGameObjectWithTag("3D PLAYER").GetComponent<ColorContainer>();
+        if (objType == "door") { return; }
+        objType = "door";
+        transform.tag = "door";
+        clearChildColliders();
+
+        GameObject vis = new GameObject(this.gameObject.name + " 2D");
+        vis.tag = "colliderVisual";
+        vis.layer = 6;
+        vis.transform.parent = transform;
+        vis.transform.localScale = Vector3.one;
+        vis.transform.localPosition = Vector3.zero;
+        vis.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        vis.AddComponent<MeshFilter>();
+        vis.GetComponent<MeshFilter>().sharedMesh = transform.GetComponent<MeshFilter>().sharedMesh;
+        vis.AddComponent<MeshRenderer>();
+
+        Material mat = new Material(Shader.Find("Unlit/Color"));
+        mat.color = cc._doorColor;
+
+        //Material mat2 = new Material(Shader.Find("Standard"));
+        //mat2.color = cc._doorColor;
+
+        //GetComponent<MeshRenderer>().material = mat2;
+        vis.GetComponent<MeshRenderer>().material = mat;
+        DestroyImmediate(GetComponent<InteractableObjectScript>());
+    }
+
+    public void makeButton()
+    {
+        cc = GameObject.FindGameObjectWithTag("3D PLAYER").GetComponent<ColorContainer>();
+        if (objType == "2dbutton") { return; }
+        objType = "2dbutton";
+        transform.tag = "2dbutton";
+        clearChildColliders();
+
+        GameObject vis = new GameObject(this.gameObject.name + " 2D");
+        vis.tag = "colliderVisual";
+        vis.layer = 6;
+        vis.transform.parent = transform;
+        vis.transform.localScale = Vector3.one;
+        vis.transform.localPosition = Vector3.zero;
+        vis.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        vis.AddComponent<MeshFilter>();
+        vis.GetComponent<MeshFilter>().sharedMesh = transform.GetComponent<MeshFilter>().sharedMesh;
+        vis.AddComponent<MeshRenderer>();
+
+        Material mat = new Material(Shader.Find("Unlit/Color"));
+        mat.color = cc._buttonColor;
+
+        //Material mat2 = new Material(Shader.Find("Standard"));
+        //mat2.color = cc._doorColor;
+
+        //GetComponent<MeshRenderer>().material = mat2;
+        vis.GetComponent<MeshRenderer>().material = mat;
+        DestroyImmediate(GetComponent<InteractableObjectScript>());
+    }
+
+    public void makeFlat()
+    {
+        Material mat2 = new Material(Shader.Find("Unlit/Color"));
+        mat2.color = GetComponent<MeshRenderer>().sharedMaterial.color;
+
+        GetComponent<MeshRenderer>().material = mat2;
+    }
     public void removeThisComponent()
     {
         transform.tag = "Untagged";

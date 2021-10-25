@@ -1106,7 +1106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &521631494
 Transform:
   m_ObjectHideFlags: 0
@@ -1229,15 +1229,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 433835549016487861, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
       propertyPath: activeArea1.y
-      value: 120
+      value: 88
       objectReference: {fileID: 0}
     - target: {fileID: 433835549016487861, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
       propertyPath: activeArea2.x
-      value: 640
+      value: 468
       objectReference: {fileID: 0}
     - target: {fileID: 433835549016487861, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
       propertyPath: activeArea2.y
-      value: 646
+      value: 472
+      objectReference: {fileID: 0}
+    - target: {fileID: 433835549016487861, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
+      propertyPath: debugMousePos
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 433835549099154637, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
       propertyPath: makeInvis
@@ -1325,7 +1329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 433835550367223632, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.6555
+      value: 0.66
       objectReference: {fileID: 0}
     - target: {fileID: 4335191972732719100, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
       propertyPath: spawnPosition.x
@@ -1346,6 +1350,22 @@ PrefabInstance:
     - target: {fileID: 6367989614300301040, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6697787313696405927, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0.013
+      objectReference: {fileID: 0}
+    - target: {fileID: 6697787313696405927, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0.153
+      objectReference: {fileID: 0}
+    - target: {fileID: 6697787313696405927, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 0.6535
+      objectReference: {fileID: 0}
+    - target: {fileID: 6697787313696405927, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 0.66
       objectReference: {fileID: 0}
     - target: {fileID: 6998174195029615981, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
       propertyPath: m_IsActive
