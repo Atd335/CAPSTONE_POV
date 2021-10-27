@@ -26,6 +26,12 @@ public class Character_Controller_3D : MonoBehaviour
     Vector2 rot;
 
     public Vector3 position;
+    Vector3 spawnPosition;
+    Vector2 spawnRot;
+
+    public float scrollSpd;
+    public MeshRenderer bgQuad;
+    Material bgMat;
 
     private void Awake()
     {
@@ -39,12 +45,17 @@ public class Character_Controller_3D : MonoBehaviour
         headCamera = head.GetComponentInChildren<Camera>();
         rot.x = head.transform.rotation.eulerAngles.x;
         rot.y = head.transform.rotation.eulerAngles.y;
+        spawnPosition = transform.position;
+        spawnRot = rot;
+        bgMat = bgQuad.material;
     }
 
     // Update is called once per frame
     public void manualUpdate()
     {
-        if (!UpdateController.switcher.fpsMode) { return; }
+        bgMat.SetTextureOffset("_MainTex", new Vector2(Time.time*scrollSpd, Time.time*scrollSpd));
+
+        if (!UpdateController.switcher.fpsMode || !UpdateController.SUL.fpsCharacterEnabled || !UpdateController.UC.windowSelected) { return; }
         rot.x -= Input.GetAxisRaw("Mouse Y") * mouseSensitivity * Time.deltaTime;
         rot.y += Input.GetAxisRaw("Mouse X") * mouseSensitivity * Time.deltaTime;
 
@@ -97,10 +108,55 @@ public class Character_Controller_3D : MonoBehaviour
         headMast.rotation = Quaternion.Euler(0, rot.y, 0);
 
         position = head.position;
+
+        checkFor2DCheckPoint();
     }
 
     public void DIE()
     {
-        UpdateController.switcher.fpsMode = false;
+        rot = spawnRot;
+
+        head.rotation = Quaternion.Euler(rot);
+        headMast.rotation = Quaternion.Euler(0, rot.y, 0);
+
+        cc.enabled = false;
+        transform.position = spawnPosition;
+        cc.enabled = true;
+        //resetAllInteractables();
+    }
+
+    void checkFor2DCheckPoint()
+    {
+        bool b = Physics.Raycast(head.position,head.forward, out RaycastHit rch);
+
+        if (Input.GetKeyDown(KeyCode.Mouse1) && b && rch.collider.tag == "checkPoint2D")
+        {
+            UpdateController.qol.Toggle2DCharacter(true);
+            //print(UpdateController.switcher.hitPosition);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "killVolume")
+        {
+            DIE();
+        }
+        if(other.tag == "reposition")
+        {
+            string s = other.gameObject.name;
+            string[] ss = s.Split(':');
+            Vector3 v = new Vector3(float.Parse(ss[0]), float.Parse(ss[1]), float.Parse(ss[2]));
+
+            UpdateController.qol.Toggle2DCharacter(true, v.x, v.y, v.z);
+        }
+    }
+
+    void resetAllInteractables()
+    {
+        foreach (GameObject g in GameObject.FindGameObjectsWithTag("interact"))
+        {
+            g.GetComponent<InteractableObjectScript>().resetMe();
+        }
     }
 }

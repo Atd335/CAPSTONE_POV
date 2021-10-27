@@ -10,6 +10,19 @@ TagManager:
   - colliderVisual
   - ouch
   - interact
+  - killVolume
+  - reposition
+  - whiteBoard
+  - checkPoint2D
+  - blue
+  - orange
+  - purple
+  - green
+  - 3D PLAYER
+  - DebugText
+  - Installerbutton
+  - door
+  - 2dbutton
   layers:
   - Default
   - TransparentFX
@@ -20,7 +33,7 @@ TagManager:
   - Colliders
   - Shared
   - OnTop
-  - 
+  - BGLAYER
   - 
   - 
   - 
@@ -46,4 +59,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Top layer
+    uniqueID: 543262367
     locked: 0
