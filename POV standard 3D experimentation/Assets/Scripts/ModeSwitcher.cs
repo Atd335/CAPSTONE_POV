@@ -1,8 +1,9 @@
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class ModeSwitcher : MonoBehaviour
 {
     public bool fpsMode = true;
@@ -16,52 +17,80 @@ public class ModeSwitcher : MonoBehaviour
 
     public bool playerOnScreen;
 
+    Image Vignette;
+
+    public bool startInFPSMode;
+
     private void Awake()
     {
         UpdateController.switcher = this;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void _Start()
     {
         fpsMode = true;
+        if (!startInFPSMode) 
+        { 
+            fpsMode = false; 
+            assign3DPoint(roundVectorToInt(UpdateController.cc2D.player.position));
+            UpdateController.cc2D.respawnPosition = hitPosition;
+        }
+        if (GameObject.Find("Vignette")) { Vignette = GameObject.Find("Vignette").GetComponent<Image>(); }
+       
     }
 
     public void manualUpdate()
     {
-        bool LC = Physics.Linecast(UpdateController.cc3D.head.position, 
-                                   hitPosition - ((hitPosition - UpdateController.cc3D.head.position).normalized*.1f), 
+        foreach (KeyCode k in System.Enum.GetValues(typeof(KeyCode)))
+        {
+            char[] codes = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+            if (Input.GetKeyUp(k) && codes.Contains<char>(k.ToString()[k.ToString().Length-1]) && k != KeyCode.Mouse0 && k != KeyCode.Mouse1)
+            {
+                SceneManager.LoadScene(int.Parse(k.ToString()[k.ToString().Length - 1].ToString()));
+            }
+        }
+
+        Vignette.enabled = !fpsMode;
+        if (!UpdateController.cc2D.player.gameObject.activeInHierarchy) { return; }
+        bool LC = Physics.Linecast(UpdateController.cc3D.head.position,
+                                   hitPosition - ((hitPosition - UpdateController.cc3D.head.position).normalized * .1f),
                                    out lineCastHit);
 
 
         bool b1 = withinBoundsOfTexture(roundVectorToInt(UpdateController.cc2D.player.position), new Vector2Int(Screen.width, Screen.height));
-        bool b2 = Vector3.Distance(hitPosition,UpdateController.cc3D.head.position + (UpdateController.cc3D.head.forward * .1f)) < 
+        bool b2 = Vector3.Distance(hitPosition, UpdateController.cc3D.head.position + (UpdateController.cc3D.head.forward * .1f)) <
                   Vector3.Distance(hitPosition, UpdateController.cc3D.head.position + (UpdateController.cc3D.head.forward * -.1f));
 
         playerOnScreen = b1 && b2;
         colliderBetween = lineCastHit.collider != null;
 
-        if (!colliderBetween && playerOnScreen &&(Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.V)))
+        if (!colliderBetween && playerOnScreen && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.V)) && UpdateController.UC.windowSelected)
         {
             fpsMode = !fpsMode;
-            if(fpsMode && UpdateController.cc2D.interactingObject)
+            if (fpsMode && UpdateController.cc2D.heldObj2D)
             {
-                UpdateController.cc2D.interactingObject.GetComponent<ScaleResizer>().resize = false;
-                UpdateController.cc2D.interactingObject = null;
+                UpdateController.cc2D.heldObj2D.ToggleResizeItem();
+                UpdateController.cc2D.heldObj2D = null;
+            }
+            else
+            {
+                assign3DPoint(roundVectorToInt(UpdateController.cc2D.player.position));
+                UpdateController.cc2D.respawnPosition = hitPosition;
             }
         }
     }
 
     public void assign3DPoint(Vector3Int screenPosition)
     {
-        bool CR = Physics.Raycast(UpdateController.imageCap.VisualCamera.ScreenPointToRay(screenPosition), out cursorRayHit);
+        bool CR = Physics.Raycast(UpdateController.imageCap.CollisionCamera.ScreenPointToRay(screenPosition), out cursorRayHit);
         if (CR)
         {
             hitPosition = cursorRayHit.point;
         }
         else
         {
-            hitPosition = UpdateController.imageCap.VisualCamera.ScreenToWorldPoint(screenPosition+new Vector3Int(0,0,10));
+            hitPosition = UpdateController.imageCap.CollisionCamera.ScreenToWorldPoint(screenPosition+new Vector3Int(0,0,10));
         }
     }
 
