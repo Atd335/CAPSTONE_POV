@@ -26,6 +26,7 @@ TagManager:
   - ModelContainer
   - sticky
   - resizeCollider
+  - dragCollider
   layers:
   - Default
   - TransparentFX
