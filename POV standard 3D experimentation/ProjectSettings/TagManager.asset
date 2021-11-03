@@ -23,6 +23,8 @@ TagManager:
   - Installerbutton
   - door
   - 2dbutton
+  - ModelContainer
+  - sticky
   layers:
   - Default
   - TransparentFX
