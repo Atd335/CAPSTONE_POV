@@ -30,10 +30,5 @@ public class Window_Resizer : MonoBehaviour
     void ResizeElements()
     {
         Vector2 scl = WindowBase.rectTransform.sizeDelta;
-
-        left_rsz.rectTransform.sizeDelta  = new Vector2(8, scl.y-16);
-        right_rsz.rectTransform.sizeDelta = new Vector2(8, scl.y-16);
-        up_rsz.rectTransform.sizeDelta    = new Vector2(scl.x-16, 8);
-        down_rsz.rectTransform.sizeDelta  = new Vector2(scl.x-16, 8);
     }
 }
