@@ -40,12 +40,16 @@ public class ModeSwitcher : MonoBehaviour
        
     }
 
+    public bool isSticky;
+    public Transform stickyObj;
+    public Vector3 hitPosMod_Sticky;
+
     public void manualUpdate()
     {
         foreach (KeyCode k in System.Enum.GetValues(typeof(KeyCode)))
         {
-            char[] codes = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-            if (Input.GetKeyUp(k) && codes.Contains<char>(k.ToString()[k.ToString().Length-1]) && k != KeyCode.Mouse0 && k != KeyCode.Mouse1)
+            char[] codes = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+            if (Input.GetKeyUp(k) && codes.Contains<char>(k.ToString()[k.ToString().Length - 1]) && k != KeyCode.Mouse0 && k != KeyCode.Mouse1)
             {
                 SceneManager.LoadScene(int.Parse(k.ToString()[k.ToString().Length - 1].ToString()));
             }
@@ -73,12 +77,42 @@ public class ModeSwitcher : MonoBehaviour
                 UpdateController.cc2D.heldObj2D.ToggleResizeItem();
                 UpdateController.cc2D.heldObj2D = null;
             }
-            else
+
+            if (fpsMode)
             {
+                checkForStickySurface();
+
                 assign3DPoint(roundVectorToInt(UpdateController.cc2D.player.position));
                 UpdateController.cc2D.respawnPosition = hitPosition;
             }
+            else
+            {
+                isSticky = false;
+                stickyObj = null;
+            }
+
         }
+
+        if (isSticky)
+        { 
+            
+        }
+    }
+
+
+    void checkForStickySurface()
+    {
+        //print("CHECKING FOR STICKY...");
+        bool CR = Physics.Raycast(UpdateController.imageCap.CollisionCamera.ScreenPointToRay(UpdateController.cc2D.player.position), out cursorRayHit);
+        if (CR && cursorRayHit.collider.tag == "sticky") 
+        { 
+            isSticky = true; 
+            stickyObj = cursorRayHit.collider.transform;
+            hitPosMod_Sticky = stickyObj.position * -1;
+        }
+
+
+
     }
 
     public void assign3DPoint(Vector3Int screenPosition)
