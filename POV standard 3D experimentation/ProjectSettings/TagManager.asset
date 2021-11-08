@@ -23,6 +23,10 @@ TagManager:
   - Installerbutton
   - door
   - 2dbutton
+  - ModelContainer
+  - sticky
+  - resizeCollider
+  - dragCollider
   layers:
   - Default
   - TransparentFX

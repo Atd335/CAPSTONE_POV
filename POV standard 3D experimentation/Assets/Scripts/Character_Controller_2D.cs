@@ -98,8 +98,15 @@ public class Character_Controller_2D : MonoBehaviour
         updateColor();
         if (UpdateController.switcher.fpsMode || !UpdateController.UC.windowSelected) 
         {
-            //player.position = UpdateController.imageCap.CollisionCamera.WorldToScreenPoint(UpdateController.switcher.hitPosition);
-            player.position = UpdateController.imageCap.CollisionCamera.WorldToScreenPoint(UpdateController.switcher.hitPosition);
+            if (UpdateController.switcher.isSticky)
+            {
+                player.position = UpdateController.imageCap.CollisionCamera.WorldToScreenPoint(UpdateController.switcher.hitPosition + (UpdateController.switcher.stickyObj.position + UpdateController.switcher.hitPosMod_Sticky));
+            }
+            else
+            {
+                player.position = UpdateController.imageCap.CollisionCamera.WorldToScreenPoint(UpdateController.switcher.hitPosition);
+            }
+
             UpdateController.switcher.spawnPosition = UpdateController.switcher.hitPosition;
             moveDirection = Vector3.zero;
             playerSpd = 0;
