@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class Window_Canvas_Raycaster : MonoBehaviour
 {
+    Transform canvasParent;
+
     GraphicRaycaster m_Raycaster;
     PointerEventData m_PointerEventData;
     EventSystem m_EventSystem;
@@ -31,6 +33,7 @@ public class Window_Canvas_Raycaster : MonoBehaviour
         //Fetch the Event System from the Scene
         m_EventSystem = GetComponent<EventSystem>();
         interactMode = -1;
+        canvasParent = transform;
     }
     void Update()
     {
@@ -49,6 +52,8 @@ public class Window_Canvas_Raycaster : MonoBehaviour
 
             if (results[0].gameObject.tag=="resizeCollider") { interactMode = 0; }
             else if (results[0].gameObject.tag=="dragCollider") { interactMode = 1; }
+
+            windowRT.parent.SetAsLastSibling();
         }
 
         if (Input.GetKey(KeyCode.Mouse0) && windowRT)
@@ -92,18 +97,20 @@ public class Window_Canvas_Raycaster : MonoBehaviour
 
     void dragWindow()
     {
+        if (windowRT.parent.GetComponent<Window_Resizer>().maximized) { return; }
         Vector2 pos = startPosition + clickHoldDelta;
-        pos.x = Mathf.Clamp(pos.x,0,Screen.width-32);
-        pos.y = Mathf.Clamp(pos.y,-Screen.height+32,0);
+        pos.x = Mathf.Clamp(pos.x,0,Screen.width-windowRT.sizeDelta.x);
+        pos.y = Mathf.Clamp(pos.y,-Screen.height+(windowRT.sizeDelta.y),0);
         windowRT.localPosition = pos;
     }
 
     void resizeWindow()
     {
+        if (windowRT.parent.GetComponent<Window_Resizer>().maximized || !windowRT.parent.GetComponent<Window_Resizer>().transformEnabled) { return; }
         clickHoldDelta.y *= -1;
         windowSize = startSizeDelta + clickHoldDelta;
-        windowSize.x = Mathf.Clamp(windowSize.x, 200, 600);
-        windowSize.y = Mathf.Clamp(windowSize.y, 120, 400);
+        windowSize.x = Mathf.Clamp(windowSize.x, 200, Screen.width);
+        windowSize.y = Mathf.Clamp(windowSize.y, 120, Screen.height);
         windowRT.sizeDelta = windowSize;
 
     }

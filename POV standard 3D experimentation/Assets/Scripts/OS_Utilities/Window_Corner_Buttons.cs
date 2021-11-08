@@ -18,16 +18,37 @@ public class Window_Corner_Buttons : MonoBehaviour, IWindowButton
 
     public int cornerButtonType;
 
+    Window_Resizer windowResizer;
+
     void Start()
     {
         button = GetComponent<Image>();
         buttonGO = this.gameObject;
         currentColor = Color.white;
+        windowResizer = transform.parent.parent.parent.GetComponent<Window_Resizer>();
     }
 
     public void click()
     {
         button.color = clickColor;
+        switch (cornerButtonType)
+        {
+            case 0:
+                windowResizer.maximized = !windowResizer.maximized;
+                if (windowResizer.maximized)
+                {
+                    windowResizer.maximizeStart = windowResizer.WindowBase.rectTransform.localPosition;
+                    windowResizer.maximizeStartScale = windowResizer.WindowBase.rectTransform.sizeDelta;
+                }
+                else
+                {
+                    windowResizer.WindowBase.rectTransform.localPosition = windowResizer.maximizeStart;
+                    windowResizer.WindowBase.rectTransform.sizeDelta = windowResizer.maximizeStartScale;
+                }
+                break;
+            default:
+                break;
+        }
     }
 
     void Update()
