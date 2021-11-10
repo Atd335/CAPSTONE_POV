@@ -11,7 +11,6 @@ public class UpdateController : MonoBehaviour
     public static Character_Controller_3D cc3D;
     public static QoLDebuggingTools qol;
     public static ModeSwitcher switcher;
-    public static DrawOnWalls dow;
     public static ChangeCharacterCollisionColors col;
     public static SetUpLevel SUL;
 
@@ -31,7 +30,6 @@ public class UpdateController : MonoBehaviour
         cc3D._Start();
         cc2D._Start();
         switcher._Start();
-        dow._Start();
 
         qol._Start();
         SUL._Start();
@@ -61,7 +59,6 @@ public class UpdateController : MonoBehaviour
         switcher.manualUpdate();
         cc3D.manualUpdate();
         cc2D.manualUpdate();
-        dow.manualUpdate();
         //Some universal stuff...
 
         windowSelected = Cursor.lockState == CursorLockMode.Locked;

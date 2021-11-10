@@ -117,7 +117,7 @@ public class Character_Controller_2D : MonoBehaviour
         if (!imageCap.texture) { return; }
         updateRelativeUnits();
         movePlayer();
-        if (!withinBoundsOfTexture(roundVectorToInt(player.position), UpdateController.imageCap.texture)) { DIE(); }
+        if (!withinBoundsOfTexture(roundVectorToInt(player.position), UpdateController.imageCap.texture)) { DIE("Died by falling out of world"); }
     }
 
     void updateColor()
@@ -202,7 +202,7 @@ public class Character_Controller_2D : MonoBehaviour
             {
                 player.position -= cv * imageCap.scaledPixelSize;
             }
-            if (whileChecker > collisionTimeOut) { DIE(); break; }
+            if (whileChecker > collisionTimeOut) { DIE("died by suffocation"); break; }
         }
 
         UpdateController.switcher.assign3DPoint(roundVectorToInt(player.position));
@@ -258,15 +258,18 @@ public class Character_Controller_2D : MonoBehaviour
 
     bool isRoofed()
     {
-
         Vector3Int v = roundVectorToInt(player.position);
 
-        Vector3Int p1 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled)), v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * imageCap.scaledPixelSize))), 0);
-        Vector3Int p2 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled)) + Mathf.RoundToInt(playerRadiusScaled), v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(3 * imageCap.scaledPixelSize))), 0);
+        Vector3Int p1 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled)), v.y + (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * imageCap.scaledPixelSize))), 0);
+        Vector3Int p2 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled)) + Mathf.RoundToInt(playerRadiusScaled), v.y + (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(3 * imageCap.scaledPixelSize))), 0);
 
+        Color[] groundPixels = new Color[0];
+        
         if (!withinBoundsOfTexture(p1, imageCap.texture) || !withinBoundsOfTexture(p2, imageCap.texture)) { return false; }
+        //print($"{p1.y}::{imageCap.texture.height}");
+        //print(p1.y> imageCap.texture.height);
 
-        Color[] groundPixels = imageCap.texture.GetPixels(v.x - (Mathf.RoundToInt(playerRadiusScaled)), v.y + (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(3 * imageCap.scaledPixelSize))), Mathf.RoundToInt(playerRadiusScaled), 1);
+        groundPixels = imageCap.texture.GetPixels(v.x - (Mathf.RoundToInt(playerRadiusScaled)), v.y + (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(3 * imageCap.scaledPixelSize))), Mathf.RoundToInt(playerRadiusScaled), 1);
 
         bool b = false;
         foreach (Color c in groundPixels)
@@ -288,24 +291,25 @@ public class Character_Controller_2D : MonoBehaviour
         for (int i = 0; i < 12; i++)// length of for loop = the amount of resolution of the collision. 
         {
             Vector3Int v = roundVectorToInt(centerPos) + roundVectorToInt((new Vector3(Mathf.Sin((i / 12f) * (Mathf.PI * 2)), Mathf.Cos((i / 12f) * (Mathf.PI * 2)), 0) * playerRadiusScaled));
-            if (withinBoundsOfTexture(v, imageCap.texture) && CheckColorApproximate(imageCap.texture.GetPixel(v.x, v.y), platformColor)) //check for ground
+            if (!withinBoundsOfTexture(v, imageCap.texture)) { return false; }
+            if (CheckColorApproximate(imageCap.texture.GetPixel(v.x, v.y), platformColor)) //check for ground
             {
                 touchedBlackPixel = true;
                 collisionVectors.Add(roundVectorToInt((new Vector3(Mathf.Sin((i / 12f) * (Mathf.PI * 2)), Mathf.Cos((i / 12f) * (Mathf.PI * 2)), 0) * playerRadiusScaled).normalized));
             }
-            else if (withinBoundsOfTexture(v, imageCap.texture) && CheckColorApproximate(imageCap.texture.GetPixel(v.x, v.y), ouchColor)) //check for damage 
+            else if (CheckColorApproximate(imageCap.texture.GetPixel(v.x, v.y), ouchColor)) //check for damage 
             {
-                DIE();
+                DIE("Died by contact with ouch");
             }
-            else if (withinBoundsOfTexture(v, imageCap.texture) && CheckColorApproximate(imageCap.texture.GetPixel(v.x, v.y), objectColor)) //check for interactable object
+            else if (CheckColorApproximate(imageCap.texture.GetPixel(v.x, v.y), objectColor)) //check for interactable object
             {
                 overlappedInteractable(v);
             }
-            else if (withinBoundsOfTexture(v, imageCap.texture) && CheckColorApproximate(imageCap.texture.GetPixel(v.x, v.y), doorColor)) //check for door object
+            else if (CheckColorApproximate(imageCap.texture.GetPixel(v.x, v.y), doorColor)) //check for door object
             {
                 overlappedDoor();
             }
-            else if (withinBoundsOfTexture(v, imageCap.texture) && CheckColorApproximate(imageCap.texture.GetPixel(v.x, v.y), buttonColor)) //check for door object
+            else if (CheckColorApproximate(imageCap.texture.GetPixel(v.x, v.y), buttonColor)) //check for door object
             {
                 overlappedButton(v);
             }
@@ -362,7 +366,7 @@ public class Character_Controller_2D : MonoBehaviour
         return v.x > 0 && v.x < tex.width && v.y > 0 && v.y < tex.height;
     }
 
-    public void DIE()
+    public void DIE(string dieThrow = "died.")
     {
         player.localScale = Vector3.zero;
         UpdateController.switcher.fpsMode = true;
@@ -374,6 +378,7 @@ public class Character_Controller_2D : MonoBehaviour
             UpdateController.cc2D.heldObj2D = null;
         }
         moveDirection = Vector3.zero;
+        //print($"{dieThrow}");
     }
 
     void resetAllInteractables()

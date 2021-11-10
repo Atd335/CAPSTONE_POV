@@ -610,6 +610,7 @@ GameObject:
   - component: {fileID: 433835550304432298}
   - component: {fileID: 5786834964912903161}
   - component: {fileID: 4335191972732719100}
+  - component: {fileID: 9209607680376759959}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: 3D PLAYER
@@ -673,6 +674,24 @@ MonoBehaviour:
   platformerCharacterEnabled: 1
   spawnPosition: {x: 0, y: 0, z: 0}
   nextLevelName: 
+--- !u!114 &9209607680376759959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433835550304432213}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc044deee598198458196be3cbd783c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player0: {fileID: 433835549099154639}
+  Crosshair0: {fileID: 5532853865088421587}
+  player1: {fileID: 0}
+  windowToTranferTo: {fileID: 0}
+  pos: {x: 0, y: 0}
+  size: {x: 0, y: 0}
 --- !u!1 &433835550367223634
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,7 +827,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 1a333b2c07b2d1b4bb915eb20a30126f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

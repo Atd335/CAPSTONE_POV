@@ -6,7 +6,7 @@ public class DrawOnWalls : MonoBehaviour
 {
     private void Awake()
     {
-        UpdateController.dow = this;
+        //UpdateController.dow = this;
     }
 
     Color[] c;
