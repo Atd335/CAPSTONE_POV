@@ -692,6 +692,7 @@ MonoBehaviour:
   windowToTranferTo: {fileID: 0}
   pos: {x: 0, y: 0}
   size: {x: 0, y: 0}
+  canvasSize: {x: 1920, y: 1600}
 --- !u!1 &433835550367223634
 GameObject:
   m_ObjectHideFlags: 0

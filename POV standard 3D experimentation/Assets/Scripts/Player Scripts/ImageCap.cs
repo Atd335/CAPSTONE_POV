@@ -46,12 +46,22 @@ public class ImageCap : MonoBehaviour
         GrabCameraTexture(src);
     }
 
+    int maxPixel = 700;
     void GrabCameraTexture(RenderTexture src)
     {
         Texture2D tex = new Texture2D(src.width, src.height);
         tex.ReadPixels(new Rect(0, 0, src.width, src.height), 0, 0);
+
+        //Vector2Int resizedRez = new Vector2Int();
+        //resizedRez.x = maxPixel;
+        //resizedRez.y = (maxPixel * tex.height) / tex.width;
+
+        //texture.resize does not scale it, all the pixels become grey, you need to affect the scale somehow.
+
         tex.Apply();
+
         texture = tex;
+        
     }
 
     public Vector3Int roundVectorToInt(Vector3 v)

@@ -15,20 +15,22 @@ public class CanvasTransferScript : MonoBehaviour
     public Vector2 pos;
     public Vector2 size;
 
-    
+    public Vector2Int canvasSize;
 
     void LateUpdate()
     {
+        canvasSize.x = 1920;
+        canvasSize.y = (1920 * Screen.height) / Screen.width;
 
         size = player0.rectTransform.sizeDelta;
-        size.x /= 1920;
-        size.y /= 1600;
+        size.x /= canvasSize.x;
+        size.y /= canvasSize.y;
         size.x *= windowToTranferTo.rectTransform.sizeDelta.x;
         size.y *= windowToTranferTo.rectTransform.sizeDelta.y;
 
         pos = player0.rectTransform.localPosition;
-        pos.x /= 1920;
-        pos.y /= 1600;
+        pos.x /= canvasSize.x;
+        pos.y /= canvasSize.y;
 
         pos += Vector2.one * .5f;
 
@@ -41,5 +43,7 @@ public class CanvasTransferScript : MonoBehaviour
 
         player0.color = Color.clear;
         Crosshair0.color = Color.clear;
+
+        player0.enabled = UpdateController.switcher.playerOnScreen;
     }
 }
