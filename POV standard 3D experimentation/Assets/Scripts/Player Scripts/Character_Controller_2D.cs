@@ -165,7 +165,7 @@ public class Character_Controller_2D : MonoBehaviour
         grounded = isGrounded();
         roofed = isRoofed();
 
-        if (grounded)
+        if (grounded || groundedForJump)
         {
             gravityMultiplier = 1;
             moveDirection.y = -.05f;
@@ -198,10 +198,17 @@ public class Character_Controller_2D : MonoBehaviour
         while (isOverlappingBlack(player.position, playerRadius))
         {
             whileChecker++;
+
             foreach (Vector3 cv in collisionVectors)
             {
-                player.position -= cv * imageCap.scaledPixelSize;
+                player.position -= (cv * imageCap.scaledPixelSize);
             }
+
+            //for (int i = 0; i < collisionVectors.Count; i++)
+            //{
+            //    player.position -= collisionVectors[i] * imageCap.scaledPixelSize;
+            //}
+
             if (whileChecker > collisionTimeOut) { DIE("died by suffocation"); break; }
         }
 
