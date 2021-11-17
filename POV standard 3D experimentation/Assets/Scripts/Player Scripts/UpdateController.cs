@@ -9,6 +9,7 @@ public class UpdateController : MonoBehaviour
     public static ImageCap imageCap;
     public static Character_Controller_2D cc2D;
     public static Character_Controller_3D cc3D;
+    public static player_animation_statemachine anim;
     public static QoLDebuggingTools qol;
     public static ModeSwitcher switcher;
     public static ChangeCharacterCollisionColors col;
@@ -29,6 +30,7 @@ public class UpdateController : MonoBehaviour
         imageCap._Start();
         cc3D._Start();
         cc2D._Start();
+        anim._Start();
         switcher._Start();
 
         qol._Start();
@@ -59,6 +61,7 @@ public class UpdateController : MonoBehaviour
         switcher.manualUpdate();
         cc3D.manualUpdate();
         cc2D.manualUpdate();
+        anim.manualUpdate();
         //Some universal stuff...
 
         windowSelected = Cursor.lockState == CursorLockMode.Locked;

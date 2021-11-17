@@ -25,7 +25,7 @@ public class Character_Controller_2D : MonoBehaviour
     float gravityMultiplier = 1;
 
     bool grounded;
-    bool groundedForJump;
+    public bool groundedForJump;
     bool roofed;
     bool risingJump;
 
