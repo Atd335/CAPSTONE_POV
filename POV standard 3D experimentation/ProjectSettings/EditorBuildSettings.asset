@@ -6,18 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MIDTERM/MIDTERM 0.unity
-    guid: 6a773cdea201bd6409e7556485ae2b86
-  - enabled: 1
-    path: Assets/Scenes/MIDTERM/MIDTERM 1.unity
-    guid: 922b44e47de99dc439c97986e5b477f0
-  - enabled: 1
-    path: Assets/Scenes/MIDTERM/MIDTERM 2.unity
-    guid: 67d26425c0fe8584d9be4bb5901785fd
-  - enabled: 1
-    path: Assets/Scenes/MIDTERM/MIDTERM 3.unity
-    guid: 0f137113e3f26204cbf2ea4642c46eb8
-  - enabled: 1
-    path: Assets/Scenes/MIDTERM/MIDTERM 4.unity
-    guid: 5d3115570bde04b4ebab02262f2e7eb2
+    path: Assets/Scenes/Andrew/Installer Testing/Installer 1.unity
+    guid: 4493e89e1cc918f4fb88fbca29afda6d
   m_configObjects: {}
