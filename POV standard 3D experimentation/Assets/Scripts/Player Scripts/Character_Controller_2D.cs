@@ -387,7 +387,7 @@ public class Character_Controller_2D : MonoBehaviour
             UpdateController.cc2D.heldObj2D = null;
         }
         moveDirection = Vector3.zero;
-        //print($"{dieThrow}");
+        print($"{dieThrow}");
     }
 
     void resetAllInteractables()
