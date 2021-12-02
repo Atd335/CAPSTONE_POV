@@ -234,7 +234,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 8, y: 8}
-  m_SizeDelta: {x: 184, y: 80}
+  m_SizeDelta: {x: 234, y: 80}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &38379091
 MonoBehaviour:
@@ -378,7 +378,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &125211403
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1492,7 +1492,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &640825064
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2107,10 +2107,10 @@ MonoBehaviour:
     m_Alignment: 6
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: File Viewer
+  m_Text: 3Dv - tree(copy).P3D
 --- !u!222 &877031202
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2984,8 +2984,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 610, y: -30}
-  m_SizeDelta: {x: 200, y: 120}
+  m_AnchoredPosition: {x: 10, y: -150}
+  m_SizeDelta: {x: 250, y: 120}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1157425157
 MonoBehaviour:
@@ -3182,6 +3182,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179899339}
   m_CullTransparentMesh: 1
+--- !u!1001 &1212423555
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7811518324711591233, guid: ed5f97e567d0ad544b166eecdad72d1a, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811518324711591233, guid: ed5f97e567d0ad544b166eecdad72d1a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811518324711591233, guid: ed5f97e567d0ad544b166eecdad72d1a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811518324711591233, guid: ed5f97e567d0ad544b166eecdad72d1a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811518324711591233, guid: ed5f97e567d0ad544b166eecdad72d1a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811518324711591233, guid: ed5f97e567d0ad544b166eecdad72d1a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811518324711591233, guid: ed5f97e567d0ad544b166eecdad72d1a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811518324711591233, guid: ed5f97e567d0ad544b166eecdad72d1a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811518324711591233, guid: ed5f97e567d0ad544b166eecdad72d1a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811518324711591233, guid: ed5f97e567d0ad544b166eecdad72d1a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811518324711591233, guid: ed5f97e567d0ad544b166eecdad72d1a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811518324711591238, guid: ed5f97e567d0ad544b166eecdad72d1a, type: 3}
+      propertyPath: m_Name
+      value: 3D_Cam_Tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811518324711591238, guid: ed5f97e567d0ad544b166eecdad72d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ed5f97e567d0ad544b166eecdad72d1a, type: 3}
+--- !u!20 &1212423556 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 7811518323720108041, guid: ed5f97e567d0ad544b166eecdad72d1a, type: 3}
+  m_PrefabInstance: {fileID: 1212423555}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1226024542
 GameObject:
   m_ObjectHideFlags: 0
@@ -3518,7 +3584,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 8, y: 8}
-  m_SizeDelta: {x: 184, y: 80}
+  m_SizeDelta: {x: 384, y: 360}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1354248136
 MonoBehaviour:
@@ -3527,7 +3593,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354248134}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b67cba94a28539e46b64c78275eacf32, type: 3}
   m_Name: 
@@ -4042,8 +4108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4254c65b050176d459732b3bb323b82b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transformEnabled: 1
-  freeTransform: 1
+  transformEnabled: 0
+  freeTransform: 0
   WindowBase: {fileID: 1157425157}
   contentSection: {fileID: 567483903}
   contentSectionRT: {fileID: 38379092}
@@ -4197,7 +4263,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 410, y: -30}
-  m_SizeDelta: {x: 200, y: 120}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1951074451
 MonoBehaviour:
@@ -4282,13 +4348,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951111725}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 654b93962fde42447b741f75918f6301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WR: {fileID: 1951111728}
-  viewCam: {fileID: 0}
+  viewCam: {fileID: 1212423556}
 --- !u!114 &1951111728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4302,7 +4368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformEnabled: 1
-  freeTransform: 1
+  freeTransform: 0
   WindowBase: {fileID: 1951074451}
   contentSection: {fileID: 1538170762}
   contentSectionRT: {fileID: 1354248137}

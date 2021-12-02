@@ -1849,7 +1849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21a777945d9c2c3418f603bf18b6ac91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 10
+  duration: 6
   barFiller:
     serializedVersion: 2
     m_Curve:
