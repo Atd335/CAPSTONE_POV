@@ -164,6 +164,37 @@ public class objProperties : MonoBehaviour
         DestroyImmediate(GetComponent<InteractableObjectScript>());
     }
 
+    public void makePlatYellow()
+    {
+        cc = GameObject.FindGameObjectWithTag("3D PLAYER").GetComponent<ColorContainer>();
+        if (objType == "yellow") { return; }
+        objType = "yellow";
+        transform.tag = "yellow";
+        clearChildColliders();
+
+        GameObject vis = new GameObject(this.gameObject.name + " 2D");
+        vis.tag = "colliderVisual";
+        vis.layer = 6;
+        vis.transform.parent = transform;
+        vis.transform.localScale = Vector3.one;
+        vis.transform.localPosition = Vector3.zero;
+        vis.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        vis.AddComponent<MeshFilter>();
+        vis.GetComponent<MeshFilter>().sharedMesh = transform.GetComponent<MeshFilter>().sharedMesh;
+        vis.AddComponent<MeshRenderer>();
+
+        Material mat = new Material(Shader.Find("Unlit/Color"));
+        mat.color = cc._yellow;
+
+        Material mat2 = new Material(Shader.Find("Standard"));
+        mat2.color = cc._yellow;
+
+        GetComponent<MeshRenderer>().material = mat2;
+        vis.GetComponent<MeshRenderer>().material = mat;
+
+        DestroyImmediate(GetComponent<InteractableObjectScript>());
+    }
+
 
     public void makeCutOut()
     {
