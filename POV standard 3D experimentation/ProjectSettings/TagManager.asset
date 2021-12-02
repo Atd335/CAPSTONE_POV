@@ -27,6 +27,7 @@ TagManager:
   - sticky
   - resizeCollider
   - dragCollider
+  - resManager
   layers:
   - Default
   - TransparentFX

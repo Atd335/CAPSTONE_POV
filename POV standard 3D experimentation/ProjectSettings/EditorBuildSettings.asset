@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Andrew/Installer Testing/Installer 1.unity
-    guid: 4493e89e1cc918f4fb88fbca29afda6d
+    path: Assets/Scenes/Andrew/Final Presentation/0_FP_Installer.unity
+    guid: 019177ffe9a74d94cbe3e75d6a875c19
+  - enabled: 1
+    path: Assets/Scenes/Andrew/Final Presentation/1_FP_SplashScreen.unity
+    guid: 6edf2dc8b3a411c499fa7bb7e66a3d08
+  - enabled: 1
+    path: Assets/Scenes/Andrew/Final Presentation/2_FP_LoginScreen.unity
+    guid: 771f2d56171e10547a11cf7fe0b3d06c
+  - enabled: 1
+    path: Assets/Scenes/Andrew/Final Presentation/3_FP_Desktop.unity
+    guid: fe280dc1cb4be9b459ec027301e2148e
   m_configObjects: {}

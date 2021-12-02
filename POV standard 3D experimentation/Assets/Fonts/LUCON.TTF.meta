@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8919c3d6268be244b90939ea33165d02
+guid: 392809ee1cc26f047ab5ecad4507f54d
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - MS Reference Sans Serif
+  - Lucida Console
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 2

@@ -1,0 +1,85 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Linq;
+
+public class WindowResolutionManager : MonoBehaviour
+{
+    Dictionary<int, Vector2Int> resolutionDict;
+    Dictionary<int, bool> fsDict;
+
+    public int currentLevel;
+    bool fullScreen;
+
+    private void Begin()
+    {
+        print("scene loaded");
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
+
+        foreach (GameObject g in GameObject.FindGameObjectsWithTag("resManager"))
+        {
+            if (g != this.gameObject && g.name != "*resManager") { Destroy(g); }
+        }
+
+        this.gameObject.name = "*resManager";
+
+        resolutionDict = new Dictionary<int, Vector2Int>();
+        fsDict = new Dictionary<int, bool>();
+
+        resolutionDict.Add(0,new Vector2Int(700,583));//installer
+        fsDict.Add(0,false);
+
+        resolutionDict.Add(1, new Vector2Int(700, 583));//splashscreen
+        fsDict.Add(1, false);
+
+        resolutionDict.Add(2, new Vector2Int(960, 540));//login
+        fsDict.Add(2, true);
+
+        resolutionDict.Add(3, new Vector2Int(960, 540));//desktop
+        fsDict.Add(3, true);
+
+        SetRes();
+
+        DontDestroyOnLoad(this.gameObject);
+    }
+
+    void SetRes()
+    {
+        Vector2Int defaultRes = new Vector2Int(960, 540);
+        bool fsMode = true;
+
+        try
+        {
+            defaultRes = resolutionDict[currentLevel];
+            fsMode = fsDict[currentLevel];
+        }
+        catch (System.Exception) { }
+
+        Screen.SetResolution(defaultRes.x, defaultRes.y, fsMode);
+        print("resolution set...");
+        print($"level = {currentLevel}");
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        }
+    }
+
+    void OnEnable()
+    {
+        //Debug.Log("OnEnable called");
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Begin();
+        //Debug.Log("OnSceneLoaded: " + scene.name);
+        //Debug.Log(mode);
+    }
+
+}

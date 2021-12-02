@@ -39,7 +39,7 @@ public class UpdateController : MonoBehaviour
         IS3D._Start();
         //Universal Stuff
 
-        Screen.SetResolution(700, 583, false); //installer dimensions
+        //Screen.SetResolution(700, 583, false); //installer dimensions
 
         if (entireSceenActive)
         {
