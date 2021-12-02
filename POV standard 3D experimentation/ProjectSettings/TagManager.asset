@@ -27,7 +27,11 @@ TagManager:
   - sticky
   - resizeCollider
   - dragCollider
+<<<<<<< HEAD
   - yellow
+=======
+  - resManager
+>>>>>>> c0b1aa2f595804cf08fc8e955a5c02319e7e7f85
   layers:
   - Default
   - TransparentFX
@@ -39,7 +43,7 @@ TagManager:
   - Shared
   - OnTop
   - BGLAYER
-  - 
+  - 3D Viewer
   - 
   - 
   - 

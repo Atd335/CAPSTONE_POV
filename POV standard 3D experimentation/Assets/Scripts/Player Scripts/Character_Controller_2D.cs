@@ -220,8 +220,10 @@ public class Character_Controller_2D : MonoBehaviour
 
         Vector3Int v = roundVectorToInt(player.position);
 
-        Vector3Int p1 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2), v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * imageCap.scaledPixelSize))), 0);
-        Vector3Int p2 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2) + Mathf.RoundToInt(playerRadiusScaled) / 2, v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * imageCap.scaledPixelSize))), 0);
+        Vector3Int p1 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2), 
+            v.y - (10*(Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * imageCap.scaledPixelSize)))), 0);
+        Vector3Int p2 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2) + Mathf.RoundToInt(playerRadiusScaled) / 2, 
+            v.y - (10*(Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * imageCap.scaledPixelSize)))), 0);
 
         if (!withinBoundsOfTexture(p1, imageCap.texture) || !withinBoundsOfTexture(p2, imageCap.texture)) { return false; }
 
@@ -385,7 +387,7 @@ public class Character_Controller_2D : MonoBehaviour
             UpdateController.cc2D.heldObj2D = null;
         }
         moveDirection = Vector3.zero;
-        //print($"{dieThrow}");
+        print($"{dieThrow}");
     }
 
     void resetAllInteractables()

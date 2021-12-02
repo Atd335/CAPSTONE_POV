@@ -8,6 +8,7 @@ public class InteractableObjectScript : MonoBehaviour
     GameObject flatComponent;
     Collider collider;
 
+    public bool hasRigidBody;
 
     //Resizing
     public bool resize;
@@ -26,7 +27,7 @@ public class InteractableObjectScript : MonoBehaviour
     Vector3 spawnRot;
 
     MeshRenderer mrenderer;
-
+    Rigidbody rb;
     private void Start()
     {
         mrenderer = GetComponent<MeshRenderer>();
@@ -38,6 +39,13 @@ public class InteractableObjectScript : MonoBehaviour
         spawnPos = transform.position;
         spawnScale = transform.localScale;
         spawnRot = transform.rotation.eulerAngles;
+
+        if (hasRigidBody) 
+        { 
+            this.gameObject.AddComponent<Rigidbody>();
+            rb = this.gameObject.GetComponent<Rigidbody>();
+        }
+
     }
 
     public void resetMe()
@@ -76,6 +84,7 @@ public class InteractableObjectScript : MonoBehaviour
 
     void LateUpdate()
     {
+        if (hasRigidBody) { rb.isKinematic = UpdateController.cc2D.heldObj2D == this; }
         if (UpdateController.cc2D.heldObj2D && UpdateController.cc2D.heldObj2D != this) { return; }        
         if (!resize) { return; }
 
@@ -86,9 +95,11 @@ public class InteractableObjectScript : MonoBehaviour
         distanceFromPlayer = Vector3.Distance(UpdateController.switcher.hitPosition, UpdateController.cc3D.position);
         transform.localScale = Vector3.one * baseScale * (distanceFromPlayer / initialDistance);
         //transform.position = (UpdateController.switcher.hitPosition + ((UpdateController.cc3D.head.up) * 3 * (distanceFromPlayer / initialDistance) * baseScale));
-        transform.position = Vector3.Lerp(startPoint, (UpdateController.switcher.hitPosition + ((UpdateController.cc3D.head.up) * 3 * (distanceFromPlayer / initialDistance) * baseScale)),moveTimer);
+        transform.position = Vector3.Lerp(startPoint, (UpdateController.switcher.hitPosition + ((UpdateController.cc3D.head.up) * 1 * (distanceFromPlayer / initialDistance) * baseScale)),moveTimer);
         transform.forward = Vector3.Lerp(transform.forward,UpdateController.cc3D.head.forward,moveTimer);
 
         if (!mrenderer.isVisible && UpdateController.cc2D.heldObj2D == this) { resetMe(); }
+
+        
     }
 }

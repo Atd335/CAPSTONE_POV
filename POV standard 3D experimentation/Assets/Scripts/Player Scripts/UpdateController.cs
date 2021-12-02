@@ -14,6 +14,7 @@ public class UpdateController : MonoBehaviour
     public static ModeSwitcher switcher;
     public static ChangeCharacterCollisionColors col;
     public static SetUpLevel SUL;
+    public static InteractScript_3D IS3D;
 
     float debugtimer = 0;
     public float waitDuration;
@@ -35,9 +36,10 @@ public class UpdateController : MonoBehaviour
 
         qol._Start();
         SUL._Start();
+        IS3D._Start();
         //Universal Stuff
 
-        Screen.SetResolution(700, 583, false); //installer dimensions
+        //Screen.SetResolution(700, 583, false); //installer dimensions
 
         if (entireSceenActive)
         {
@@ -60,6 +62,7 @@ public class UpdateController : MonoBehaviour
         imageCap.manualUpdate();
         switcher.manualUpdate();
         cc3D.manualUpdate();
+        IS3D.manualUpdate();
         cc2D.manualUpdate();
         anim.manualUpdate();
         //Some universal stuff...
