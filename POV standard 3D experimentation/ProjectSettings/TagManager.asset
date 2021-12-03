@@ -28,6 +28,7 @@ TagManager:
   - resizeCollider
   - dragCollider
   - resManager
+  - PlayerCanvas
   layers:
   - Default
   - TransparentFX
