@@ -417,9 +417,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 216.5, y: 192}
-  m_SizeDelta: {x: 225, y: 390}
-  m_Pivot: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 216.5, y: -182}
+  m_SizeDelta: {x: 225, y: 356}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &170101969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,10 +442,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8919c3d6268be244b90939ea33165d02, type: 3}
-    m_FontSize: 14
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 6
     m_AlignByGeometry: 0
@@ -474,42 +474,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1750be667937745428e07c08026efab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eulaText: <size=30>Lorem ipsum</size> dolor sit amet, consectetur adipiscing elit.
-    Sed eu aliquam nisl. Aenean dictum fermentum ipsum, ut consequat purus pellentesque
-    ac. Cras imperdiet augue eget tellus tincidunt, id feugiat massa tincidunt. Nullam
-    dapibus justo libero, sagittis placerat augue efficitur a. Suspendisse cursus
-    ex eget nibh molestie, non mattis erat tempor. Suspendisse tincidunt ornare condimentum.
-    Ut nec aliquet mi, id maximus leo. In tristique venenatis facilisis. Nulla facilisi.
-    Nam aliquet risus vitae pretium scelerisque. Quisque euismod luctus imperdiet.
-    Cras ut ante arcu. Nulla facilisi. Etiam eleifend gravida feugiat. Mauris eu
-    ante id tellus auctor euismod.  Curabitur dignissim urna vel gravida iaculis.
-    Sed blandit eleifend lectus, quis pharetra enim ultricies a. Vivamus non eros
-    consectetur, egestas quam nec, posuere velit. Etiam ac lectus ac felis sagittis
-    commodo. Mauris dignissim ligula metus, eget viverra felis condimentum id. Aliquam
-    egestas sapien vel turpis luctus congue. Sed vel velit vitae risus porttitor
-    efficitur. Aliquam ligula augue, malesuada nec laoreet ut, accumsan id leo. Pellentesque
-    tellus eros, efficitur at erat vel, porttitor dignissim est. Ut ac sem hendrerit,
-    malesuada quam a, elementum mi. Nullam volutpat quis mauris nec interdum.  Praesent
-    ut erat in turpis lobortis tempor. Curabitur consectetur pellentesque ex. Phasellus
-    sed elit in sem dictum ultrices eu id nulla. Aliquam pharetra urna ac lobortis
-    consectetur. Donec congue nibh odio, vel suscipit erat hendrerit ut. Duis sit
-    amet semper massa, eu malesuada lacus. Duis ornare tristique orci, id tempus
-    ipsum efficitur non.  Mauris imperdiet tincidunt quam vel lacinia. Cras ut finibus
-    odio. In eget justo dolor. Phasellus dapibus justo in justo euismod porttitor.
-    Cras pharetra a purus id congue. Pellentesque tempor non odio ut pharetra. Ut
-    facilisis, nulla sed fermentum pellentesque, erat orci accumsan mauris, congue
-    tincidunt dolor lectus sit amet libero. Nullam blandit posuere mollis. Sed bibendum
-    odio lacus, eu maximus justo vestibulum vel. Nullam venenatis pellentesque odio,
-    nec ullamcorper arcu feugiat id. Curabitur condimentum vel eros et pulvinar.
-    Vivamus ultrices, nunc non porta pulvinar, metus nunc tristique sapien, sit amet
-    accumsan purus tellus ut elit. Nullam ut metus eu lorem blandit aliquam. Sed
-    vitae nibh in nulla efficitur tincidunt a nec lacus.  In sollicitudin lacus ante,
-    et pellentesque justo molestie id. Proin tristique orci in ultrices ultricies.
-    Phasellus non pellentesque sapien. Suspendisse hendrerit lacinia mi, non scelerisque
-    magna consequat ut. Proin feugiat congue sollicitudin. Phasellus cursus blandit
-    orci. Nam bibendum felis nec feugiat dictum. Suspendisse non sem ut magna tempus
-    condimentum et a arcu.
-  timeBetweenWords: 0.01
+  eulaText: 
+  scrollSpeed: 120
+  EULAasset: {fileID: 4900000, guid: 2d83e79dcb5db3d4a940a08ec9de51bb, type: 3}
+  yy: 0
 --- !u!1001 &186619016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1239,7 +1207,9 @@ MonoBehaviour:
     magna consequat ut. Proin feugiat congue sollicitudin. Phasellus cursus blandit
     orci. Nam bibendum felis nec feugiat dictum. Suspendisse non sem ut magna tempus
     condimentum et a arcu.
-  timeBetweenWords: 0.01
+  scrollSpeed: 0
+  EULAasset: {fileID: 0}
+  yy: 0
 --- !u!114 &419210896
 MonoBehaviour:
   m_ObjectHideFlags: 0

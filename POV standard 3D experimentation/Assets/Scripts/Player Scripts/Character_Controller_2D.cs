@@ -111,6 +111,7 @@ public class Character_Controller_2D : MonoBehaviour
             moveDirection = Vector3.zero;
             playerSpd = 0;
             interacting = false;
+            playerRect.anchoredPosition3D = new Vector3(playerRect.anchoredPosition3D.x, playerRect.anchoredPosition3D.y, 0);
             return; 
         }
         player.localScale = Vector3.one;
@@ -118,6 +119,7 @@ public class Character_Controller_2D : MonoBehaviour
         updateRelativeUnits();
         movePlayer();
         if (!withinBoundsOfTexture(roundVectorToInt(player.position), UpdateController.imageCap.texture)) { DIE("Died by falling out of world"); }
+        playerRect.anchoredPosition3D = new Vector3(playerRect.anchoredPosition3D.x, playerRect.anchoredPosition3D.y, 0);
     }
 
     void updateColor()
