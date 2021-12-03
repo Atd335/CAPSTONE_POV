@@ -51,7 +51,8 @@ public class Installer_SequenceController : MonoBehaviour
         GameObject.Find("Next Button").GetComponentInChildren<Text>().text = "Install";
         GameObject.Find("Progress Text").GetComponent<Text>().text = @"Installing to default programs folder C:\Program Files\POVvm...";
         GameObject.Find("DescText").GetComponent<Text>().text = @"Please press [Install] to begin installing the POVvm environment.";
-
+        GameObject.Find("EULATEXT").GetComponent<EulaScroll>().enabled = true;
+        GameObject.Find("Default Content BG").GetComponent<RawImage>().color = Color.gray;
         sequenceID++;
     }
 
@@ -59,7 +60,8 @@ public class Installer_SequenceController : MonoBehaviour
     {
         GameObject.Find("Next Button").GetComponent<Installer_Buttons>().disabled = true;
         GameObject.Find("Bar Full").GetComponent<BarFillController>().fillUp = true;
-
+        GameObject.Find("Animation Window").GetComponent<InstallerAnimation>().window.SetActive(true);
+        GameObject.Find("Animation Window").GetComponent<InstallerAnimation>().enabled = true;
         sequenceID++;
     }
 

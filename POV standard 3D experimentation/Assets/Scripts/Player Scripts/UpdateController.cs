@@ -37,10 +37,6 @@ public class UpdateController : MonoBehaviour
         qol._Start();
         SUL._Start();
         IS3D._Start();
-        //Universal Stuff
-
-        //Screen.SetResolution(700, 583, false); //installer dimensions
-
         if (entireSceenActive)
         {
             activeArea1 = Vector2.zero;

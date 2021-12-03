@@ -153,7 +153,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 502130054}
-  m_RootOrder: 10
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -235,7 +235,7 @@ RectTransform:
   - {fileID: 628044248}
   - {fileID: 429505880}
   m_Father: {fileID: 502130054}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -382,6 +382,252 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157913917}
   m_CullTransparentMesh: 1
+--- !u!1 &170101967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 170101968}
+  - component: {fileID: 170101970}
+  - component: {fileID: 170101969}
+  - component: {fileID: 170101971}
+  m_Layer: 5
+  m_Name: EULATEXT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &170101968
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170101967}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 502130054}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 216.5, y: 192}
+  m_SizeDelta: {x: 225, y: 390}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &170101969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170101967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 8919c3d6268be244b90939ea33165d02, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 6
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &170101970
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170101967}
+  m_CullTransparentMesh: 1
+--- !u!114 &170101971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170101967}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1750be667937745428e07c08026efab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eulaText: <size=30>Lorem ipsum</size> dolor sit amet, consectetur adipiscing elit.
+    Sed eu aliquam nisl. Aenean dictum fermentum ipsum, ut consequat purus pellentesque
+    ac. Cras imperdiet augue eget tellus tincidunt, id feugiat massa tincidunt. Nullam
+    dapibus justo libero, sagittis placerat augue efficitur a. Suspendisse cursus
+    ex eget nibh molestie, non mattis erat tempor. Suspendisse tincidunt ornare condimentum.
+    Ut nec aliquet mi, id maximus leo. In tristique venenatis facilisis. Nulla facilisi.
+    Nam aliquet risus vitae pretium scelerisque. Quisque euismod luctus imperdiet.
+    Cras ut ante arcu. Nulla facilisi. Etiam eleifend gravida feugiat. Mauris eu
+    ante id tellus auctor euismod.  Curabitur dignissim urna vel gravida iaculis.
+    Sed blandit eleifend lectus, quis pharetra enim ultricies a. Vivamus non eros
+    consectetur, egestas quam nec, posuere velit. Etiam ac lectus ac felis sagittis
+    commodo. Mauris dignissim ligula metus, eget viverra felis condimentum id. Aliquam
+    egestas sapien vel turpis luctus congue. Sed vel velit vitae risus porttitor
+    efficitur. Aliquam ligula augue, malesuada nec laoreet ut, accumsan id leo. Pellentesque
+    tellus eros, efficitur at erat vel, porttitor dignissim est. Ut ac sem hendrerit,
+    malesuada quam a, elementum mi. Nullam volutpat quis mauris nec interdum.  Praesent
+    ut erat in turpis lobortis tempor. Curabitur consectetur pellentesque ex. Phasellus
+    sed elit in sem dictum ultrices eu id nulla. Aliquam pharetra urna ac lobortis
+    consectetur. Donec congue nibh odio, vel suscipit erat hendrerit ut. Duis sit
+    amet semper massa, eu malesuada lacus. Duis ornare tristique orci, id tempus
+    ipsum efficitur non.  Mauris imperdiet tincidunt quam vel lacinia. Cras ut finibus
+    odio. In eget justo dolor. Phasellus dapibus justo in justo euismod porttitor.
+    Cras pharetra a purus id congue. Pellentesque tempor non odio ut pharetra. Ut
+    facilisis, nulla sed fermentum pellentesque, erat orci accumsan mauris, congue
+    tincidunt dolor lectus sit amet libero. Nullam blandit posuere mollis. Sed bibendum
+    odio lacus, eu maximus justo vestibulum vel. Nullam venenatis pellentesque odio,
+    nec ullamcorper arcu feugiat id. Curabitur condimentum vel eros et pulvinar.
+    Vivamus ultrices, nunc non porta pulvinar, metus nunc tristique sapien, sit amet
+    accumsan purus tellus ut elit. Nullam ut metus eu lorem blandit aliquam. Sed
+    vitae nibh in nulla efficitur tincidunt a nec lacus.  In sollicitudin lacus ante,
+    et pellentesque justo molestie id. Proin tristique orci in ultrices ultricies.
+    Phasellus non pellentesque sapien. Suspendisse hendrerit lacinia mi, non scelerisque
+    magna consequat ut. Proin feugiat congue sollicitudin. Phasellus cursus blandit
+    orci. Nam bibendum felis nec feugiat dictum. Suspendisse non sem ut magna tempus
+    condimentum et a arcu.
+  timeBetweenWords: 0.01
+--- !u!1001 &186619016
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 502130054}
+    m_Modifications:
+    - target: {fileID: 8830007890197980999, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544131, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: loops
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544131, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544131, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: windowPos.y
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544132, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544132, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544132, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544132, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544132, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544132, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544132, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544132, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 423
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544132, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 352
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544132, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544132, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544132, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544132, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544132, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544132, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544132, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544132, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -130
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544132, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544132, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544132, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544132, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830007891383544135, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_Name
+      value: Animation Window
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+--- !u!224 &186619017 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8830007891383544132, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+  m_PrefabInstance: {fileID: 186619016}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &233411069
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,7 +840,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 502130054}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -708,7 +954,7 @@ RectTransform:
   m_Children:
   - {fileID: 326239993}
   m_Father: {fileID: 502130054}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -858,7 +1104,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 502130054}
-  m_RootOrder: 11
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -907,6 +1153,134 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400438732}
+  m_CullTransparentMesh: 1
+--- !u!1 &419210893
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 419210894}
+  - component: {fileID: 419210897}
+  - component: {fileID: 419210896}
+  - component: {fileID: 419210895}
+  m_Layer: 5
+  m_Name: WARNTEXT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &419210894
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419210893}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 502130054}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 216.5, y: -198}
+  m_SizeDelta: {x: 225, y: 363.5}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &419210895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419210893}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1750be667937745428e07c08026efab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eulaText: <size=30>Lorem ipsum</size> dolor sit amet, consectetur adipiscing elit.
+    Sed eu aliquam nisl. Aenean dictum fermentum ipsum, ut consequat purus pellentesque
+    ac. Cras imperdiet augue eget tellus tincidunt, id feugiat massa tincidunt. Nullam
+    dapibus justo libero, sagittis placerat augue efficitur a. Suspendisse cursus
+    ex eget nibh molestie, non mattis erat tempor. Suspendisse tincidunt ornare condimentum.
+    Ut nec aliquet mi, id maximus leo. In tristique venenatis facilisis. Nulla facilisi.
+    Nam aliquet risus vitae pretium scelerisque. Quisque euismod luctus imperdiet.
+    Cras ut ante arcu. Nulla facilisi. Etiam eleifend gravida feugiat. Mauris eu
+    ante id tellus auctor euismod.  Curabitur dignissim urna vel gravida iaculis.
+    Sed blandit eleifend lectus, quis pharetra enim ultricies a. Vivamus non eros
+    consectetur, egestas quam nec, posuere velit. Etiam ac lectus ac felis sagittis
+    commodo. Mauris dignissim ligula metus, eget viverra felis condimentum id. Aliquam
+    egestas sapien vel turpis luctus congue. Sed vel velit vitae risus porttitor
+    efficitur. Aliquam ligula augue, malesuada nec laoreet ut, accumsan id leo. Pellentesque
+    tellus eros, efficitur at erat vel, porttitor dignissim est. Ut ac sem hendrerit,
+    malesuada quam a, elementum mi. Nullam volutpat quis mauris nec interdum.  Praesent
+    ut erat in turpis lobortis tempor. Curabitur consectetur pellentesque ex. Phasellus
+    sed elit in sem dictum ultrices eu id nulla. Aliquam pharetra urna ac lobortis
+    consectetur. Donec congue nibh odio, vel suscipit erat hendrerit ut. Duis sit
+    amet semper massa, eu malesuada lacus. Duis ornare tristique orci, id tempus
+    ipsum efficitur non.  Mauris imperdiet tincidunt quam vel lacinia. Cras ut finibus
+    odio. In eget justo dolor. Phasellus dapibus justo in justo euismod porttitor.
+    Cras pharetra a purus id congue. Pellentesque tempor non odio ut pharetra. Ut
+    facilisis, nulla sed fermentum pellentesque, erat orci accumsan mauris, congue
+    tincidunt dolor lectus sit amet libero. Nullam blandit posuere mollis. Sed bibendum
+    odio lacus, eu maximus justo vestibulum vel. Nullam venenatis pellentesque odio,
+    nec ullamcorper arcu feugiat id. Curabitur condimentum vel eros et pulvinar.
+    Vivamus ultrices, nunc non porta pulvinar, metus nunc tristique sapien, sit amet
+    accumsan purus tellus ut elit. Nullam ut metus eu lorem blandit aliquam. Sed
+    vitae nibh in nulla efficitur tincidunt a nec lacus.  In sollicitudin lacus ante,
+    et pellentesque justo molestie id. Proin tristique orci in ultrices ultricies.
+    Phasellus non pellentesque sapien. Suspendisse hendrerit lacinia mi, non scelerisque
+    magna consequat ut. Proin feugiat congue sollicitudin. Phasellus cursus blandit
+    orci. Nam bibendum felis nec feugiat dictum. Suspendisse non sem ut magna tempus
+    condimentum et a arcu.
+  timeBetweenWords: 0.01
+--- !u!114 &419210896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419210893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 8919c3d6268be244b90939ea33165d02, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &419210897
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419210893}
   m_CullTransparentMesh: 1
 --- !u!1 &423825822
 GameObject:
@@ -1157,7 +1531,10 @@ RectTransform:
   m_Children:
   - {fileID: 1651905342}
   - {fileID: 1235321684}
+  - {fileID: 186619017}
   - {fileID: 1015091778}
+  - {fileID: 170101968}
+  - {fileID: 419210894}
   - {fileID: 328416484}
   - {fileID: 1458944783}
   - {fileID: 360455356}
@@ -1442,7 +1819,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 502130054}
-  m_RootOrder: 8
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2026,7 +2403,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 502130054}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -2179,7 +2556,7 @@ RectTransform:
   - {fileID: 561487575}
   - {fileID: 860105652}
   m_Father: {fileID: 502130054}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -2476,7 +2853,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 502130054}
-  m_RootOrder: 9
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -2558,7 +2935,7 @@ RectTransform:
   - {fileID: 157913918}
   - {fileID: 1658391274}
   m_Father: {fileID: 502130054}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}

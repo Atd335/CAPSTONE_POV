@@ -654,7 +654,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ADMIN
+  m_Text: DEFAULT
 --- !u!222 &1679091621
 CanvasRenderer:
   m_ObjectHideFlags: 0
