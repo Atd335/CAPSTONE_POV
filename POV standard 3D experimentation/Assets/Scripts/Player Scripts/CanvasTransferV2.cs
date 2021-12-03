@@ -34,11 +34,8 @@ public class CanvasTransferV2 : MonoBehaviour
 
         camRaw.SetNativeSize();
         canvasRaw.SetNativeSize();
-    }
 
-    private void LateUpdate()
-    {
-        
+        canvasRaw.rectTransform.sizeDelta /= 2; 
+        camRaw.rectTransform.sizeDelta /= 2; 
     }
-
 }
