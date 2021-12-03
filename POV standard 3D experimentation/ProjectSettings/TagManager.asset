@@ -27,6 +27,8 @@ TagManager:
   - sticky
   - resizeCollider
   - dragCollider
+  - resManager
+  - PlayerCanvas
   layers:
   - Default
   - TransparentFX
@@ -38,7 +40,7 @@ TagManager:
   - Shared
   - OnTop
   - BGLAYER
-  - 
+  - 3D Viewer
   - 
   - 
   - 

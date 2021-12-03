@@ -25,7 +25,7 @@ public class Character_Controller_2D : MonoBehaviour
     float gravityMultiplier = 1;
 
     bool grounded;
-    bool groundedForJump;
+    public bool groundedForJump;
     bool roofed;
     bool risingJump;
 
@@ -165,7 +165,7 @@ public class Character_Controller_2D : MonoBehaviour
         grounded = isGrounded();
         roofed = isRoofed();
 
-        if (grounded)
+        if (grounded || groundedForJump)
         {
             gravityMultiplier = 1;
             moveDirection.y = -.05f;
@@ -198,10 +198,17 @@ public class Character_Controller_2D : MonoBehaviour
         while (isOverlappingBlack(player.position, playerRadius))
         {
             whileChecker++;
+
             foreach (Vector3 cv in collisionVectors)
             {
-                player.position -= cv * imageCap.scaledPixelSize;
+                player.position -= (cv * imageCap.scaledPixelSize);
             }
+
+            //for (int i = 0; i < collisionVectors.Count; i++)
+            //{
+            //    player.position -= collisionVectors[i] * imageCap.scaledPixelSize;
+            //}
+
             if (whileChecker > collisionTimeOut) { DIE("died by suffocation"); break; }
         }
 
@@ -213,8 +220,10 @@ public class Character_Controller_2D : MonoBehaviour
 
         Vector3Int v = roundVectorToInt(player.position);
 
-        Vector3Int p1 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2), v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * imageCap.scaledPixelSize))), 0);
-        Vector3Int p2 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2) + Mathf.RoundToInt(playerRadiusScaled) / 2, v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * imageCap.scaledPixelSize))), 0);
+        Vector3Int p1 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2), 
+            v.y - (3*(Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * imageCap.scaledPixelSize)))), 0);
+        Vector3Int p2 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2) + Mathf.RoundToInt(playerRadiusScaled) / 2, 
+            v.y - (3*(Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * imageCap.scaledPixelSize)))), 0);
 
         if (!withinBoundsOfTexture(p1, imageCap.texture) || !withinBoundsOfTexture(p2, imageCap.texture)) { return false; }
 
@@ -378,7 +387,7 @@ public class Character_Controller_2D : MonoBehaviour
             UpdateController.cc2D.heldObj2D = null;
         }
         moveDirection = Vector3.zero;
-        //print($"{dieThrow}");
+        print($"{dieThrow}");
     }
 
     void resetAllInteractables()

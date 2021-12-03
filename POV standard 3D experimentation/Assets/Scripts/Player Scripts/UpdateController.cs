@@ -9,10 +9,12 @@ public class UpdateController : MonoBehaviour
     public static ImageCap imageCap;
     public static Character_Controller_2D cc2D;
     public static Character_Controller_3D cc3D;
+    public static player_animation_statemachine anim;
     public static QoLDebuggingTools qol;
     public static ModeSwitcher switcher;
     public static ChangeCharacterCollisionColors col;
     public static SetUpLevel SUL;
+    public static InteractScript_3D IS3D;
 
     float debugtimer = 0;
     public float waitDuration;
@@ -29,14 +31,12 @@ public class UpdateController : MonoBehaviour
         imageCap._Start();
         cc3D._Start();
         cc2D._Start();
+        anim._Start();
         switcher._Start();
 
         qol._Start();
         SUL._Start();
-        //Universal Stuff
-
-        Screen.SetResolution(700, 583, false); //installer dimensions
-
+        IS3D._Start();
         if (entireSceenActive)
         {
             activeArea1 = Vector2.zero;
@@ -58,7 +58,9 @@ public class UpdateController : MonoBehaviour
         imageCap.manualUpdate();
         switcher.manualUpdate();
         cc3D.manualUpdate();
+        IS3D.manualUpdate();
         cc2D.manualUpdate();
+        anim.manualUpdate();
         //Some universal stuff...
 
         windowSelected = Cursor.lockState == CursorLockMode.Locked;

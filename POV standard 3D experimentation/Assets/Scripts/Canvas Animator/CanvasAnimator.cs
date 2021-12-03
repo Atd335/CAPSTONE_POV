@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +7,9 @@ using UnityEngine.UI;
 
 public class CanvasAnimator : MonoBehaviour
 {
+    public bool flip;
+
+    public Sprite[] spriteSheet;
     public Sprite[] currentAnim;
 
     public bool animationFinished;
@@ -15,12 +20,22 @@ public class CanvasAnimator : MonoBehaviour
     bool loopAnimation;
     int currentFrame;
 
-    Image imageRenderer;
+    [HideInInspector]
+    public Image imageRenderer;
 
-    public void SwitchAnimation(Sprite[] switchAnim, int _spd, bool playLooped = false)
+    private void Start()
     {
-        currentFrame = 0;
-        currentAnim = switchAnim;
+        imageRenderer = GetComponent<Image>();
+
+        //set to idle for testing...
+        //SwitchAnimation(new Vector2Int(0,12),5,true);
+    }
+
+    public void SwitchAnimation(Vector2Int animSegment, int _spd, bool playLooped = false, bool reset = false)
+    {
+        if (reset) { currentFrame = 0; }
+        var segment = new ArraySegment<Sprite>(spriteSheet,animSegment.x,animSegment.y);
+        currentAnim = segment.ToArray();
         loopAnimation = playLooped;
         spd = _spd;
     }
@@ -28,20 +43,14 @@ public class CanvasAnimator : MonoBehaviour
     private void FixedUpdate()
     {
         fr++;
-        if (fr%spd==0)
-        {
-            if (currentFrame < currentAnim.Length - 1)
-            {
-                currentFrame++;
-            }
-            else
-            {
-                if (loopAnimation) { currentFrame = 0; }
-            }
-        }
-        
-        animationFinished = currentFrame == currentAnim.Length - 1;
-        imageRenderer.sprite = currentAnim[currentFrame];
+        if (currentAnim.Length == 0) { return; }
+        if (fr % spd == 0) { currentFrame++; }
 
+        if (currentFrame >= currentAnim.Length && loopAnimation) { currentFrame = 0; }
+        else if (currentFrame >= currentAnim.Length && !loopAnimation) { currentFrame = currentAnim.Length-1; }
+
+        imageRenderer.transform.rotation = Quaternion.Euler(imageRenderer.transform.rotation.eulerAngles.x,0, imageRenderer.transform.rotation.eulerAngles.z);
+        if (flip) { imageRenderer.transform.rotation = Quaternion.Euler(imageRenderer.transform.rotation.eulerAngles.x, 180, imageRenderer.transform.rotation.eulerAngles.z); }
+        imageRenderer.sprite = currentAnim[currentFrame];
     }
 }

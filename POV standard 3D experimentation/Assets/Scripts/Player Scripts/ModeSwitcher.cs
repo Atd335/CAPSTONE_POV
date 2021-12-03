@@ -37,7 +37,7 @@ public class ModeSwitcher : MonoBehaviour
             UpdateController.cc2D.respawnPosition = hitPosition;
         }
         if (GameObject.Find("Vignette")) { Vignette = GameObject.Find("Vignette").GetComponent<Image>(); }
-       
+        Vignette.enabled = false;
     }
 
     public bool isSticky;
