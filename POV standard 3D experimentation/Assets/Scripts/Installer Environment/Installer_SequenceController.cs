@@ -7,9 +7,16 @@ public class Installer_SequenceController : MonoBehaviour
 {
     public int sequenceID;
     public static Installer_SequenceController ISC;
+
+    public GameObject gameWindow;
+
     void Start()
     {
         ISC = this;
+
+        gameWindow = GameObject.Find("Transferral Manager");
+        GameObject.Find("Transferral Manager").SetActive(false);
+        
         sequenceID = 1;
     }
 
@@ -34,6 +41,8 @@ public class Installer_SequenceController : MonoBehaviour
     {
         GameObject.Find("Press Next Sprite").SetActive(false);
         
+        gameWindow.SetActive(true);
+
         foreach (Image i in GameObject.Find("Eula Divider").GetComponentsInChildren<Image>())
         {
             i.enabled = true;
