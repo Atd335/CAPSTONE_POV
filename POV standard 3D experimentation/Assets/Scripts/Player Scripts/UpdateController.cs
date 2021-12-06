@@ -31,7 +31,7 @@ public class UpdateController : MonoBehaviour
         imageCap._Start();
         cc3D._Start();
         cc2D._Start();
-        anim._Start();
+        //anim._Start();
         switcher._Start();
 
         qol._Start();
@@ -60,7 +60,8 @@ public class UpdateController : MonoBehaviour
         cc3D.manualUpdate();
         IS3D.manualUpdate();
         cc2D.manualUpdate();
-        anim.manualUpdate();
+        //anim.manualUpdate();
+        
         //Some universal stuff...
 
         windowSelected = Cursor.lockState == CursorLockMode.Locked;

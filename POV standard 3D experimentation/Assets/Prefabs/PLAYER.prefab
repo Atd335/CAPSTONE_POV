@@ -297,7 +297,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f159f2eb77bd6ba469d9157833743a2c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ff693e07a1ab329448aa013cc2f89760, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 433835550145944724}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: PlayerCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -625,7 +625,6 @@ GameObject:
   - component: {fileID: 433835550304432298}
   - component: {fileID: 5786834964912903161}
   - component: {fileID: 4335191972732719100}
-  - component: {fileID: 9209607680376759959}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: 3D PLAYER
@@ -689,25 +688,6 @@ MonoBehaviour:
   platformerCharacterEnabled: 1
   spawnPosition: {x: -1, y: -1, z: -1}
   nextLevelName: 
---- !u!114 &9209607680376759959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 433835550304432213}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc044deee598198458196be3cbd783c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player0: {fileID: 433835549099154639}
-  Crosshair0: {fileID: 5532853865088421587}
-  player1: {fileID: 0}
-  windowToTranferTo: {fileID: 0}
-  pos: {x: 0, y: 0}
-  size: {x: 0, y: 0}
-  canvasSize: {x: 1920, y: 1600}
 --- !u!1 &433835550367223634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,7 +1150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8649467874104450150
 RectTransform:
   m_ObjectHideFlags: 0

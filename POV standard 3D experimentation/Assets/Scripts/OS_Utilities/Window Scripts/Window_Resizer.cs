@@ -57,7 +57,10 @@ public class Window_Resizer : MonoBehaviour
         Vector2 scl = WindowBase.rectTransform.sizeDelta;
         topBar.rectTransform.sizeDelta = new Vector2(scl.x, 32);
         contentSection.rectTransform.sizeDelta = new Vector2(WindowBase.rectTransform.sizeDelta.x-16, WindowBase.rectTransform.sizeDelta.y-40);
-        contentSectionRT.rectTransform.sizeDelta = new Vector2(WindowBase.rectTransform.sizeDelta.x-16, WindowBase.rectTransform.sizeDelta.y-40);
+        if (contentSectionRT)
+        {
+            contentSectionRT.rectTransform.sizeDelta = new Vector2(WindowBase.rectTransform.sizeDelta.x - 16, WindowBase.rectTransform.sizeDelta.y - 40);
+        }
         //WCM.viewCam.pixelRect = new Rect(contentSection.rectTransform.position, contentSection.rectTransform.sizeDelta);
     }
 }

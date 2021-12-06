@@ -5,19 +5,18 @@ using UnityEngine.UI;
 
 public class Installer_SequenceController : MonoBehaviour
 {
-
-    // installer opens, asks you to click next
-    // install button appears, next button is disabled, space is split to allow for animation and EULA
-    // press Install, bar moves slowly, animation begins to play
-    // animation goes like this:
-    //paper exits manilla folder, the camera follows the paper, passes our 2d character, then enters into another folder. do this x3 times or so, then stop.
-    // animation stops
-
     public int sequenceID;
     public static Installer_SequenceController ISC;
+
+    public GameObject gameWindow;
+
     void Start()
     {
         ISC = this;
+
+        gameWindow = GameObject.Find("Transferral Manager");
+        GameObject.Find("Transferral Manager").SetActive(false);
+        
         sequenceID = 1;
     }
 
@@ -42,6 +41,8 @@ public class Installer_SequenceController : MonoBehaviour
     {
         GameObject.Find("Press Next Sprite").SetActive(false);
         
+        gameWindow.SetActive(true);
+
         foreach (Image i in GameObject.Find("Eula Divider").GetComponentsInChildren<Image>())
         {
             i.enabled = true;

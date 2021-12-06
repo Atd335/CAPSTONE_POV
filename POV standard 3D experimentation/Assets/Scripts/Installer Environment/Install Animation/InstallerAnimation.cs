@@ -96,6 +96,7 @@ public class InstallerAnimation : MonoBehaviour
             case 9:
                 //print("hee hee" + Time.deltaTime);
                 if (GameObject.Find("EULATEXT")) { Destroy(GameObject.Find("EULATEXT")); }
+                if (GameObject.Find("EULATEXT")) { Destroy(GameObject.Find("EULATEXT")); }
                 tryWarn();
                 break;
             default:
