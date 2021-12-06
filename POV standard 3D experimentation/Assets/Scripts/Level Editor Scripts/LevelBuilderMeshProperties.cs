@@ -47,16 +47,16 @@ public class LevelBuilderMeshProperties : MonoBehaviour
 
         //CSG is so strange and finicky, before a build attempt, comment out the foreach loop below. this is an editor only tool anyways. 
 
-        //foreach (RealtimeCSG.Components.CSGBrush b in GetComponentsInChildren<RealtimeCSG.Components.CSGBrush>())
-        //{
-        //    for (int i = 0; i < b.Shape.TexGens.Length; i++)
-        //    {
-        //        Material m = new Material(Shader.Find("Standard"));
-        //        m.color = modelColor;
-        //        b.Shape.TexGens[i].RenderMaterial = m;
-        //        b.transform.position += Vector3.up * .0001f;
-        //    }
-        //}
+        foreach (RealtimeCSG.Components.CSGBrush b in GetComponentsInChildren<RealtimeCSG.Components.CSGBrush>())
+        {
+            for (int i = 0; i < b.Shape.TexGens.Length; i++)
+            {
+                Material m = new Material(Shader.Find("Standard"));
+                m.color = modelColor;
+                b.Shape.TexGens[i].RenderMaterial = m;
+                b.transform.position += Vector3.up * .0001f;
+            }
+        }
     }
 
     void Awake()
@@ -87,6 +87,9 @@ public class LevelBuilderMeshProperties : MonoBehaviour
                     break;
                 case "blue":
                     mf.gameObject.GetComponent<objProperties>().makePlatBlue();
+                    break;
+                case "yellow":
+                    mf.gameObject.GetComponent<objProperties>().makePlatYellow();
                     break;
                 default:
                     break;

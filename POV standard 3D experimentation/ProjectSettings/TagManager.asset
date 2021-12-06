@@ -3,33 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - plat
-  - cut
-  - Player2D
-  - colliderVisual
-  - ouch
-  - interact
-  - killVolume
-  - reposition
-  - whiteBoard
-  - checkPoint2D
-  - blue
-  - orange
-  - purple
-  - green
-  - 3D PLAYER
-  - DebugText
-  - Installerbutton
-  - door
-  - 2dbutton
-  - ModelContainer
-  - sticky
-  - resizeCollider
-  - dragCollider
-  - resManager
-  - PlayerCanvas
-  - GameWindow
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -37,11 +11,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Colliders
-  - Shared
-  - OnTop
-  - BGLAYER
-  - 3D Viewer
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -66,7 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Top layer
-    uniqueID: 543262367
     locked: 0
