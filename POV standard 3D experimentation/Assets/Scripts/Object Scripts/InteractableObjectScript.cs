@@ -71,7 +71,7 @@ public class InteractableObjectScript : MonoBehaviour
         {
             startPoint = transform.position;
             moveTimer = 0;
-            this.gameObject.layer = 8;
+            //this.gameObject.layer = 8;
             baseScale = transform.localScale.x;
             initialDistance = Vector3.Distance(transform.position, UpdateController.cc3D.position);
             flatComponent.SetActive(false);
@@ -79,7 +79,7 @@ public class InteractableObjectScript : MonoBehaviour
         }
         else
         {
-            this.gameObject.layer = 0;
+            //this.gameObject.layer = 0;
             flatComponent.SetActive(true);
             collider.enabled = true;
         }
@@ -101,7 +101,7 @@ public class InteractableObjectScript : MonoBehaviour
             transform.localScale = Vector3.one * baseScale * (distanceFromPlayer / initialDistance);
         }
         //transform.position = (UpdateController.switcher.hitPosition + ((UpdateController.cc3D.head.up) * 3 * (distanceFromPlayer / initialDistance) * baseScale));
-        transform.position = Vector3.Lerp(startPoint, (UpdateController.switcher.hitPosition + ((UpdateController.cc3D.head.up) * 1 * (distanceFromPlayer / initialDistance) * baseScale)),moveTimer);
+        transform.position = Vector3.Lerp(startPoint, (UpdateController.switcher.hitPosition + ((UpdateController.cc3D.head.right) * 3 * (distanceFromPlayer / initialDistance) * baseScale)),moveTimer);
         transform.forward = Vector3.Lerp(transform.forward,UpdateController.cc3D.head.forward,moveTimer);
 
         if (!mrenderer.isVisible && UpdateController.cc2D.heldObj2D == this) { resetMe(); }

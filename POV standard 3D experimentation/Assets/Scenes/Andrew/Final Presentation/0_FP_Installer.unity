@@ -693,6 +693,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Animation Window
       objectReference: {fileID: 0}
+    - target: {fileID: 8830007891492915639, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
+      propertyPath: m_Name
+      value: Paper.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03e8cac92c1154c44959d241242ecc85, type: 3}
 --- !u!224 &186619017 stripped

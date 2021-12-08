@@ -22,6 +22,20 @@ public class Installer_SequenceController : MonoBehaviour
         sequenceID = 1;
     }
 
+    private void Update()
+    {
+        if (sequenceID == 4)
+        { 
+            if(Input.GetKeyDown(KeyCode.V))
+            {
+                GameObject.Find("Animation Window").GetComponent<InstallerAnimation>().enabled = false;
+                GameObject.Find("Folder 1").GetComponent<FolderController>().enabled = false;
+                GameObject.Find("Paper.1").transform.position = UpdateController.cc2D.player.position;
+                GameObject.Find("Paper.1").transform.parent = UpdateController.cc2D.player;
+                GameObject.Find("Paper.1").transform.localScale = Vector3.one * 4.2f;
+            }
+        }
+    }
 
     public void next()
     {
@@ -76,5 +90,6 @@ public class Installer_SequenceController : MonoBehaviour
     void step3()
     {
         UpdateController.UC.windowSelected = true;
+        sequenceID++;
     }
 }

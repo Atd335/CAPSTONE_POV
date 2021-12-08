@@ -12,7 +12,7 @@ public class WindowRenderTextureManager : MonoBehaviour
 
     void Awake()
     {
-        WCM.viewCam.targetTexture = RT;
+     //   WCM.viewCam.targetTexture = RT;
     }
 
     // Update is called once per frame

@@ -55,6 +55,7 @@ public class CanvasTransferV2 : MonoBehaviour
 
         if (GameObject.FindGameObjectWithTag("GameWindow"))
         {
+            print("THIS IS AME WINDOW CHECK");
             camRaw.transform.parent = GameObject.FindGameObjectWithTag("GameWindow").GetComponent<Window_Resizer>().contentSection.transform;
             camRaw.transform.position = GameObject.FindGameObjectWithTag("GameWindow").GetComponent<Window_Resizer>().contentSection.transform.position;
             inWindow = true;
@@ -69,6 +70,8 @@ public class CanvasTransferV2 : MonoBehaviour
 
     private void LateUpdate()
     {
+        print($"{camRaw.rectTransform.anchoredPosition.x}|{camRaw.rectTransform.anchoredPosition.y}");
+
         if (!inWindow) { return; }
         Vector2 v = GameObject.FindGameObjectWithTag("GameWindow").GetComponent<Window_Resizer>().contentSection.rectTransform.sizeDelta;
 
