@@ -97,6 +97,11 @@ public class ModeSwitcher : MonoBehaviour
         { 
             
         }
+
+        if (UpdateController.SUL.fpsCharacterEnabled==false)
+        {
+            UpdateController.switcher.fpsMode = false;
+        }
     }
 
 

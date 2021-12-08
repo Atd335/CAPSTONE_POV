@@ -31,16 +31,12 @@ public class UpdateController : MonoBehaviour
         imageCap._Start();
         cc3D._Start();
         cc2D._Start();
-        anim._Start();
+        //anim._Start();
         switcher._Start();
 
         qol._Start();
         SUL._Start();
         IS3D._Start();
-        //Universal Stuff
-
-        //Screen.SetResolution(700, 583, false); //installer dimensions
-
         if (entireSceenActive)
         {
             activeArea1 = Vector2.zero;
@@ -64,22 +60,28 @@ public class UpdateController : MonoBehaviour
         cc3D.manualUpdate();
         IS3D.manualUpdate();
         cc2D.manualUpdate();
-        anim.manualUpdate();
+        //anim.manualUpdate();
+        
         //Some universal stuff...
 
-        windowSelected = Cursor.lockState == CursorLockMode.Locked;
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+
+        if (Input.GetKeyDown(KeyCode.Escape) && windowSelected)
         {
             Cursor.lockState = CursorLockMode.None;
         }
-
-        bool mouseWithinActiveArea = Input.mousePosition.x >= activeArea1.x && Input.mousePosition.x <= activeArea2.x && Input.mousePosition.y >= activeArea1.y && Input.mousePosition.y <= activeArea2.y; 
-
-        if (Input.GetKeyDown(KeyCode.Mouse0) && mouseWithinActiveArea)
+        if (windowSelected)
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
+
+
+        //bool mouseWithinActiveArea = Input.mousePosition.x >= activeArea1.x && Input.mousePosition.x <= activeArea2.x && Input.mousePosition.y >= activeArea1.y && Input.mousePosition.y <= activeArea2.y; 
+
+        //if (Input.GetKeyDown(KeyCode.Mouse0) && mouseWithinActiveArea)
+        //{
+        //    Cursor.lockState = CursorLockMode.Locked;
+        //}
 
         if (debugMousePos) { print(Input.mousePosition); }
 

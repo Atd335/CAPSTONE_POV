@@ -3,7 +3,34 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - plat
+  - cut
+  - Player2D
+  - colliderVisual
+  - ouch
+  - interact
+  - killVolume
+  - reposition
+  - whiteBoard
+  - checkPoint2D
+  - blue
+  - orange
+  - purple
+  - green
+  - 3D PLAYER
+  - DebugText
+  - Installerbutton
+  - door
+  - 2dbutton
+  - ModelContainer
+  - sticky
+  - resizeCollider
+  - dragCollider
+  - resManager
+  - PlayerCanvas
+  - GameWindow
+  - WindowCanvas
   layers:
   - Default
   - TransparentFX

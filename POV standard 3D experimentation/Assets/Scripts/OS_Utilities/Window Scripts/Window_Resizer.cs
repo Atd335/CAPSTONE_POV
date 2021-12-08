@@ -22,6 +22,13 @@ public class Window_Resizer : MonoBehaviour
     Window_Content_Manager WCM;
 
     float ratio;
+    public Vector2 spawnpos;
+    private void Awake()
+    {
+        transform.SetParent(GameObject.FindGameObjectWithTag("WindowCanvas").transform);
+        GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        WindowBase.rectTransform.anchoredPosition = spawnpos;
+    }
 
     void Start()
     {
@@ -57,7 +64,10 @@ public class Window_Resizer : MonoBehaviour
         Vector2 scl = WindowBase.rectTransform.sizeDelta;
         topBar.rectTransform.sizeDelta = new Vector2(scl.x, 32);
         contentSection.rectTransform.sizeDelta = new Vector2(WindowBase.rectTransform.sizeDelta.x-16, WindowBase.rectTransform.sizeDelta.y-40);
-        contentSectionRT.rectTransform.sizeDelta = new Vector2(WindowBase.rectTransform.sizeDelta.x-16, WindowBase.rectTransform.sizeDelta.y-40);
+        if (contentSectionRT)
+        {
+            contentSectionRT.rectTransform.sizeDelta = new Vector2(WindowBase.rectTransform.sizeDelta.x - 16, WindowBase.rectTransform.sizeDelta.y - 40);
+        }
         //WCM.viewCam.pixelRect = new Rect(contentSection.rectTransform.position, contentSection.rectTransform.sizeDelta);
     }
 }

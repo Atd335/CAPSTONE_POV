@@ -11,6 +11,6 @@ public class Installer_BG_Scroll : MonoBehaviour
     {
         xy += scrollDir * Time.deltaTime;
 
-        GetComponent<RawImage>().uvRect = new Rect(xy.x, xy.y, 15, 12.225f);
+        GetComponent<RawImage>().uvRect = new Rect(xy.x, xy.y, GetComponent<RawImage>().uvRect.width, GetComponent<RawImage>().uvRect.height);
     }
 }
