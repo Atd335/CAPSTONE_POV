@@ -22,6 +22,13 @@ public class Window_Resizer : MonoBehaviour
     Window_Content_Manager WCM;
 
     float ratio;
+    public Vector2 spawnpos;
+    private void Awake()
+    {
+        transform.SetParent(GameObject.FindGameObjectWithTag("WindowCanvas").transform);
+        GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        WindowBase.rectTransform.anchoredPosition = spawnpos;
+    }
 
     void Start()
     {

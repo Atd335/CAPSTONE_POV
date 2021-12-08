@@ -19,6 +19,8 @@ public class Window_Corner_Buttons : MonoBehaviour, IWindowButton
     public int cornerButtonType;
 
     Window_Resizer windowResizer;
+    public GameObject othertodestroy;
+
 
     void Start()
     {
@@ -45,6 +47,10 @@ public class Window_Corner_Buttons : MonoBehaviour, IWindowButton
                     windowResizer.WindowBase.rectTransform.localPosition = windowResizer.maximizeStart;
                     windowResizer.WindowBase.rectTransform.sizeDelta = windowResizer.maximizeStartScale;
                 }
+                break;
+            case 1:
+                Destroy(windowResizer.gameObject);
+                if (othertodestroy) { Destroy(othertodestroy); }
                 break;
             default:
                 break;

@@ -16,5 +16,8 @@ EditorBuildSettings:
     guid: 771f2d56171e10547a11cf7fe0b3d06c
   - enabled: 1
     path: Assets/Scenes/Andrew/Final Presentation/3_FP_Desktop.unity
+    guid: 05dca9f90ec9b49408391b475f2750ba
+  - enabled: 1
+    path: Assets/Scenes/Andrew/Final Presentation/4_FP_Desktop_Defrag.unity
     guid: fe280dc1cb4be9b459ec027301e2148e
   m_configObjects: {}

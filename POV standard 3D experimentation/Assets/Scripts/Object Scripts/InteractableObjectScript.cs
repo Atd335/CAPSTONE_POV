@@ -28,6 +28,9 @@ public class InteractableObjectScript : MonoBehaviour
 
     MeshRenderer mrenderer;
     Rigidbody rb;
+
+    public bool dontRescale;
+
     private void Start()
     {
         mrenderer = GetComponent<MeshRenderer>();
@@ -93,7 +96,10 @@ public class InteractableObjectScript : MonoBehaviour
 
 
         distanceFromPlayer = Vector3.Distance(UpdateController.switcher.hitPosition, UpdateController.cc3D.position);
-        transform.localScale = Vector3.one * baseScale * (distanceFromPlayer / initialDistance);
+        if (!dontRescale)
+        {
+            transform.localScale = Vector3.one * baseScale * (distanceFromPlayer / initialDistance);
+        }
         //transform.position = (UpdateController.switcher.hitPosition + ((UpdateController.cc3D.head.up) * 3 * (distanceFromPlayer / initialDistance) * baseScale));
         transform.position = Vector3.Lerp(startPoint, (UpdateController.switcher.hitPosition + ((UpdateController.cc3D.head.up) * 1 * (distanceFromPlayer / initialDistance) * baseScale)),moveTimer);
         transform.forward = Vector3.Lerp(transform.forward,UpdateController.cc3D.head.forward,moveTimer);

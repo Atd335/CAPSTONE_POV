@@ -19,7 +19,9 @@ public class CanvasTransferV2 : MonoBehaviour
 
     bool inWindow = false;
 
-    private void Start()
+    public Transform parentSet;
+
+    private void Awake()
     {
         if (!GameObject.FindGameObjectWithTag("3D PLAYER")) { return; }
         camRT = new RenderTexture(Screen.width, Screen.height, 0);
@@ -56,6 +58,12 @@ public class CanvasTransferV2 : MonoBehaviour
             camRaw.transform.parent = GameObject.FindGameObjectWithTag("GameWindow").GetComponent<Window_Resizer>().contentSection.transform;
             camRaw.transform.position = GameObject.FindGameObjectWithTag("GameWindow").GetComponent<Window_Resizer>().contentSection.transform.position;
             inWindow = true;
+        }
+
+        if (parentSet)
+        {
+            camRaw.transform.parent = parentSet;
+            print("set canvas");
         }
     }
 

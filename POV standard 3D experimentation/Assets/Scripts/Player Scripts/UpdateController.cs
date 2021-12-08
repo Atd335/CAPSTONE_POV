@@ -64,19 +64,24 @@ public class UpdateController : MonoBehaviour
         
         //Some universal stuff...
 
-        windowSelected = Cursor.lockState == CursorLockMode.Locked;
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+
+        if (Input.GetKeyDown(KeyCode.Escape) && windowSelected)
         {
             Cursor.lockState = CursorLockMode.None;
         }
-
-        bool mouseWithinActiveArea = Input.mousePosition.x >= activeArea1.x && Input.mousePosition.x <= activeArea2.x && Input.mousePosition.y >= activeArea1.y && Input.mousePosition.y <= activeArea2.y; 
-
-        if (Input.GetKeyDown(KeyCode.Mouse0) && mouseWithinActiveArea)
+        if (windowSelected)
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
+
+
+        //bool mouseWithinActiveArea = Input.mousePosition.x >= activeArea1.x && Input.mousePosition.x <= activeArea2.x && Input.mousePosition.y >= activeArea1.y && Input.mousePosition.y <= activeArea2.y; 
+
+        //if (Input.GetKeyDown(KeyCode.Mouse0) && mouseWithinActiveArea)
+        //{
+        //    Cursor.lockState = CursorLockMode.Locked;
+        //}
 
         if (debugMousePos) { print(Input.mousePosition); }
 

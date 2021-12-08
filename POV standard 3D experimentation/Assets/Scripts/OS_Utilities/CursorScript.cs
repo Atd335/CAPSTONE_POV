@@ -10,5 +10,6 @@ public class CursorScript : MonoBehaviour
     private void Start()
     {
         Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
+        Cursor.lockState = CursorLockMode.None;
     }
 }

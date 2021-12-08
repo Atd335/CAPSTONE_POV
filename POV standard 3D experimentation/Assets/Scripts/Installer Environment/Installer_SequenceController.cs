@@ -10,13 +10,15 @@ public class Installer_SequenceController : MonoBehaviour
 
     public GameObject gameWindow;
 
+    public GameObject playerCanvas;
+
     void Start()
     {
         ISC = this;
 
         gameWindow = GameObject.Find("Transferral Manager");
         GameObject.Find("Transferral Manager").SetActive(false);
-        
+        playerCanvas = GameObject.FindGameObjectWithTag("PlayerCanvas");
         sequenceID = 1;
     }
 
@@ -30,6 +32,9 @@ public class Installer_SequenceController : MonoBehaviour
                 break;
             case 2:
                 step2();
+                break;
+            case 3:
+                step3();
                 break;
             default:
                 break;
@@ -47,6 +52,7 @@ public class Installer_SequenceController : MonoBehaviour
         {
             i.enabled = true;
         }
+        playerCanvas.SetActive(true);
         GameObject.Find("EulaBG").GetComponent<Image>().enabled = true;
         GameObject.Find("Cancel Button").GetComponent<Installer_Buttons>().disabled = true;
         GameObject.Find("Next Button").GetComponentInChildren<Text>().text = "Install";
@@ -66,4 +72,9 @@ public class Installer_SequenceController : MonoBehaviour
         sequenceID++;
     }
 
+
+    void step3()
+    {
+        UpdateController.UC.windowSelected = true;
+    }
 }

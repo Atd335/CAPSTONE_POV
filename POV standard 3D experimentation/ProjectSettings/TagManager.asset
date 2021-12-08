@@ -30,6 +30,7 @@ TagManager:
   - resManager
   - PlayerCanvas
   - GameWindow
+  - WindowCanvas
   layers:
   - Default
   - TransparentFX

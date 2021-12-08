@@ -61,6 +61,9 @@ public class Character_Controller_2D : MonoBehaviour
     //InstallerResizer
     public Vector2 positionRatio;
     public bool makeInvis;
+
+    int[] collisionOrder = { 6, 5, 4, 3, 7, 8, 9, 10, 11, 0, 1, 2 };
+
     private void Awake()
     {
         UpdateController.cc2D = this;
@@ -223,9 +226,9 @@ public class Character_Controller_2D : MonoBehaviour
         Vector3Int v = roundVectorToInt(player.position);
 
         Vector3Int p1 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2), 
-            v.y - (3*(Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * imageCap.scaledPixelSize)))), 0);
+            v.y - (1*(Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * imageCap.scaledPixelSize)))), 0);
         Vector3Int p2 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2) + Mathf.RoundToInt(playerRadiusScaled) / 2, 
-            v.y - (3*(Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * imageCap.scaledPixelSize)))), 0);
+            v.y - (1*(Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * imageCap.scaledPixelSize)))), 0);
 
         if (!withinBoundsOfTexture(p1, imageCap.texture) || !withinBoundsOfTexture(p2, imageCap.texture)) { return false; }
 
@@ -301,12 +304,14 @@ public class Character_Controller_2D : MonoBehaviour
 
         for (int i = 0; i < 12; i++)// length of for loop = the amount of resolution of the collision. 
         {
-            Vector3Int v = roundVectorToInt(centerPos) + roundVectorToInt((new Vector3(Mathf.Sin((i / 12f) * (Mathf.PI * 2)), Mathf.Cos((i / 12f) * (Mathf.PI * 2)), 0) * playerRadiusScaled));
+            //int tt = collisionOrder[i];
+            int tt = i;
+            Vector3Int v = roundVectorToInt(centerPos) + roundVectorToInt((new Vector3(Mathf.Sin((tt / 12f) * (Mathf.PI * 2)), Mathf.Cos((tt / 12f) * (Mathf.PI * 2)), 0) * playerRadiusScaled));
             if (!withinBoundsOfTexture(v, imageCap.texture)) { return false; }
             if (CheckColorApproximate(imageCap.texture.GetPixel(v.x, v.y), platformColor)) //check for ground
             {
                 touchedBlackPixel = true;
-                collisionVectors.Add(roundVectorToInt((new Vector3(Mathf.Sin((i / 12f) * (Mathf.PI * 2)), Mathf.Cos((i / 12f) * (Mathf.PI * 2)), 0) * playerRadiusScaled).normalized));
+                collisionVectors.Add(roundVectorToInt((new Vector3(Mathf.Sin((tt / 12f) * (Mathf.PI * 2)), Mathf.Cos((tt / 12f) * (Mathf.PI * 2)), 0) * playerRadiusScaled).normalized));
             }
             else if (CheckColorApproximate(imageCap.texture.GetPixel(v.x, v.y), ouchColor)) //check for damage 
             {

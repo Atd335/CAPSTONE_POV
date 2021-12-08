@@ -18,8 +18,7 @@ public class InstallerAnimation : MonoBehaviour
     public GameObject window;
     public Vector3 windowPos;
 
-
-    void Update()
+    void LateUpdate()
     {
         folders = GetComponentsInChildren<FolderController>();
         timer += Time.deltaTime;
@@ -98,6 +97,7 @@ public class InstallerAnimation : MonoBehaviour
                 if (GameObject.Find("EULATEXT")) { Destroy(GameObject.Find("EULATEXT")); }
                 if (GameObject.Find("EULATEXT")) { Destroy(GameObject.Find("EULATEXT")); }
                 tryWarn();
+                Installer_SequenceController.ISC.next();
                 break;
             default:
                 break;
