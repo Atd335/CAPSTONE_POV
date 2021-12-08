@@ -39,6 +39,10 @@ public class LevelBuilderMeshPropertiesInspector : Editor
         {
             myScript.setColor("blue");
         }
+        if (GUILayout.Button("yellow"))
+        {
+            myScript.setColor("yellow");
+        }
     }
 }
 

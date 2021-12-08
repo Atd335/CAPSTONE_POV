@@ -38,11 +38,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Colliders
-  - Shared
-  - OnTop
-  - BGLAYER
-  - 3D Viewer
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -67,7 +67,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Top layer
-    uniqueID: 543262367
     locked: 0
