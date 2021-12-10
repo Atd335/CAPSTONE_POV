@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Installer_SequenceController : MonoBehaviour
@@ -19,21 +20,28 @@ public class Installer_SequenceController : MonoBehaviour
         gameWindow = GameObject.Find("Transferral Manager");
         GameObject.Find("Transferral Manager").SetActive(false);
         playerCanvas = GameObject.FindGameObjectWithTag("PlayerCanvas");
+        grabbed = false;
         sequenceID = 1;
     }
+
+    bool grabbed;
+    public bool grabtrigger;
 
     private void Update()
     {
         if (sequenceID == 4)
-        { 
-            if(Input.GetKeyDown(KeyCode.V))
+        {
+            grabtrigger = Vector2.Distance(UpdateController.cc2D.playerRect.anchoredPosition,new Vector2(960,500))<20;
+            if(!grabbed && grabtrigger)
             {
                 GameObject.Find("Animation Window").GetComponent<InstallerAnimation>().enabled = false;
                 GameObject.Find("Folder 1").GetComponent<FolderController>().enabled = false;
                 GameObject.Find("Paper.1").transform.position = UpdateController.cc2D.player.position;
                 GameObject.Find("Paper.1").transform.parent = UpdateController.cc2D.player;
                 GameObject.Find("Paper.1").transform.localScale = Vector3.one * 4.2f;
+                grabbed = true;
             }
+            if (grabbed && Vector2.Distance(UpdateController.cc2D.playerRect.anchoredPosition, new Vector2(1650, 352)) < 50) { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1); }
         }
     }
 
