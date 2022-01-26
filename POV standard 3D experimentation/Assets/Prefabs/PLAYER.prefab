@@ -697,6 +697,7 @@ GameObject:
   m_Component:
   - component: {fileID: 433835550367223633}
   - component: {fileID: 433835550367223632}
+  - component: {fileID: 5005947570178623192}
   m_Layer: 0
   m_Name: VisualCam
   m_TagString: Untagged
@@ -762,6 +763,34 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &5005947570178623192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433835550367223634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856787d014c4446a7b99b9af3cf2b04d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AxisPattern: {fileID: 2800000, guid: ef2abf928b3324453a512f9120f36b53, type: 2}
+  m_OcclusionColor: {r: 0, g: 0, b: 0, a: 1}
+  m_Quality: 2
+  m_Radius: 0.2
+  m_RadiusRange: {x: 0.02, y: 0.3}
+  m_OcclusionBias: 0.05
+  m_OcclusionOffset: 0
+  m_OcclusionIntensity: 2
+  m_OcclusionExponent: 2
+  m_LuminanceModulation: 0.8
+  m_BleedingIntensity: 0
+  m_Downsampling: 1
+  m_Blur: 1
+  m_BlurDepthThreshold: 1
+  m_BlurNormalThreshold: 0.1
+  m_Visualization: 0
 --- !u!1 &6177176389207656197
 GameObject:
   m_ObjectHideFlags: 0
