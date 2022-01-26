@@ -43,6 +43,8 @@ public class UpdateController : MonoBehaviour
             activeArea2.x = Screen.width;
             activeArea2.y = Screen.height;
         }
+
+
     }
 
     public bool windowSelected;
@@ -61,7 +63,6 @@ public class UpdateController : MonoBehaviour
         IS3D.manualUpdate();
         cc2D.manualUpdate();
         //anim.manualUpdate();
-        
         //Some universal stuff...
 
 
@@ -87,4 +88,6 @@ public class UpdateController : MonoBehaviour
 
         //if (Input.GetKey(KeyCode.Alpha0)) { print(switcher.hitPosition); }
     }
+
+
 }

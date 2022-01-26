@@ -27,7 +27,11 @@ public class QoLDebuggingTools : MonoBehaviour
     public void Toggle2DCharacter(bool b,float x = -1, float y = -1, float z = -1)
     {
         UpdateController.cc2D.player.localScale = Vector3.zero;
-        if (new Vector3(x, y, z) != Vector3.one * -1) { UpdateController.switcher.hitPosition = new Vector3(x, y, z); }
+        if (new Vector3(x, y, z) != Vector3.one * -1) 
+        { 
+            UpdateController.switcher.hitPosition = new Vector3(x, y, z); 
+
+        }
         else
         {
             bool r = Physics.Raycast(UpdateController.cc3D.head.position, UpdateController.cc3D.head.forward, out RaycastHit rh);

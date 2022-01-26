@@ -53,9 +53,10 @@ public class Character_Controller_3D : MonoBehaviour
     // Update is called once per frame
     public void manualUpdate()
     {
-        //bgMat.SetTextureOffset("_MainTex", new Vector2(Time.time*scrollSpd, Time.time*scrollSpd));
+
 
         if (!UpdateController.switcher.fpsMode || !UpdateController.SUL.fpsCharacterEnabled || !UpdateController.UC.windowSelected) { return; }
+
         rot.x -= Input.GetAxisRaw("Mouse Y") * mouseSensitivity * Time.deltaTime;
         rot.y += Input.GetAxisRaw("Mouse X") * mouseSensitivity * Time.deltaTime;
 

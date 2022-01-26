@@ -31,6 +31,8 @@ TagManager:
   - PlayerCanvas
   - GameWindow
   - WindowCanvas
+  - scrollPoint
+  - animpaper
   layers:
   - Default
   - TransparentFX
@@ -63,7 +65,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - collidersV2
   m_SortingLayers:
   - name: Default
     uniqueID: 0

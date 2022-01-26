@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Installer_BG_Scroll : MonoBehaviour
 {
     Vector2 xy;
-    public Vector2 scrollDir;
+    public Vector2 scrollDir = Vector2.one;
     void Update()
     {
         xy += scrollDir * Time.deltaTime;

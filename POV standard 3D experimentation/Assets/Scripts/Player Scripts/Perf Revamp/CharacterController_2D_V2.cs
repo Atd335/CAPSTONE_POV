@@ -34,23 +34,12 @@ public class CharacterController_2D_V2 : MonoBehaviour
         {
             directionalVectorReference[i] = new Vector2(Mathf.Sin((i / collisionResolutionf) * (Mathf.PI * 2)), Mathf.Cos((i / collisionResolutionf) * (Mathf.PI * 2))).normalized;
         }
-
-
     }
 
     void LateUpdate()
     {
-        //playerColliderImage.rectTransform.anchoredPosition = new Vector2(250 + (Mathf.Sin(Time.time) * 50), 180);
-        //return;
         if (!imgcap.texture) { return; }
-
         tex = imgcap.texture;
-
-        if (!pseudoStarted)
-        {
-            playerColliderImage.rectTransform.anchoredPosition = new Vector2(tex.width/2,tex.height/2);
-            pseudoStarted = true;
-        }
 
         MovePlayer();//move character
 
@@ -82,7 +71,8 @@ public class CharacterController_2D_V2 : MonoBehaviour
         Color[] pixels = new Color[collisionResolution];
         for (int i = 0; i < collisionResolution; i++)
         {
-            Vector3Int v = roundVector(screenPos) + roundVector((new Vector3(Mathf.Sin((i / collisionResolutionf) * (Mathf.PI * 2)), Mathf.Cos((i / collisionResolutionf) * (Mathf.PI * 2)), 0) * playerRadius));
+            //Vector3Int v = roundVector(screenPos) + roundVector((new Vector3(Mathf.Sin((i / collisionResolutionf) * (Mathf.PI * 2)), Mathf.Cos((i / collisionResolutionf) * (Mathf.PI * 2)), 0) * playerRadius));
+            Vector3Int v = roundVector(new Vector2(imgcap.texture.width / 2, imgcap.texture.height / 2)) + roundVector((new Vector3(Mathf.Sin((i / collisionResolutionf) * (Mathf.PI * 2)), Mathf.Cos((i / collisionResolutionf) * (Mathf.PI * 2)), 0) * playerRadius));
             pixels[i] = tex.GetPixel(v.x,v.y);
         }
 
@@ -91,6 +81,8 @@ public class CharacterController_2D_V2 : MonoBehaviour
 
     void PerformCollisionActions()
     {
+
+        playerColliderImage.color = Color.green;
         for (int i = 0; i < rimPixels.Length; i++)
         {
             checkAllColors(rimPixels[i],i);
@@ -109,12 +101,11 @@ public class CharacterController_2D_V2 : MonoBehaviour
     public void checkAllColors(Color col, int arrayID) //YOU NEED TO SET THIS TO THE APPROPRIATE COLORS
     {
         bool plat = CheckColorApproximate(col,Color.black);
-        bool ouch = CheckColorApproximate(col, Color.red); 
-        //bool cutOut = CheckColorApproximate(col, Color.white);
+        bool ouch = CheckColorApproximate(col, Color.red);
 
         if (plat) //perform collision readjustment
         {
-            playerColliderImage.rectTransform.anchoredPosition -= directionalVectorReference[arrayID];
+            playerColliderImage.color = Color.red;
         }
         if (ouch) //kill
         {

@@ -96,14 +96,13 @@ public class InstallerAnimation : MonoBehaviour
                 //print("hee hee" + Time.deltaTime);
                 if (GameObject.Find("EULATEXT")) { Destroy(GameObject.Find("EULATEXT")); }
                 if (GameObject.Find("EULATEXT")) { Destroy(GameObject.Find("EULATEXT")); }
-                tryWarn();
-                Installer_SequenceController.ISC.next();
+                //tryWarn();
+                windowPos -= Vector3.up * 100;
                 break;
             default:
                 break;
         }
     }
-
 
     bool shaking;
     void shakeWindow(float mag, float dur)
@@ -130,9 +129,5 @@ public class InstallerAnimation : MonoBehaviour
     void tryWarn()
     {
         shakeWindow(5, .06f);
-        if (GameObject.Find("WARNTEXT")) 
-        {
-            GameObject.Find("WARNTEXT").GetComponent<Text>().text = "<size=30>*Install Error*</size>\nPlease install components manually using WASD.";
-        }
     }
 }

@@ -23,6 +23,13 @@ public class Window_Resizer : MonoBehaviour
 
     float ratio;
     public Vector2 spawnpos;
+
+    //growInSize
+    public bool growToSize;
+    public float growSpeed;
+    float growTime;
+    Vector2 smallSize;
+
     private void Awake()
     {
         transform.SetParent(GameObject.FindGameObjectWithTag("WindowCanvas").transform);
@@ -34,10 +41,17 @@ public class Window_Resizer : MonoBehaviour
     {
         WCM = GetComponent<Window_Content_Manager>();
         ratio = WindowBase.rectTransform.sizeDelta.y/ WindowBase.rectTransform.sizeDelta.x;
+        
+        smallSize = WindowBase.rectTransform.sizeDelta;
+        growTime = 1;
+        if (growToSize) { smallSize.y = 65; growTime = 0; }
     }
 
     void LateUpdate()
-    {       
+    {
+
+        growTime += Time.deltaTime * growSpeed;
+
         if(maximized)
         {
             maximizeTimer += Time.deltaTime * 3;
@@ -53,7 +67,7 @@ public class Window_Resizer : MonoBehaviour
 
         if (!freeTransform)
         {
-            WindowBase.rectTransform.sizeDelta = new Vector2(WindowBase.rectTransform.sizeDelta.x, WindowBase.rectTransform.sizeDelta.x*ratio);
+            WindowBase.rectTransform.sizeDelta = Vector2.Lerp(smallSize, new Vector2(WindowBase.rectTransform.sizeDelta.x, WindowBase.rectTransform.sizeDelta.x * ratio), growTime); ;
         }
 
         ResizeElements();

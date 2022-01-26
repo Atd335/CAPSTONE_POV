@@ -508,7 +508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WR: {fileID: 3609424786684824547}
-  WCM: {fileID: 3609424786684824548}
+  WCM: {fileID: 0}
 --- !u!1 &3609424786012948741
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,6 +841,8 @@ MonoBehaviour:
   maximizeStartScale: {x: 0, y: 0, z: 0}
   maximizeTimer: 0
   spawnpos: {x: 350, y: -180}
+  growToSize: 1
+  growSpeed: 20
 --- !u!114 &3609424786684824548
 MonoBehaviour:
   m_ObjectHideFlags: 0
