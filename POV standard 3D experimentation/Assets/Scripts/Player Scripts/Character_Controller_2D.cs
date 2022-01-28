@@ -154,6 +154,9 @@ public class Character_Controller_2D : MonoBehaviour
         if (!UpdateController.SUL.platformerCharacterEnabled) { return; }
         moveDirection = new Vector3(moveDirection.x, moveDirection.y, 0);
 
+        if (Input.GetAxisRaw("Horizontal") > 0) { playerImage.transform.rotation = Quaternion.Euler(0, 0, 0); }
+        else if (Input.GetAxisRaw("Horizontal") < 0) { playerImage.transform.rotation = Quaternion.Euler(0, 180, 0); }
+
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
             playerSpd += scaledAccel * Time.deltaTime;
@@ -387,6 +390,9 @@ public class Character_Controller_2D : MonoBehaviour
         player.localScale = Vector3.zero;
         UpdateController.switcher.fpsMode = true;
         UpdateController.switcher.hitPosition = respawnPosition;
+
+        UpdateController.cc2D.player.position = UpdateController.imageCap.VisualCamera.WorldToScreenPoint(UpdateController.switcher.hitPosition);
+
         if (UpdateController.cc2D.heldObj2D)
         {
             heldObj2D.resetMe();

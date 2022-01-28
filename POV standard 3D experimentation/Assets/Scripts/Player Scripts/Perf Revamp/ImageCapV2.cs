@@ -12,25 +12,30 @@ public class ImageCapV2 : MonoBehaviour
     public Material mat;
     public Texture2D texture;
 
-    Canvas playerCanvas;
 
-    bool canvasSet;
+    public int captureSize = 100;
+
+    Canvas playerCanvas;
+    public RawImage rawImage;
+    public RectTransform captureBox;
 
     public void Awake()
     {
         CollisionCamera = GetComponent<Camera>();
         playerCanvas = GameObject.FindGameObjectWithTag("PlayerCanvas").GetComponent<Canvas>();
-        canvasSet = false;
+        setCanvasScale();
+    }
+
+    void setCanvasScale()
+    {
+        playerCanvas.GetComponent<CanvasScaler>().referenceResolution = new Vector2(Screen.width,Screen.height);
     }
 
     void Update()
     {
         if (texture)
         {
-            //print($"{texture.width}, {texture.height}");
-
-            playerCanvas.GetComponent<CanvasScaler>().referenceResolution = new Vector2(texture.width, texture.height);
-
+            rawImage.texture = texture;
         }
     }
 
@@ -41,20 +46,15 @@ public class ImageCapV2 : MonoBehaviour
         GrabCameraTexture(src);
     }
 
-    public int maxPixel = 500;
     void GrabCameraTexture(RenderTexture src)
     {
-        Texture2D tex = new Texture2D(src.width, src.height);
+        //Texture2D tex = new Texture2D(src.width, src.height);
+        Texture2D tex = new Texture2D(captureSize, captureSize);
 
-        tex.ReadPixels(new Rect(0, 0, src.width, src.height), 0, 0);
+        //tex.ReadPixels(new Rect(0, 0, src.width, src.height), 0, 0);
+        tex.ReadPixels(new Rect(captureBox.anchoredPosition.x - (captureSize/2), captureBox.anchoredPosition.y - (captureSize / 2), captureSize, captureSize), 0, 0);
 
-        //rescale
-        Vector2Int resizedRez = new Vector2Int();
-        resizedRez.x = maxPixel;
-        resizedRez.y = (maxPixel * tex.height) / tex.width;
-
-        tex = TextureScaler.scaled(tex, resizedRez.x, resizedRez.y, FilterMode.Point);
-        //rescale
+        
 
         tex.Apply();
 

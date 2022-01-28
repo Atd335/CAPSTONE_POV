@@ -16,7 +16,7 @@ public class FadeIn : MonoBehaviour
 
     void Update()
     {
-        fade.color = Color.Lerp(fade.color, new Color(0,0,0,-1f),Time.deltaTime*3);
+        fade.color = Color.Lerp(fade.color, new Color(fade.color.r, fade.color.g, fade.color.b, -1f),Time.deltaTime*3);
         if (fade.color.a <= 0) { Destroy(this.gameObject); }
     }
 }

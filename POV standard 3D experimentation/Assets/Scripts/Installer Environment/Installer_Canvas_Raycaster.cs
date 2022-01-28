@@ -45,5 +45,23 @@ public class Installer_Canvas_Raycaster : MonoBehaviour
                 hoveredElement.GetComponent<IWindowButton>().click();
             }
         }
+
+        if (hoveredElement && hoveredElement.tag == "scrollPoint")
+        {
+            hoveredElement.GetComponent<RectTransform>().anchoredPosition += Vector2.up * -Input.GetAxisRaw("Mouse ScrollWheel") * Time.deltaTime * float.Parse(hoveredElement.name.Split(':')[3]);
+            
+            float ymin = float.Parse(hoveredElement.name.Split(':')[1]);
+            float ymax = float.Parse(hoveredElement.name.Split(':')[2]);
+
+            if (hoveredElement.GetComponent<RectTransform>().anchoredPosition.y > ymax)
+            {
+                hoveredElement.GetComponent<RectTransform>().anchoredPosition = new Vector2(hoveredElement.GetComponent<RectTransform>().anchoredPosition.x, ymax);
+            }
+
+            if (hoveredElement.GetComponent<RectTransform>().anchoredPosition.y < ymin)
+            {
+                hoveredElement.GetComponent<RectTransform>().anchoredPosition = new Vector2(hoveredElement.GetComponent<RectTransform>().anchoredPosition.x, ymin);
+            }
+        }
     }
 }

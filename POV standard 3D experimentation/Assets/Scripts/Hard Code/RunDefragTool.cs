@@ -17,13 +17,13 @@ public class RunDefragTool : MonoBehaviour, IWindowButton
         buttonImage = GetComponent<Image>();
     }
 
-    void Update()
+    void Update()   
     {
         hovered = this.gameObject == Window_Canvas_Raycaster.hoveredElement;
 
         if (hovered)
         {
-            buttonImage.color = Color.Lerp(buttonImage.color, Color.grey, Time.deltaTime * 5);
+            buttonImage.color = Color.Lerp(buttonImage.color, new Color(.2f, .2f, .2f, 1), Time.deltaTime * 5);
         }
         else
         {

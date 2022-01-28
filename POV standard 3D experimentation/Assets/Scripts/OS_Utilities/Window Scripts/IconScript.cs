@@ -14,10 +14,13 @@ public class IconScript : MonoBehaviour, IWindowButton
 
     public GameObject windowToSpawn;
 
+    public bool spawnMore;
+
     // Start is called before the first frame update
     void Start()
     {
         highlight = GetComponentsInChildren<Image>()[1];
+        if (windowToSpawn.name == "Error Window") { spawnMore = true; }
     }
 
     // Update is called once per frame
@@ -28,6 +31,7 @@ public class IconScript : MonoBehaviour, IWindowButton
         higlighted = DesktopAsset_Cursor.selectedElement == this.gameObject;
 
         highlight.enabled = higlighted;
+       
     }
 
     public void click()
@@ -39,10 +43,16 @@ public class IconScript : MonoBehaviour, IWindowButton
 
     public void SpawnWindow()
     {
-        print("clicked icon");
+        //print("clicked icon");
         if (windowToSpawn && !GameObject.Find(windowToSpawn.name + "(Clone)"))
         {
-            print($"Opened Window");    
+            //print($"Opened Window");    
+            Instantiate(windowToSpawn);
+        }
+        if (windowToSpawn && GameObject.Find(windowToSpawn.name + "(Clone)") && spawnMore)
+        {
+            Destroy(GameObject.Find(windowToSpawn.name + "(Clone)"));
+            //print($"Opened Window");
             Instantiate(windowToSpawn);
         }
     }

@@ -59,6 +59,7 @@ public class WindowResolutionManager : MonoBehaviour
         Screen.SetResolution(defaultRes.x, defaultRes.y, fsMode);
         print("resolution set...");
         print($"level = {currentLevel}");
+        //if (currentLevel == 2) { Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen; }
     }
 
     private void Update()
@@ -66,6 +67,13 @@ public class WindowResolutionManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.N))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        }
+        if (GameObject.Find("CamRaw") && SceneManager.GetActiveScene().buildIndex==0)
+        {
+            RectTransform rt = GameObject.Find("CamRaw").GetComponent<RectTransform>();
+            rt.sizeDelta = new Vector2(423,352);
+            RectTransform rtt = GameObject.Find("CanvasRaw").GetComponent<RectTransform>();
+            rtt.sizeDelta = new Vector2(423, 352);
         }
     }
 
@@ -80,6 +88,16 @@ public class WindowResolutionManager : MonoBehaviour
         Begin();
         //Debug.Log("OnSceneLoaded: " + scene.name);
         //Debug.Log(mode);
+    }
+
+    private void OnGUI()
+    {
+        GUI.color = Color.red;
+        if (GameObject.Find("CamRaw"))
+        {
+            RectTransform rt = GameObject.Find("CamRaw").GetComponent<RectTransform>();
+            //GUI.Box(new Rect(10, 10, 100, 20), rt.sizeDelta.ToString());
+        }
     }
 
 }

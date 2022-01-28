@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 public class BarFillController : MonoBehaviour
@@ -11,18 +12,24 @@ public class BarFillController : MonoBehaviour
 
     public bool fillUp;
     public bool full;
+
+    public UnityEvent fakeFull;
+    bool fulltriggered;
+
     void Update()
     {
         if (!fillUp) { return; }
         timer += Time.deltaTime / duration;
+        timer = Mathf.Clamp(timer,0,1);
+        full = timer == 1;
 
-        if (!full)
+        transform.localScale = new Vector3(barFiller.Evaluate(timer), 1, 1);
+
+        if (full && !fulltriggered)
         {
-            transform.localScale = new Vector3(barFiller.Evaluate(timer), 1, 1);
+            fakeFull.Invoke();
+            fulltriggered = true;
         }
-        else
-        {
-            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(1, 1, 1), Time.deltaTime * 15f);
-        }
+
     }
 }

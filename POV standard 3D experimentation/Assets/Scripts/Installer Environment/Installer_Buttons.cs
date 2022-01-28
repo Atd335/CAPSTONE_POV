@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Installer_Buttons : MonoBehaviour, IWindowButton
 {
-    public int buttonType = 0;
     public bool disabled;
     float lerpSpd = 8;
 
@@ -71,23 +71,12 @@ public class Installer_Buttons : MonoBehaviour, IWindowButton
 
     }
 
+    public UnityEvent clickEvent;
+
     public void click()
     {
         if (disabled) { return; }
-        switch (buttonType)
-        {
-            case 0:
-                GameObject.Find("Bar Full").GetComponent<BarFillController>().fillUp = true;
-                break;
-            case 1://next
-                Installer_SequenceController.ISC.next();
-                break;
-            case 2:
-                if (Installer_SequenceController.ISC.sequenceID==0) { Application.Quit(); }
-                break;
-            default:
-                break;
-        }
+        clickEvent.Invoke();
     }
 
 }

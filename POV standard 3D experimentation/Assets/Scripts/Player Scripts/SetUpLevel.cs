@@ -25,7 +25,7 @@ public class SetUpLevel : MonoBehaviour
         if (spawnInPlayer)
         {
             UpdateController.cc2D.respawnPosition = spawnPosition;
-            UpdateController.qol.Toggle2DCharacter(true, spawnPosition.x, spawnPosition.y, spawnPosition.z); 
+            UpdateController.qol.Toggle2DCharacter(true, spawnPosition.x, spawnPosition.y, spawnPosition.z);
         }
     }
 
