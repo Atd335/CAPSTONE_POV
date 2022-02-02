@@ -16,7 +16,7 @@ public class PopUpInfo_GUI : MonoBehaviour
         popUps = new List<popUpBox>();
     }
 
-    public void spawnPopUp(string txt, Vector2 dim, Vector2 loc, float dur, int fon)
+    public void spawnPopUp(string txt, Vector2 dim, Vector2 loc, float dur, int fon = 14)
     {
         popUpBox pb = new popUpBox(txt,dim,loc,dur*10,fon);
         popUps.Add(pb);

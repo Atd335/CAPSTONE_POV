@@ -12,16 +12,16 @@ public class WindowResolutionManager : MonoBehaviour
     public int currentLevel = -1;
     bool fullScreen;
 
+    public bool testScene;
+
     private void Begin()
     {
         print("scene loaded");
-        if (currentLevel == -1)
-        {
-            currentLevel = SceneManager.GetActiveScene().buildIndex;
-        }
         //test!!!
         currentLevel = SceneManager.GetActiveScene().buildIndex;
         //test!!!
+        if (testScene) { currentLevel = 99; }
+
         foreach (GameObject g in GameObject.FindGameObjectsWithTag("resManager"))
         {
             if (g != this.gameObject && g.name != "*resManager") { Destroy(g); }
