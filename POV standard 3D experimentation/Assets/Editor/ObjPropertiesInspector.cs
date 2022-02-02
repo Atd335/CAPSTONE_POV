@@ -66,6 +66,11 @@ public class ObjPropertiesInspector : Editor
             myScript.makeFlat();
         }
 
+        if (GUILayout.Button("Make White Shaded"))
+        {
+            myScript.makeWhiteShaded();
+        }
+
         if (GUILayout.Button("Remove Component"))
         {
             myScript.removeThisComponent();

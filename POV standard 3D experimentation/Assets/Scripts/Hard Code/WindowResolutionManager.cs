@@ -9,14 +9,19 @@ public class WindowResolutionManager : MonoBehaviour
     Dictionary<int, Vector2Int> resolutionDict;
     Dictionary<int, bool> fsDict;
 
-    public int currentLevel;
+    public int currentLevel = -1;
     bool fullScreen;
 
     private void Begin()
     {
         print("scene loaded");
+        if (currentLevel == -1)
+        {
+            currentLevel = SceneManager.GetActiveScene().buildIndex;
+        }
+        //test!!!
         currentLevel = SceneManager.GetActiveScene().buildIndex;
-
+        //test!!!
         foreach (GameObject g in GameObject.FindGameObjectsWithTag("resManager"))
         {
             if (g != this.gameObject && g.name != "*resManager") { Destroy(g); }
@@ -38,6 +43,9 @@ public class WindowResolutionManager : MonoBehaviour
 
         resolutionDict.Add(3, new Vector2Int(960, 540));//desktop
         fsDict.Add(3, true);
+
+        resolutionDict.Add(99, new Vector2Int(960, 540));//tester
+        fsDict.Add(99, false);
 
         SetRes();
 

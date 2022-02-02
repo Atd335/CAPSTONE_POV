@@ -353,6 +353,15 @@ public class objProperties : MonoBehaviour
 
         GetComponent<MeshRenderer>().material = mat2;
     }
+
+    public void makeWhiteShaded()
+    {
+        Material mat2 = new Material(Shader.Find("Standard"));
+        mat2.color = Color.white;
+
+        GetComponent<MeshRenderer>().material = mat2;
+    }
+
     public void removeThisComponent()
     {
         transform.tag = "Untagged";
