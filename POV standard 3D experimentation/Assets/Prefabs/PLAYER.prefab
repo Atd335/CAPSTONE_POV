@@ -687,6 +687,7 @@ GameObject:
   - component: {fileID: 433835550304432298}
   - component: {fileID: 5786834964912903161}
   - component: {fileID: 4335191972732719100}
+  - component: {fileID: 3521857790350995756}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: 3D PLAYER
@@ -750,6 +751,18 @@ MonoBehaviour:
   platformerCharacterEnabled: 1
   spawnPosition: {x: -1, y: -1, z: -1}
   nextLevelName: 
+--- !u!114 &3521857790350995756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433835550304432213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe2655ce89a9ee4b9adb50c44bd0003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &433835550367223634
 GameObject:
   m_ObjectHideFlags: 0
