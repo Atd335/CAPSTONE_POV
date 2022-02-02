@@ -93,6 +93,15 @@ public class ModeSwitcher : MonoBehaviour
 
         }
 
+        if (colliderBetween && playerOnScreen && Input.GetKeyDown(KeyCode.Mouse0)) 
+        { 
+            UpdateController.POPUP.spawnPopUp("Cannot enter 2D mode with an object between you and the 2D Character...",
+                                              new Vector2(300,60),
+                                              new Vector2(((Screen.width / 2) - (150)), ((Screen.height / 1.5f) - (30))),
+                                              1,
+                                              16); 
+        }
+
         if (isSticky)
         { 
             

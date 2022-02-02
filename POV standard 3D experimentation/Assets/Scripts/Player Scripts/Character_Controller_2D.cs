@@ -10,7 +10,7 @@ public class Character_Controller_2D : MonoBehaviour
     //Debugging 
     public bool startSim;
     int whileChecker;
-    int collisionTimeOut = 100;
+    int collisionTimeOut = 500;
 
     //Simple Character
     public Transform player;
@@ -26,6 +26,7 @@ public class Character_Controller_2D : MonoBehaviour
 
     bool grounded;
     public bool groundedForJump;
+    public bool groundedForAnim;
     bool roofed;
     bool risingJump;
 

@@ -15,6 +15,8 @@ public class UpdateController : MonoBehaviour
     public static ChangeCharacterCollisionColors col;
     public static SetUpLevel SUL;
     public static InteractScript_3D IS3D;
+    public static PopUpInfo_GUI POPUP;
+
 
     float debugtimer = 0;
     public float waitDuration;
