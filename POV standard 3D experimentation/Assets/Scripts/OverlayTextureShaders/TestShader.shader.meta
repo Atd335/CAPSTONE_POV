@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 440b3bb35b0258e489f43afcc9a1f777
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _MainTex: {instanceID: 0}
+  - _MemphisTexture: {fileID: 2800000, guid: 8817e5e79e0486c47bf3012df963827b, type: 3}
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -724,7 +724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _red: {r: 1, g: 0, b: 0, a: 1}
-  _yellow: {r: 1, g: 0.83413935, b: 0, a: 1}
+  _yellow: {r: 1, g: 0.85638046, b: 0, a: 1}
   _orange: {r: 1, g: 0.44059038, b: 0, a: 1}
   _purple: {r: 0.6731477, g: 0, b: 1, a: 1}
   _blue: {r: 0, g: 0.40923834, b: 1, a: 1}

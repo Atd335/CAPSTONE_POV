@@ -6,24 +6,45 @@ using UnityEngine;
 public class NarrativeAudioSource : MonoBehaviour
 {
     public AudioClip soundToLoop;
-    public bool startPlaying;
-    public bool loop;
-
+    
+    public bool listenerWithinMinimumRange;
+    bool loopTrigger;
+    
     AudioSource AS;
+    AudioListener AL;
 
     void Start()
     {
         AS = GetComponent<AudioSource>();
-        if (startPlaying) { AS.PlayOneShot(soundToLoop); }   
+        AL = GameObject.FindObjectOfType<AudioListener>();  
     }
-
-    
 
     void Update()
     {
-        if (loop && !AS.isPlaying)
+        //is true if within the mimnimum range of being able to hear the soundclip
+        listenerWithinMinimumRange = Vector3.Distance(transform.position, AL.transform.position)<=AS.maxDistance;
+
+        if (!listenerWithinMinimumRange)
         {
-            AS.PlayOneShot(soundToLoop);
+            AS.Stop();
+            loopTrigger = false;
         }
+        else
+        {
+            //if you exit and re-enter the range of the audiosource, it starts the clip over from the beginning. 
+            if (!loopTrigger)
+            {
+                AS.PlayOneShot(soundToLoop);
+                loopTrigger = true;
+            }
+            else
+            {
+                if (!AS.isPlaying) { AS.PlayOneShot(soundToLoop); }
+            }
+        }
+
+
     }
+
+
 }
