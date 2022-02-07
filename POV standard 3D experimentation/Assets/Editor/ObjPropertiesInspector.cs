@@ -11,32 +11,32 @@ public class ObjPropertiesInspector : Editor
 
         objProperties myScript = (objProperties)target;
 
-        if (GUILayout.Button("Make Black"))
+        if (GUILayout.Button("Make Platform"))
         {
             myScript.makePlat();
         }
 
-        if (GUILayout.Button("Make Orange"))
-        {
-            myScript.makePlatOrange();
-        }
+        //if (GUILayout.Button("Make Orange"))
+        //{
+        //    myScript.makePlatOrange();
+        //}
 
-        if (GUILayout.Button("Make Blue"))
-        {
-            myScript.makePlatBlue();
-        }
+        //if (GUILayout.Button("Make Blue"))
+        //{
+        //    myScript.makePlatBlue();
+        //}
 
-        if (GUILayout.Button("Make Green"))
-        {
-            myScript.makePlatGreen();
-        }
+        //if (GUILayout.Button("Make Green"))
+        //{
+        //    myScript.makePlatGreen();
+        //}
 
-        if (GUILayout.Button("Make Purple"))
-        {
-            myScript.makePlatPurple();
-        }
+        //if (GUILayout.Button("Make Purple"))
+        //{
+        //    myScript.makePlatPurple();
+        //}
 
-        if (GUILayout.Button("Make White"))
+        if (GUILayout.Button("Make Cut Out"))
         {
             myScript.makeCutOut();
         }
@@ -51,24 +51,29 @@ public class ObjPropertiesInspector : Editor
             myScript.makeInteractable();
         }
 
-        if (GUILayout.Button("Make Door"))
-        {
-            myScript.makeDoor();
-        }
+        //if (GUILayout.Button("Make Door"))
+        //{
+        //    myScript.makeDoor();
+        //}
 
-        if (GUILayout.Button("Make Button"))
-        {
-            myScript.makeButton();
-        }
+        //if (GUILayout.Button("Make Button"))
+        //{
+        //    myScript.makeButton();
+        //}
 
-        if (GUILayout.Button("Make Flat"))
+        if (GUILayout.Button("Make Material Flat"))
         {
             myScript.makeFlat();
         }
 
-        if (GUILayout.Button("Remove Component"))
+        if (GUILayout.Button("Make Material White Shaded"))
         {
-            myScript.removeThisComponent();
+            myScript.makeWhiteShaded();
         }
+
+        //if (GUILayout.Button("Remove Component"))
+        //{
+        //    myScript.removeThisComponent();
+        //}
     }
 }
