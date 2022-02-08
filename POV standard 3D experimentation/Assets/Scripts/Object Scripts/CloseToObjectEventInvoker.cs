@@ -9,12 +9,30 @@ public class CloseToObjectEventInvoker : MonoBehaviour
     public float threshold;
     public Transform otherTransform;
 
+    public bool TwoDimensional;
+    Camera visCam;
+
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, otherTransform.position) < threshold)
+        if (TwoDimensional && GetComponent<Renderer>().isVisible)
         {
-            closeEvent.Invoke();
+            visCam = UpdateController.imageCap.VisualCamera;
+            Vector2 v1 = visCam.WorldToScreenPoint(transform.position);
+            Vector2 v2 = visCam.WorldToScreenPoint(otherTransform.position);
+
+            if (Vector2.Distance(v1, v2) < threshold)
+            {
+                closeEvent.Invoke();
+            }
+
+        }
+        else
+        { 
+            if (Vector3.Distance(transform.position, otherTransform.position) < threshold)
+            {
+                closeEvent.Invoke();
+            }
         }
     }
 }

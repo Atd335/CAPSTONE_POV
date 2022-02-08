@@ -6,8 +6,21 @@ public class objProperties : MonoBehaviour
 {
     [HideInInspector]
     public string objType = "";
+    [HideInInspector]
+    public bool scriptSpawned;
 
     ColorContainer cc;
+
+
+    public void spawnScript()
+    {
+        if (!scriptSpawned)
+        {
+            print("!");
+            makeCutOut();
+            scriptSpawned = true;
+        }
+    }
 
     public void makePlat()
     {
@@ -283,6 +296,8 @@ public class objProperties : MonoBehaviour
 
         GetComponent<MeshRenderer>().material = mat2;
         vis.GetComponent<MeshRenderer>().material = mat;
+
+        if (gameObject.GetComponent<InteractableObjectScript>()) { return; }
         this.gameObject.AddComponent<InteractableObjectScript>();
     }
 
@@ -362,10 +377,24 @@ public class objProperties : MonoBehaviour
         GetComponent<MeshRenderer>().material = mat2;
     }
 
+    public void makeTransparent()
+    {
+        Material mat2 = new Material(Shader.Find("Standard"));
+
+        mat2.SetOverrideTag("RenderType", "TransparentCutout");
+        mat2.EnableKeyword("_ALPHATEST_ON");
+        mat2.renderQueue = 2450;
+        
+        mat2.color = Color.clear;
+
+        GetComponent<MeshRenderer>().material = mat2;
+    }
+
     public void removeThisComponent()
     {
         transform.tag = "Untagged";
         clearChildColliders();
+        if (gameObject.GetComponent<InteractableObjectScript>()) { DestroyImmediate(gameObject.GetComponent<InteractableObjectScript>()); }
         DestroyImmediate(this);
     }
 
