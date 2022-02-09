@@ -53,7 +53,7 @@ Shader "Hidden/TestShader"
                 fixed4 col = tex2D(_MainTex, i.uv);
                 fixed4 ovTex_1 = tex2D(_OverlayTexture_1,i.uv);
                 fixed4 ovTex_2 = tex2D(_OverlayTexture_2,i.uv);
-
+                
                 fixed4 ovCol_1 = _DetectColor_1;
                 fixed4 ovCol_2 = _DetectColor_2;
 
@@ -67,7 +67,8 @@ Shader "Hidden/TestShader"
 
                 if (ov1) { col = col * ovTex_1; }
                 if (ov2) { col = col * ovTex_2; }
-                
+                if (!ov2 && !ov1) { col.a = 0; }
+
                 return col;
             }
             ENDCG

@@ -44,7 +44,7 @@ public class WindowResolutionManager : MonoBehaviour
         resolutionDict.Add(3, new Vector2Int(960, 540));//desktop
         fsDict.Add(3, true);
 
-        resolutionDict.Add(99, new Vector2Int(960, 540));//tester
+        resolutionDict.Add(99, new Vector2Int(960, 540));//testing screen. 
         fsDict.Add(99, false);
 
         SetRes();
