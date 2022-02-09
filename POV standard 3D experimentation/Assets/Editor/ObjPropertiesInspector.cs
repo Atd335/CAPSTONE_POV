@@ -1,8 +1,10 @@
 using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using UnityEngine.UIElements;
 
-[CustomEditor(typeof(objProperties))]
+[CustomEditor(typeof(objProperties)), CanEditMultipleObjects]
+
 public class ObjPropertiesInspector : Editor
 {
     public override void OnInspectorGUI()
@@ -11,30 +13,12 @@ public class ObjPropertiesInspector : Editor
 
         objProperties myScript = (objProperties)target;
 
+        myScript.spawnScript();
+
         if (GUILayout.Button("Make Platform"))
         {
             myScript.makePlat();
         }
-
-        //if (GUILayout.Button("Make Orange"))
-        //{
-        //    myScript.makePlatOrange();
-        //}
-
-        //if (GUILayout.Button("Make Blue"))
-        //{
-        //    myScript.makePlatBlue();
-        //}
-
-        //if (GUILayout.Button("Make Green"))
-        //{
-        //    myScript.makePlatGreen();
-        //}
-
-        //if (GUILayout.Button("Make Purple"))
-        //{
-        //    myScript.makePlatPurple();
-        //}
 
         if (GUILayout.Button("Make Cut Out"))
         {
@@ -51,16 +35,6 @@ public class ObjPropertiesInspector : Editor
             myScript.makeInteractable();
         }
 
-        //if (GUILayout.Button("Make Door"))
-        //{
-        //    myScript.makeDoor();
-        //}
-
-        //if (GUILayout.Button("Make Button"))
-        //{
-        //    myScript.makeButton();
-        //}
-
         if (GUILayout.Button("Make Material Flat"))
         {
             myScript.makeFlat();
@@ -71,9 +45,14 @@ public class ObjPropertiesInspector : Editor
             myScript.makeWhiteShaded();
         }
 
-        //if (GUILayout.Button("Remove Component"))
-        //{
-        //    myScript.removeThisComponent();
-        //}
+        if (GUILayout.Button("Make Transparent"))
+        {
+            myScript.makeTransparent();
+        }
+
+        if (GUILayout.Button("Remove Component"))
+        {
+            myScript.removeThisComponent();
+        }
     }
 }

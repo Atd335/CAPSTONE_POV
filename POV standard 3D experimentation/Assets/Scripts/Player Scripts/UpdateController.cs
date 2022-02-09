@@ -49,6 +49,11 @@ public class UpdateController : MonoBehaviour
 
     }
 
+    public void PrintTest(string str)
+    {
+        print(str);
+    }
+
     public bool windowSelected;
 
     void Update()
