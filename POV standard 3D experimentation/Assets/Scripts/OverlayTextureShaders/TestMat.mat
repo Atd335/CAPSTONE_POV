@@ -68,7 +68,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OverlayTexture_2:
-        m_Texture: {fileID: 2800000, guid: 8817e5e79e0486c47bf3012df963827b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 11e9abecadb7fdf4385b0653ce26d7ca, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
