@@ -15,6 +15,11 @@ public class ObjPropertiesInspector : Editor
 
         myScript.spawnScript();
 
+        if (GUILayout.Button("Set Custom Color"))
+        {
+            myScript.makeOverrideColor();
+        }
+
         if (GUILayout.Button("Make Platform"))
         {
             myScript.makePlat();
@@ -44,6 +49,8 @@ public class ObjPropertiesInspector : Editor
         {
             myScript.makeWhiteShaded();
         }
+
+
 
         if (GUILayout.Button("Make Transparent"))
         {

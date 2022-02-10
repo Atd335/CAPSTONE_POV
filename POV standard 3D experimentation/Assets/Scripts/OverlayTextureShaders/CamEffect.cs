@@ -24,8 +24,15 @@ public class CamEffect : MonoBehaviour
     public Texture2D[] ouchTextureFrames;
     int ouchFrame = 0;
 
+    private void Start()
+    {
+        ouchTexture = ouchTextureFrames[0];
+        platTexture = platTextureFrames[0];
+    }
+
     private void FixedUpdate()
     {
+        animateTextures = !UpdateController.switcher.fpsMode;
         if (!animateTextures || !effectOn) { return; }
         
         fr++;

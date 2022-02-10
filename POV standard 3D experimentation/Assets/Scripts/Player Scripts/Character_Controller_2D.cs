@@ -10,7 +10,7 @@ public class Character_Controller_2D : MonoBehaviour
     //Debugging 
     public bool startSim;
     int whileChecker;
-    int collisionTimeOut = 500;
+    int collisionTimeOut = 5000;
 
     //Simple Character
     public Transform player;
@@ -218,7 +218,7 @@ public class Character_Controller_2D : MonoBehaviour
             //    player.position -= collisionVectors[i] * imageCap.scaledPixelSize;
             //}
 
-            if (whileChecker > collisionTimeOut) { DIE("died by suffocation"); break; }
+            if (whileChecker > collisionTimeOut) { DIE("died by suffocation: " + whileChecker.ToString()); break; }
         }
 
         UpdateController.switcher.assign3DPoint(roundVectorToInt(player.position));

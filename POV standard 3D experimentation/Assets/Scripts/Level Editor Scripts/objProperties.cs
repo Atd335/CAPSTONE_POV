@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class objProperties : MonoBehaviour
 {
+    public Color overrideColor;
+    
     [HideInInspector]
     public string objType = "";
     [HideInInspector]
@@ -19,11 +21,13 @@ public class objProperties : MonoBehaviour
             print("!");
             makeCutOut();
             scriptSpawned = true;
+            preserveTextureIfValid();
         }
     }
 
     public void makePlat()
     {
+        preserveTextureIfValid();
         cc = GameObject.FindGameObjectWithTag("3D PLAYER").GetComponent<ColorContainer>();
         //if (objType == "solid") { return; }
         objType = "solid";
@@ -50,11 +54,14 @@ public class objProperties : MonoBehaviour
         GetComponent<MeshRenderer>().material = mat2;
         vis.GetComponent<MeshRenderer>().material = mat;
 
+        mat2.mainTexture = matTex;
+
         DestroyImmediate(GetComponent<InteractableObjectScript>());
     }
 
     public void makePlatGreen()
     {
+        preserveTextureIfValid();
         cc = GameObject.FindGameObjectWithTag("3D PLAYER").GetComponent<ColorContainer>();
         //if (objType == "green") { return; }
         objType = "green";
@@ -81,11 +88,14 @@ public class objProperties : MonoBehaviour
         GetComponent<MeshRenderer>().material = mat2;
         vis.GetComponent<MeshRenderer>().material = mat;
 
+        mat2.mainTexture = matTex;
+
         DestroyImmediate(GetComponent<InteractableObjectScript>());
     }
 
     public void makePlatPurple()
     {
+        preserveTextureIfValid();
         cc = GameObject.FindGameObjectWithTag("3D PLAYER").GetComponent<ColorContainer>();
         //if (objType == "purple") { return; }
         objType = "purple";
@@ -112,11 +122,14 @@ public class objProperties : MonoBehaviour
         GetComponent<MeshRenderer>().material = mat2;
         vis.GetComponent<MeshRenderer>().material = mat;
 
+        mat2.mainTexture = matTex;
+
         DestroyImmediate(GetComponent<InteractableObjectScript>());
     }
 
     public void makePlatBlue()
     {
+        preserveTextureIfValid();
         cc = GameObject.FindGameObjectWithTag("3D PLAYER").GetComponent<ColorContainer>();
         //if (objType == "blue") { return; }
         objType = "blue";
@@ -143,11 +156,14 @@ public class objProperties : MonoBehaviour
         GetComponent<MeshRenderer>().material = mat2;
         vis.GetComponent<MeshRenderer>().material = mat;
 
+        mat2.mainTexture = matTex;
+
         DestroyImmediate(GetComponent<InteractableObjectScript>());
     }
 
     public void makePlatOrange()
     {
+        preserveTextureIfValid();
         cc = GameObject.FindGameObjectWithTag("3D PLAYER").GetComponent<ColorContainer>();
         //if (objType == "orange") { return; }
         objType = "orange";
@@ -174,11 +190,14 @@ public class objProperties : MonoBehaviour
         GetComponent<MeshRenderer>().material = mat2;
         vis.GetComponent<MeshRenderer>().material = mat;
 
+        mat2.mainTexture = matTex;
+
         DestroyImmediate(GetComponent<InteractableObjectScript>());
     }
 
     public void makePlatYellow()
     {
+        preserveTextureIfValid();
         cc = GameObject.FindGameObjectWithTag("3D PLAYER").GetComponent<ColorContainer>();
         //if (objType == "yellow") { return; }
         objType = "yellow";
@@ -205,12 +224,15 @@ public class objProperties : MonoBehaviour
         GetComponent<MeshRenderer>().material = mat2;
         vis.GetComponent<MeshRenderer>().material = mat;
 
+        mat2.mainTexture = matTex;
+
         DestroyImmediate(GetComponent<InteractableObjectScript>());
     }
 
 
     public void makeCutOut()
     {
+        preserveTextureIfValid();
         cc = GameObject.FindGameObjectWithTag("3D PLAYER").GetComponent<ColorContainer>();
         //if (objType == "cutout") { return; }
         objType = "cutout";
@@ -236,11 +258,15 @@ public class objProperties : MonoBehaviour
 
         GetComponent<MeshRenderer>().material = mat2;
         vis.GetComponent<MeshRenderer>().material = mat;
+        
+        mat2.mainTexture = matTex;
+        
         DestroyImmediate(GetComponent<InteractableObjectScript>());
     }
 
     public void makeDamage()
     {
+        preserveTextureIfValid();
         cc = GameObject.FindGameObjectWithTag("3D PLAYER").GetComponent<ColorContainer>();
         //if (objType == "damage") { return; }
         objType = "damage";
@@ -266,11 +292,15 @@ public class objProperties : MonoBehaviour
 
         GetComponent<MeshRenderer>().material = mat2;
         vis.GetComponent<MeshRenderer>().material = mat;
+
+        mat2.mainTexture = matTex;
+
         DestroyImmediate(GetComponent<InteractableObjectScript>());
     }
 
     public void makeInteractable()
     {
+        preserveTextureIfValid();
         cc = GameObject.FindGameObjectWithTag("3D PLAYER").GetComponent<ColorContainer>();
         //if (objType == "interact") { return; }
         objType = "interact";
@@ -298,11 +328,15 @@ public class objProperties : MonoBehaviour
         vis.GetComponent<MeshRenderer>().material = mat;
 
         if (gameObject.GetComponent<InteractableObjectScript>()) { return; }
+
+        mat2.mainTexture = matTex;
+
         this.gameObject.AddComponent<InteractableObjectScript>();
     }
 
     public void makeDoor()
     {
+        preserveTextureIfValid();
         cc = GameObject.FindGameObjectWithTag("3D PLAYER").GetComponent<ColorContainer>();
         //if (objType == "door") { return; }
         objType = "door";
@@ -328,11 +362,13 @@ public class objProperties : MonoBehaviour
 
         //GetComponent<MeshRenderer>().material = mat2;
         vis.GetComponent<MeshRenderer>().material = mat;
+
         DestroyImmediate(GetComponent<InteractableObjectScript>());
     }
 
     public void makeButton()
     {
+        preserveTextureIfValid();
         cc = GameObject.FindGameObjectWithTag("3D PLAYER").GetComponent<ColorContainer>();
         //if (objType == "2dbutton") { return; }
         objType = "2dbutton";
@@ -363,8 +399,23 @@ public class objProperties : MonoBehaviour
 
     public void makeFlat()
     {
-        Material mat2 = new Material(Shader.Find("Unlit/Color"));
-        mat2.color = GetComponent<MeshRenderer>().sharedMaterial.color;
+        preserveTextureIfValid();
+
+        Material mat2;
+
+        if(matTex!=null)
+        {
+            mat2 = new Material(Shader.Find("Unlit/Texture"));
+            mat2.mainTexture = matTex;
+        }
+        else
+        {
+            mat2 = new Material(Shader.Find("Unlit/Color"));
+            mat2.color = GetComponent<MeshRenderer>().sharedMaterial.color;
+        }
+
+
+        
 
         GetComponent<MeshRenderer>().material = mat2;
     }
@@ -375,6 +426,16 @@ public class objProperties : MonoBehaviour
         mat2.color = Color.white;
 
         GetComponent<MeshRenderer>().material = mat2;
+    }
+
+    public void makeOverrideColor()
+    {
+        preserveTextureIfValid();
+        Material mat2 = new Material(Shader.Find("Standard"));
+        mat2.color = overrideColor;
+
+        GetComponent<MeshRenderer>().material = mat2;
+        mat2.mainTexture = matTex;
     }
 
     public void makeTransparent()
@@ -396,6 +457,17 @@ public class objProperties : MonoBehaviour
         clearChildColliders();
         if (gameObject.GetComponent<InteractableObjectScript>()) { DestroyImmediate(gameObject.GetComponent<InteractableObjectScript>()); }
         DestroyImmediate(this);
+    }
+
+    
+
+    Texture matTex;
+    void preserveTextureIfValid()
+    {
+        if (matTex != null) { return; }
+        bool b = GetComponent<MeshRenderer>().sharedMaterial.mainTexture!=null;
+        if (b) { matTex = GetComponent<MeshRenderer>().sharedMaterial.mainTexture; }
+        else { matTex = null; }
     }
 
     void clearChildColliders()
