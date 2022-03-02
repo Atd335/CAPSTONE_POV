@@ -53,6 +53,7 @@ public class Window_Canvas_Raycaster : MonoBehaviour
             if (results[0].gameObject.tag=="resizeCollider") { interactMode = 0; }
             else if (results[0].gameObject.tag=="dragCollider") { interactMode = 1; }
 
+            if (hoveredElement.GetComponent<IconButtonFunctions_Static>()) { return; }
             windowRT.parent.SetAsLastSibling();
         }
 
@@ -109,8 +110,8 @@ public class Window_Canvas_Raycaster : MonoBehaviour
         if (windowRT.parent.GetComponent<Window_Resizer>().maximized || !windowRT.parent.GetComponent<Window_Resizer>().transformEnabled) { return; }
         clickHoldDelta.y *= -1;
         windowSize = startSizeDelta + clickHoldDelta;
-        windowSize.x = Mathf.Clamp(windowSize.x, 200, Screen.width);
-        windowSize.y = Mathf.Clamp(windowSize.y, 120, Screen.height);
+        windowSize.x = Mathf.Clamp(windowSize.x, 300, Screen.width);
+        windowSize.y = Mathf.Clamp(windowSize.y, 225, Screen.height);
         windowRT.sizeDelta = windowSize;
 
     }
