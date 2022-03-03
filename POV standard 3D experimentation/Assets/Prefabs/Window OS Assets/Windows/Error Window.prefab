@@ -525,6 +525,10 @@ MonoBehaviour:
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   cornerButtonType: 0
   othertodestroy: {fileID: 0}
+  clickEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  toggleSprites: []
 --- !u!1 &3609424786212582815
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,7 +764,7 @@ MonoBehaviour:
   maximizeStartScale: {x: 0, y: 0, z: 0}
   maximizeTimer: 0
   spawnpos: {x: 350, y: -180}
-  growToSize: 1
+  growToSize: 0
   growSpeed: 20
 --- !u!114 &3609424786684824548
 MonoBehaviour:
@@ -950,6 +954,10 @@ MonoBehaviour:
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   cornerButtonType: 1
   othertodestroy: {fileID: 0}
+  clickEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  toggleSprites: []
 --- !u!1 &3609424786896167065
 GameObject:
   m_ObjectHideFlags: 0

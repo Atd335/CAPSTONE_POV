@@ -6,6 +6,10 @@ using System.Linq;
 
 public class WindowResolutionManager : MonoBehaviour
 {
+    public bool overrideResData;
+    public Vector2Int overrideRes;
+    public bool overrideFS;
+
     Dictionary<int, Vector2Int> resolutionDict;
     Dictionary<int, bool> fsDict;
 
@@ -64,6 +68,12 @@ public class WindowResolutionManager : MonoBehaviour
         }
         catch (System.Exception) { }
 
+        if (overrideResData) 
+        {
+            defaultRes = overrideRes;
+            fsMode = overrideFS;
+        }
+
         Screen.SetResolution(defaultRes.x, defaultRes.y, fsMode);
         print("resolution set...");
         print($"level = {currentLevel}");
@@ -76,6 +86,8 @@ public class WindowResolutionManager : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         }
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyUp(KeyCode.R)) { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
+        if (overrideResData) { return; }
         if (GameObject.Find("CamRaw") && SceneManager.GetActiveScene().buildIndex==0)
         {
             RectTransform rt = GameObject.Find("CamRaw").GetComponent<RectTransform>();

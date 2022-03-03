@@ -15,14 +15,13 @@ public class DesktopAsset_Cursor : MonoBehaviour
     public static GameObject selectedElement;
     void Start()
     {
-        //Fetch the Raycaster from the GameObject (the Canvas)
         m_Raycaster = GetComponent<GraphicRaycaster>();
-        //Fetch the Event System from the Scene
         m_EventSystem = GetComponent<EventSystem>();
         canvasParent = transform;
     }
     void Update()
     {
+        if (Window_Canvas_Raycaster.hoveredElement != null) { return; }
         m_PointerEventData = new PointerEventData(m_EventSystem);
         m_PointerEventData.position = Input.mousePosition;
         List<RaycastResult> results = new List<RaycastResult>();
@@ -38,11 +37,11 @@ public class DesktopAsset_Cursor : MonoBehaviour
             hoveredElement = null;
         }
 
-        if (hoveredElement && Input.GetKeyDown(KeyCode.Mouse0))
+        if (hoveredElement && hoveredElement.GetComponent<IconButtonFunctions>() != null)
         {
-            if (hoveredElement.GetComponent<IWindowButton>() != null)
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                hoveredElement.GetComponent<IWindowButton>().click();
+                hoveredElement.GetComponent<IconButtonFunctions>().clickDown();
             }
         }
     }

@@ -16,7 +16,10 @@ public class UpdateController : MonoBehaviour
     public static SetUpLevel SUL;
     public static InteractScript_3D IS3D;
     public static PopUpInfo_GUI POPUP;
-
+    public static SFX_Manager sfx;
+    public static Music_manager music;
+    public static PauseMenu_Manager pause;
+    public static SpeechScript speech;
 
     float debugtimer = 0;
     public float waitDuration;
@@ -39,6 +42,12 @@ public class UpdateController : MonoBehaviour
         qol._Start();
         SUL._Start();
         IS3D._Start();
+
+        sfx._Start();
+        music._Start();
+
+        speech._Start();
+
         if (entireSceenActive)
         {
             activeArea1 = Vector2.zero;
@@ -64,21 +73,28 @@ public class UpdateController : MonoBehaviour
         if (debugtimer != 1) { return; }
 
         qol.manualUpdate();
-        imageCap.manualUpdate();
-        switcher.manualUpdate();
-        cc3D.manualUpdate();
-        IS3D.manualUpdate();
-        cc2D.manualUpdate();
+        if (!pause.menuOpen)
+        {
+            imageCap.manualUpdate();
+            switcher.manualUpdate();
+            cc3D.manualUpdate();
+            IS3D.manualUpdate();
+            cc2D.manualUpdate();
+            sfx._Update();
+        }
+        music._Update();
+        pause.manualUpdate();
         //anim.manualUpdate();
+
         //Some universal stuff...
 
 
 
-        if (Input.GetKeyDown(KeyCode.Escape) && windowSelected)
+        if (pause.menuOpen)
         {
             Cursor.lockState = CursorLockMode.None;
         }
-        if (windowSelected)
+        else
         {
             Cursor.lockState = CursorLockMode.Locked;
         }

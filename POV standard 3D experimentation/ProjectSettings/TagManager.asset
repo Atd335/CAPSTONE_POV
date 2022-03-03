@@ -33,6 +33,11 @@ TagManager:
   - WindowCanvas
   - scrollPoint
   - animpaper
+  - emailText
+  - audioTitle
+  - audioTimer
+  - 3DView_Pivot
+  - penTips
   layers:
   - Default
   - TransparentFX
@@ -63,7 +68,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - 3D_Model_Viewer
   - BGLayer
   - collidersV2
   m_SortingLayers:

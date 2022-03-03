@@ -22,7 +22,9 @@ public class Character_Controller_3D : MonoBehaviour
     public float playerZSpd; 
     public float playerXSpd;
     public float playerSpdMax;
-
+    [HideInInspector]
+    public bool invertY;
+    
     Vector2 rot;
 
     public Vector3 position;
@@ -49,15 +51,22 @@ public class Character_Controller_3D : MonoBehaviour
         spawnRot = rot;
         //bgMat = bgQuad.material;
     }
-
+    
     // Update is called once per frame
     public void manualUpdate()
     {
 
-
         if (!UpdateController.switcher.fpsMode || !UpdateController.SUL.fpsCharacterEnabled || !UpdateController.UC.windowSelected) { return; }
 
-        rot.x -= Input.GetAxisRaw("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        if (!invertY)
+        {
+            rot.x -= Input.GetAxisRaw("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        }
+        else
+        {
+            rot.x += Input.GetAxisRaw("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        }
+        
         rot.y += Input.GetAxisRaw("Mouse X") * mouseSensitivity * Time.deltaTime;
 
         rot.x = Mathf.Clamp(rot.x,-90,90);

@@ -15,6 +15,13 @@ public class CamEffect : MonoBehaviour
     //animation variables
     [Header("Animation Variables")]
     public bool animateTextures;
+    public bool loopPlat = true;
+    public bool loopOuch = true;
+
+    public bool restartOuch = false;
+    public bool restartPlat = false;
+
+
     int fr;
     public int animSpd = 5;
 
@@ -23,6 +30,7 @@ public class CamEffect : MonoBehaviour
 
     public Texture2D[] ouchTextureFrames;
     int ouchFrame = 0;
+
 
     private void Start()
     {
@@ -33,7 +41,12 @@ public class CamEffect : MonoBehaviour
     private void FixedUpdate()
     {
         animateTextures = !UpdateController.switcher.fpsMode;
-        if (!animateTextures || !effectOn) { return; }
+        if (!animateTextures || !effectOn) 
+        {
+            if (restartOuch) { ouchFrame = 0; ouchTexture = ouchTextureFrames[ouchFrame]; }
+            if (restartPlat) { platFrame = 0; platTexture = platTextureFrames[platFrame]; }
+            return; 
+        }
         
         fr++;
 
@@ -41,8 +54,23 @@ public class CamEffect : MonoBehaviour
         {
             platFrame++;
             ouchFrame++;
-            if (ouchFrame >= ouchTextureFrames.Length) { ouchFrame = 0; }
-            if (platFrame >= platTextureFrames.Length) { platFrame = 0; }
+            if (loopOuch)
+            {
+                if (ouchFrame >= ouchTextureFrames.Length) { ouchFrame = 0; }
+            }
+            else
+            {
+                if (ouchFrame >= ouchTextureFrames.Length) { ouchFrame = ouchTextureFrames.Length-1; }
+            }
+
+            if (loopPlat)
+            {
+                if (platFrame >= platTextureFrames.Length) { platFrame = 0; }
+            }
+            else
+            {
+                if (platFrame >= platTextureFrames.Length) { platFrame = platTextureFrames.Length - 1; }
+            }
         }
 
         ouchTexture = ouchTextureFrames[ouchFrame];

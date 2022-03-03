@@ -186,7 +186,7 @@ public class Character_Controller_2D : MonoBehaviour
             moveDirection.y -= playerGravScaled * Time.deltaTime * gravityMultiplier;
             if (moveDirection.y > 0)
             {
-                if (Input.GetButtonUp("Jump"))
+                if (Input.GetButtonUp("Jump") || Input.GetKeyUp(KeyCode.Space))
                 {
                     gravityMultiplier = 2.75f;
                 }
@@ -198,7 +198,7 @@ public class Character_Controller_2D : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Jump") && groundedForJump) { moveDirection.y = scaledJumpHeight; };
+        if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.Space)) && groundedForJump) { moveDirection.y = scaledJumpHeight; };
 
         if (roofed && moveDirection.y > 0) { moveDirection.y = 0; }
 
