@@ -73,7 +73,7 @@ public class UpdateController : MonoBehaviour
         if (debugtimer != 1) { return; }
 
         qol.manualUpdate();
-        if (!pause.menuOpen)
+        if (pause == null || !pause.menuOpen)
         {
             imageCap.manualUpdate();
             switcher.manualUpdate();
