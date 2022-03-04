@@ -228,7 +228,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hee hee
+  m_Text: Running Late
 --- !u!1 &353812393313951743
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +307,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hee hee
+  m_Text: File Transfer
 --- !u!1 &538902869184457915
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,81 +423,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: clown@cove.com
---- !u!1 &803409553481632884
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4003386651945848934}
-  - component: {fileID: 5665314707453052478}
-  - component: {fileID: 1644085923581743923}
-  m_Layer: 5
-  m_Name: Line
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &4003386651945848934
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 803409553481632884}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 138067708307557427}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 1}
-  m_Pivot: {x: 0.5, y: 0}
---- !u!222 &5665314707453052478
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 803409553481632884}
-  m_CullTransparentMesh: 1
---- !u!114 &1644085923581743923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 803409553481632884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 7482667652216324306, guid: 09af0b53b50c5f745b9264cb7cc8722b, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &897293410584017955
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,11 +457,11 @@ RectTransform:
   - {fileID: 1500371960476475351}
   - {fileID: 7336366469865200675}
   m_Father: {fileID: 8003881481081976648}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -105}
+  m_AnchoredPosition: {x: 0, y: -125}
   m_SizeDelta: {x: 114, y: 35}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &278741299065463872
@@ -589,9 +514,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 848a73587db55724d88c10126d6462b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
-  clickColor: {r: 0.8980393, g: 0.8980393, b: 0.8980393, a: 1}
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+  clickColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+  normalColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   cornerButtonType: -1
   othertodestroy: {fileID: 0}
   clickEvent:
@@ -604,12 +529,14 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: ha ha ha...
           m_BoolArgument: 0
         m_CallState: 2
-  toggleSprites: []
+  toggleSprites:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1048434476518521968
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,7 +550,7 @@ GameObject:
   - component: {fileID: 9029141572893010907}
   - component: {fileID: 6037454474093000398}
   m_Layer: 5
-  m_Name: Email (1)
+  m_Name: On the passing of Brent Waters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -756,11 +683,11 @@ RectTransform:
   - {fileID: 8026788649964360628}
   - {fileID: 5475965886849214314}
   m_Father: {fileID: 8003881481081976648}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -175}
+  m_AnchoredPosition: {x: 0, y: -195}
   m_SizeDelta: {x: 114, y: 35}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &4721408237289210531
@@ -813,27 +740,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 848a73587db55724d88c10126d6462b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
-  clickColor: {r: 0.8980393, g: 0.8980393, b: 0.8980393, a: 1}
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+  clickColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+  normalColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   cornerButtonType: -1
   othertodestroy: {fileID: 0}
   clickEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5751337786858338173}
+      - m_Target: {fileID: 6905014725426057424}
         m_TargetAssemblyTypeName: Window_Corner_Buttons, Assembly-CSharp
         m_MethodName: emailButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: ha ha ha...
           m_BoolArgument: 0
         m_CallState: 2
-  toggleSprites: []
+  toggleSprites:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1272128796564386900
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,11 +797,11 @@ RectTransform:
   - {fileID: 1880181653272650631}
   - {fileID: 4153440983366118161}
   m_Father: {fileID: 8003881481081976648}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -140}
+  m_AnchoredPosition: {x: 0, y: -160}
   m_SizeDelta: {x: 114, y: 35}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &4664267928043516896
@@ -925,9 +854,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 848a73587db55724d88c10126d6462b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
-  clickColor: {r: 0.8980393, g: 0.8980393, b: 0.8980393, a: 1}
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+  clickColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+  normalColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   cornerButtonType: -1
   othertodestroy: {fileID: 0}
   clickEvent:
@@ -945,7 +874,88 @@ MonoBehaviour:
           m_StringArgument: sob sob sob...
           m_BoolArgument: 0
         m_CallState: 2
-  toggleSprites: []
+  toggleSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!1 &1341944604577530785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6000233753117012679}
+  - component: {fileID: 2410678305142204705}
+  - component: {fileID: 1613743544091831349}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6000233753117012679
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341944604577530785}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8003881481081976648}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -79}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2410678305142204705
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341944604577530785}
+  m_CullTransparentMesh: 1
+--- !u!114 &1613743544091831349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341944604577530785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 8919c3d6268be244b90939ea33165d02, type: 3}
+    m_FontSize: 11
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Not Saved Offline
 --- !u!1 &1400380892675035557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,7 +1034,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Boo hoo
+  m_Text: Act Now!!
 --- !u!1 &1610578560851832931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1178,7 +1188,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: clown@cove.com
+  m_Text: ADMIN@cove.com
 --- !u!1 &2055349827223019056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1851,6 +1861,7 @@ RectTransform:
   m_Children:
   - {fileID: 2149462609382297906}
   - {fileID: 4342524674543954383}
+  - {fileID: 6000233753117012679}
   - {fileID: 3147398337902348345}
   - {fileID: 5552819544195839761}
   - {fileID: 4692355135394006407}
@@ -1859,7 +1870,6 @@ RectTransform:
   - {fileID: 7646474203895216380}
   - {fileID: 3940142337832611781}
   - {fileID: 8550675430583706454}
-  - {fileID: 138067708307557427}
   m_Father: {fileID: 5397302471506726698}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2021,7 +2031,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hee hee
+  m_Text: Hi!!
 --- !u!1 &3540851178370284981
 GameObject:
   m_ObjectHideFlags: 0
@@ -2305,7 +2315,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Boo hoo
+  m_Text: Trial Has Ended
 --- !u!1 &4687022214078263615
 GameObject:
   m_ObjectHideFlags: 0
@@ -2384,7 +2394,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ominous Warni..
+  m_Text: REACHING OUT
 --- !u!1 &4695652583592660722
 GameObject:
   m_ObjectHideFlags: 0
@@ -2529,11 +2539,11 @@ RectTransform:
   - {fileID: 4015824521705708467}
   - {fileID: 8266072309143014101}
   m_Father: {fileID: 8003881481081976648}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -70}
+  m_AnchoredPosition: {x: 0, y: -90}
   m_SizeDelta: {x: 114, y: 35}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &8903311308821570302
@@ -2586,15 +2596,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 848a73587db55724d88c10126d6462b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
-  clickColor: {r: 0.8980393, g: 0.8980393, b: 0.8980393, a: 1}
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+  clickColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+  normalColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   cornerButtonType: -1
   othertodestroy: {fileID: 0}
   clickEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6037454474093000398}
+      - m_Target: {fileID: 6905014725426057424}
         m_TargetAssemblyTypeName: Window_Corner_Buttons, Assembly-CSharp
         m_MethodName: emailButton
         m_Mode: 3
@@ -2606,86 +2616,9 @@ MonoBehaviour:
           m_StringArgument: sob sob sob...
           m_BoolArgument: 0
         m_CallState: 2
-  toggleSprites: []
---- !u!1 &4909969281592774318
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 981818730346870611}
-  - component: {fileID: 3018578937103684000}
-  - component: {fileID: 6147610516913113639}
-  m_Layer: 5
-  m_Name: Sender
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &981818730346870611
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4909969281592774318}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 138067708307557427}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 2, y: 2}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0, y: 0}
---- !u!222 &3018578937103684000
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4909969281592774318}
-  m_CullTransparentMesh: 1
---- !u!114 &6147610516913113639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4909969281592774318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 8919c3d6268be244b90939ea33165d02, type: 3}
-    m_FontSize: 11
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 40
-    m_Alignment: 6
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: sad_clown@cove...
+  toggleSprites:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &5034965698560052996
 GameObject:
   m_ObjectHideFlags: 0
@@ -2720,11 +2653,11 @@ RectTransform:
   - {fileID: 594288602476518848}
   - {fileID: 8277402911856899870}
   m_Father: {fileID: 8003881481081976648}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -210}
+  m_AnchoredPosition: {x: 0, y: -230}
   m_SizeDelta: {x: 114, y: 35}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &4023282890507284841
@@ -2777,15 +2710,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 848a73587db55724d88c10126d6462b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
-  clickColor: {r: 0.8980393, g: 0.8980393, b: 0.8980393, a: 1}
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+  clickColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+  normalColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   cornerButtonType: -1
   othertodestroy: {fileID: 0}
   clickEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5751337786858338173}
+      - m_Target: {fileID: 6905014725426057424}
         m_TargetAssemblyTypeName: Window_Corner_Buttons, Assembly-CSharp
         m_MethodName: emailButton
         m_Mode: 3
@@ -2797,7 +2730,9 @@ MonoBehaviour:
           m_StringArgument: sob sob sob...
           m_BoolArgument: 0
         m_CallState: 2
-  toggleSprites: []
+  toggleSprites:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &5111679608428613530
 GameObject:
   m_ObjectHideFlags: 0
@@ -2832,11 +2767,11 @@ RectTransform:
   - {fileID: 6404181577249259625}
   - {fileID: 7919514597724250245}
   m_Father: {fileID: 8003881481081976648}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -280}
+  m_AnchoredPosition: {x: 0, y: -300}
   m_SizeDelta: {x: 114, y: 35}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &6801945491080792875
@@ -2889,15 +2824,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 848a73587db55724d88c10126d6462b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
-  clickColor: {r: 0.8980393, g: 0.8980393, b: 0.8980393, a: 1}
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+  clickColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+  normalColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   cornerButtonType: -1
   othertodestroy: {fileID: 0}
   clickEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6307408497059254308}
+      - m_Target: {fileID: 6905014725426057424}
         m_TargetAssemblyTypeName: Window_Corner_Buttons, Assembly-CSharp
         m_MethodName: emailButton
         m_Mode: 3
@@ -2909,7 +2844,9 @@ MonoBehaviour:
           m_StringArgument: sob sob sob...
           m_BoolArgument: 0
         m_CallState: 2
-  toggleSprites: []
+  toggleSprites:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &5499267361509335271
 GameObject:
   m_ObjectHideFlags: 0
@@ -2988,7 +2925,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hee hee
+  m_Text: On the passing...
 --- !u!1 &5503929944872494265
 GameObject:
   m_ObjectHideFlags: 0
@@ -3331,7 +3268,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Boo hoo
+  m_Text: Re:File Transfer
 --- !u!1 &6385506544474624309
 GameObject:
   m_ObjectHideFlags: 0
@@ -3445,11 +3382,11 @@ RectTransform:
   - {fileID: 3129967600136703997}
   - {fileID: 5665085586991107674}
   m_Father: {fileID: 8003881481081976648}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -315.25}
+  m_AnchoredPosition: {x: 0, y: -335}
   m_SizeDelta: {x: 114, y: 35}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &1394261557028243786
@@ -3502,27 +3439,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 848a73587db55724d88c10126d6462b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
-  clickColor: {r: 0.8980393, g: 0.8980393, b: 0.8980393, a: 1}
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+  clickColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+  normalColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   cornerButtonType: -1
   othertodestroy: {fileID: 0}
   clickEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4344901754889458554}
+      - m_Target: {fileID: 6905014725426057424}
         m_TargetAssemblyTypeName: Window_Corner_Buttons, Assembly-CSharp
         m_MethodName: emailButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: ha ha ha...
           m_BoolArgument: 0
         m_CallState: 2
-  toggleSprites: []
+  toggleSprites:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &6597674230464681415
 GameObject:
   m_ObjectHideFlags: 0
@@ -5414,7 +5353,7 @@ GameObject:
   - component: {fileID: 6098385761952834797}
   - component: {fileID: 2437195712659515824}
   m_Layer: 5
-  m_Name: Email
+  m_Name: Reaching Out
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5826,118 +5765,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: sad_clown@cove...
---- !u!1 &8395817671248404820
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 138067708307557427}
-  - component: {fileID: 1083768269484797451}
-  - component: {fileID: 1466636045826007386}
-  - component: {fileID: 6044420363707842378}
-  m_Layer: 5
-  m_Name: Email (10)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &138067708307557427
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8395817671248404820}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4003386651945848934}
-  - {fileID: 8635111421370504980}
-  - {fileID: 981818730346870611}
-  m_Father: {fileID: 8003881481081976648}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -350.25}
-  m_SizeDelta: {x: 114, y: 35}
-  m_Pivot: {x: 0, y: 1}
---- !u!222 &1083768269484797451
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8395817671248404820}
-  m_CullTransparentMesh: 1
---- !u!114 &1466636045826007386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8395817671248404820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 7482667652216324306, guid: 09af0b53b50c5f745b9264cb7cc8722b, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!114 &6044420363707842378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8395817671248404820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 848a73587db55724d88c10126d6462b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
-  clickColor: {r: 0.8980393, g: 0.8980393, b: 0.8980393, a: 1}
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
-  cornerButtonType: -1
-  othertodestroy: {fileID: 0}
-  clickEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4344901754889458554}
-        m_TargetAssemblyTypeName: Window_Corner_Buttons, Assembly-CSharp
-        m_MethodName: emailButton
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: sob sob sob...
-          m_BoolArgument: 0
-        m_CallState: 2
-  toggleSprites: []
 --- !u!1 &8613081580510866523
 GameObject:
   m_ObjectHideFlags: 0
@@ -6014,85 +5841,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &8649917325286112307
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8635111421370504980}
-  - component: {fileID: 8033585856993407869}
-  - component: {fileID: 2990526600520913802}
-  m_Layer: 5
-  m_Name: Subject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &8635111421370504980
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8649917325286112307}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 138067708307557427}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 2, y: -2}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0, y: 1}
---- !u!222 &8033585856993407869
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8649917325286112307}
-  m_CullTransparentMesh: 1
---- !u!114 &2990526600520913802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8649917325286112307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 8919c3d6268be244b90939ea33165d02, type: 3}
-    m_FontSize: 12
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Boo hoo
 --- !u!1 &8697839277185710257
 GameObject:
   m_ObjectHideFlags: 0
@@ -6282,7 +6030,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Boo hoo
+  m_Text: Thanks Again
 --- !u!1 &8767962520161162113
 GameObject:
   m_ObjectHideFlags: 0
@@ -6361,7 +6109,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hee hee
+  m_Text: Re:Re:File Tran...
 --- !u!1 &8826975380824151822
 GameObject:
   m_ObjectHideFlags: 0
@@ -6633,11 +6381,11 @@ RectTransform:
   - {fileID: 2020110788660708824}
   - {fileID: 6918001741927278231}
   m_Father: {fileID: 8003881481081976648}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -245}
+  m_AnchoredPosition: {x: 0, y: -265}
   m_SizeDelta: {x: 114, y: 35}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &2323885758903955697
@@ -6690,24 +6438,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 848a73587db55724d88c10126d6462b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
-  clickColor: {r: 0.8980393, g: 0.8980393, b: 0.8980393, a: 1}
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+  clickColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+  normalColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   cornerButtonType: -1
   othertodestroy: {fileID: 0}
   clickEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6307408497059254308}
+      - m_Target: {fileID: 6905014725426057424}
         m_TargetAssemblyTypeName: Window_Corner_Buttons, Assembly-CSharp
         m_MethodName: emailButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: ha ha ha...
           m_BoolArgument: 0
         m_CallState: 2
-  toggleSprites: []
+  toggleSprites:
+  - {fileID: 0}
+  - {fileID: 0}

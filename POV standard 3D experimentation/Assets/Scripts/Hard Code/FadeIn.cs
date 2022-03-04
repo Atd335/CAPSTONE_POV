@@ -11,7 +11,7 @@ public class FadeIn : MonoBehaviour
     void Awake()
     {
         fade.enabled = true;
-        fade.color = Color.black;
+        fade.color = new Color(fade.color.r, fade.color.b, fade.color.g, 1);
     }
 
     void Update()

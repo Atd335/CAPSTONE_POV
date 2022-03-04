@@ -61,10 +61,9 @@ public class IconButtonFunctions : MonoBehaviour
         if (selected && Input.GetKey(KeyCode.Mouse0)) { a_goToCursor(); }
     }
 
-
-
     private void OnValidate()
     {
+        if (Application.isPlaying) { return; }
         FileText.text = iconName;
         this.gameObject.name = $"{iconName}_icon";
         FileIcon.sprite = iconTexture;

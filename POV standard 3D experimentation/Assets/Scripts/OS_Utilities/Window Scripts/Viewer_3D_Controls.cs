@@ -15,7 +15,7 @@ public class Viewer_3D_Controls : MonoBehaviour
         cam = camPivot.GetChild(0);
         vector = new Vector3(0, 0, 0);
         zDistLerp = -5;
-        zDist = -5;
+        zDist = -5;        
     }
     Vector3 vector;
 
