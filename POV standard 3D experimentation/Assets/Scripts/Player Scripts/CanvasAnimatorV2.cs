@@ -56,7 +56,7 @@ public class CanvasAnimatorV2 : MonoBehaviour
         //    playSpd = jumpSpd;
         //}
 
-        if (!cc2d.groundedForJump)
+        if (!cc2d.groundedForAnim)
         {
             currentSprites = jumpSprites;
             playSpd = jumpSpd;
@@ -84,6 +84,7 @@ public class CanvasAnimatorV2 : MonoBehaviour
                 if (currentSprites == jumpSprites) { currentFrame = currentSprites.Length - 1; }
                 else { currentFrame = 0; }
             }
+            if (currentSprites == walkSprites && fr % 12 == 0) { UpdateController.sfx.playSound(19); }
             img.sprite = currentSprites[currentFrame];
         }
         else

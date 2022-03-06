@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Music_manager : MonoBehaviour
 {
@@ -8,8 +9,7 @@ public class Music_manager : MonoBehaviour
     public AudioSource AS;
 
     bool musicPlaying = false;
-    AudioClip currentTrack;
-    AudioClip upcomingTrack;
+    public AudioClip currentTrack;
 
     public float volume;
 
@@ -18,56 +18,20 @@ public class Music_manager : MonoBehaviour
         UpdateController.music = this;
     }
 
-    public AudioClip testTrack;
-
     public void _Start()
     {
         AS = GetComponents<AudioSource>()[1];
-        //TESTING
-        if (testTrack != null)
+        if (currentTrack != null)
         {
-            switchTrack(testTrack, 1);
+            AS.clip = currentTrack;
+            AS.Play();
         }
-    }
-
-    public void switchTrack(AudioClip track, float spd = 1)
-    {
-        upcomingTrack = track;
-        StartCoroutine(fadeNewTrack(spd));
     }
 
     public void _Update()
     {
-        if (!musicPlaying)
-        {
-            AS.Stop();
-            return;
-        }
-        else 
-        {
-            if (!AS.isPlaying) { AS.PlayOneShot(currentTrack);}
-        }
 
-        AS.volume = volume * (1-timer);
-    }
+        AS.volume = volume;
 
-    float timer = 0;
-    IEnumerator fadeNewTrack(float spd)
-    {
-        timer = 0;
-        while (true)
-        {
-            timer += Time.deltaTime * spd;
-            yield return new WaitForSeconds(Time.deltaTime);
-            timer = Mathf.Clamp(timer, 0, 1);
-            if (timer == 1) { currentTrack = upcomingTrack; break;}
-        }
-        while (true)
-        {
-            timer -= Time.deltaTime * spd;
-            yield return new WaitForSeconds(Time.deltaTime);
-            timer = Mathf.Clamp(timer, 0, 1);
-            if (timer == 0) {break;}
-        }
     }
 }

@@ -151,7 +151,7 @@ public class Character_Controller_2D : MonoBehaviour
         scaledDeccel = decelleration * imageCap.scaledPixelSize;
         scaledMaxSpd = maxSpd * imageCap.scaledPixelSize;
     }
-
+    bool landed;
     void movePlayer()
     {
         if (!UpdateController.SUL.platformerCharacterEnabled) { return; }
@@ -198,7 +198,21 @@ public class Character_Controller_2D : MonoBehaviour
             }
         }
 
-        if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.Space)) && groundedForJump) { moveDirection.y = scaledJumpHeight; };
+        if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.Space)) && groundedForJump) 
+        { 
+            moveDirection.y = scaledJumpHeight;
+            UpdateController.sfx.playSound(7);
+        }
+
+        if (isGroundedForAnim())
+        {
+            if (!landed) { UpdateController.sfx.playSound(8); }
+            landed = true;
+        }
+        else
+        {
+            landed = false;
+        }
 
         if (roofed && moveDirection.y > 0) { moveDirection.y = 0; }
 
@@ -224,6 +238,33 @@ public class Character_Controller_2D : MonoBehaviour
         }
 
         UpdateController.switcher.assign3DPoint(roundVectorToInt(player.position));
+    }
+    
+    public bool isGroundedForAnim()
+    {
+
+        Vector3Int v = roundVectorToInt(player.position-new Vector3(0,10,0));
+
+        Vector3Int p1 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2),
+            v.y - (1 * (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * imageCap.scaledPixelSize)))), 0);
+        Vector3Int p2 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2) + Mathf.RoundToInt(playerRadiusScaled) / 2,
+            v.y - (1 * (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * imageCap.scaledPixelSize)))), 0);
+
+        if (!withinBoundsOfTexture(p1, imageCap.texture) || !withinBoundsOfTexture(p2, imageCap.texture)) { return false; }
+
+        Color[] groundPixels = imageCap.texture.GetPixels(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2), v.y - (Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * imageCap.scaledPixelSize))), Mathf.RoundToInt(playerRadiusScaled) / 2, 1);
+
+        bool b = false;
+        foreach (Color c in groundPixels)
+        {
+            if (CheckColorApproximate(c, platformColor))
+            {
+                b = true;
+            }
+        }
+        groundedForAnim = b;
+        return b;
+        //return groundPixels.Contains<Color>(platformColor);
     }
 
     bool isGroundedForjump()
@@ -390,6 +431,7 @@ public class Character_Controller_2D : MonoBehaviour
 
     public void DIE(string dieThrow = "died.")
     {
+        UpdateController.sfx.playSound(5,2.5f);
         player.localScale = Vector3.zero;
         UpdateController.switcher.fpsMode = true;
         UpdateController.switcher.hitPosition = respawnPosition;

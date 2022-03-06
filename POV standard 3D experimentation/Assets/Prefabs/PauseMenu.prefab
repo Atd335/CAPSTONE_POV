@@ -547,7 +547,7 @@ GameObject:
   - component: {fileID: 1600975734355829135}
   m_Layer: 5
   m_Name: Slider
-  m_TagString: Untagged
+  m_TagString: volumeSlider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -621,7 +621,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 100
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

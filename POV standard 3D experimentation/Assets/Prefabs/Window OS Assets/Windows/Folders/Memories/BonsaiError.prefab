@@ -354,7 +354,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\n<color=red>Fatal Error!</color> \nFile <i>'Bonsai.3D'</i> is corrupt.\nPlease
+  m_Text: "\n<color=red>Fatal Error!</color> \nFile <i>'Asphodel.3dv'</i> is corrupt.\nPlease
     launch file repair tool."
 --- !u!1 &3652618842522679198
 GameObject:

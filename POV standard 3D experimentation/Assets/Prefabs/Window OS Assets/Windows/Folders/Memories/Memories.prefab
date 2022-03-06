@@ -1137,7 +1137,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Files - 3D stuff
+  m_Text: Files - Memories
 --- !u!1 &6965259429209531268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2386,19 +2386,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3431011069585662210, guid: e012b9aa301434a4aba8006b88d893cd, type: 3}
       propertyPath: m_Name
-      value: Bonsai.3dv_icon
+      value: Asphodel.3dv_icon
       objectReference: {fileID: 0}
     - target: {fileID: 3431011069585662213, guid: e012b9aa301434a4aba8006b88d893cd, type: 3}
       propertyPath: iconName
-      value: Bonsai.3dv
+      value: Asphodel.3dv
       objectReference: {fileID: 0}
     - target: {fileID: 3431011069629327188, guid: e012b9aa301434a4aba8006b88d893cd, type: 3}
       propertyPath: m_Text
-      value: Bonsai.3dv
+      value: Asphodel.3dv
       objectReference: {fileID: 0}
     - target: {fileID: 3431011070365968767, guid: e012b9aa301434a4aba8006b88d893cd, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 70
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e012b9aa301434a4aba8006b88d893cd, type: 3}

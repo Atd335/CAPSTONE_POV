@@ -80,6 +80,7 @@ public class ModeSwitcher : MonoBehaviour
 
             if (fpsMode)
             {
+                UpdateController.sfx.playSound(0);
                 checkForStickySurface();
 
                 assign3DPoint(roundVectorToInt(UpdateController.cc2D.player.position));
@@ -87,6 +88,7 @@ public class ModeSwitcher : MonoBehaviour
             }
             else
             {
+                UpdateController.sfx.playSound(1);
                 isSticky = false;
                 stickyObj = null;
             }

@@ -27,7 +27,7 @@ public class SpeechScript : MonoBehaviour
 
     void LateUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.E)) { SpeakText("This is some text that I make the 2D character say. This is an example sentence."); }
+        //if (Input.GetKeyDown(KeyCode.E)) { SpeakText("Squishtober"); }
         
         speechBubbleRT.rotation = Quaternion.Euler(0,0,0);
         textBox.rectTransform.sizeDelta = speechBubbleRT.sizeDelta - Vector2.one * 10;

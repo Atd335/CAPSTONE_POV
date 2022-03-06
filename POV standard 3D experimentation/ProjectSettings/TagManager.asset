@@ -38,6 +38,7 @@ TagManager:
   - audioTimer
   - 3DView_Pivot
   - penTips
+  - volumeSlider
   layers:
   - Default
   - TransparentFX

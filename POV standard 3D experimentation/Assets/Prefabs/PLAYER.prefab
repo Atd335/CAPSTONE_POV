@@ -811,8 +811,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AS: {fileID: 0}
+  currentTrack: {fileID: 0}
   volume: 0
-  testTrack: {fileID: 0}
 --- !u!82 &1214857962289485735
 AudioSource:
   m_ObjectHideFlags: 0
@@ -922,7 +922,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AS: {fileID: 0}
-  sfxs: []
+  sfxs:
+  - {fileID: 8300000, guid: d099b748f91cdcf4f8b676e894aa8423, type: 3}
+  - {fileID: 8300000, guid: cfc1db37d80e0d64197460c28523f1a1, type: 3}
+  - {fileID: 8300000, guid: d2e2e17dbbaa2f7499f0a51480b16f10, type: 3}
+  - {fileID: 8300000, guid: 74d31f12f9145cc48826f943f2c6db6c, type: 3}
+  - {fileID: 8300000, guid: 7e8b9ff215abc744792ddb7c39a83c3b, type: 3}
+  - {fileID: 8300000, guid: 3d510bcf858586f45b192a94a6150ffc, type: 3}
+  - {fileID: 8300000, guid: 88efc70e98562d1448e7497dc435e487, type: 3}
+  - {fileID: 8300000, guid: d15c8dabeadbf6d4da3705784e44341f, type: 3}
+  - {fileID: 8300000, guid: 007289b6843445c4c94c7556da28c3cf, type: 3}
+  - {fileID: 8300000, guid: 46616c44465d2254d9edff06afdb9fbd, type: 3}
+  - {fileID: 8300000, guid: 74dd5bc7450bb444eb62e21bd307a625, type: 3}
+  - {fileID: 8300000, guid: e140c31579fa0d7418b38351ebdd7836, type: 3}
+  - {fileID: 8300000, guid: 3cb6e89317e0e454d8cce2289c16e139, type: 3}
+  - {fileID: 8300000, guid: edf9bd96346f6c044a543ab1af67a4ad, type: 3}
+  - {fileID: 8300000, guid: 8d580fb456a30db4a84c5251b11e0858, type: 3}
+  - {fileID: 8300000, guid: 2d540c03734cf2e428b48bc71fe27516, type: 3}
+  - {fileID: 8300000, guid: cd09090e4d98e4b499fb084377dbdd33, type: 3}
+  - {fileID: 8300000, guid: 8a8c5a10459beca4aa9d18893a149a73, type: 3}
+  - {fileID: 8300000, guid: 88e412fe475e9234a81467a32673504f, type: 3}
+  - {fileID: 8300000, guid: a85abe230dda447469f961b887c9e86c, type: 3}
+  - {fileID: 8300000, guid: 8deb2ea783294a242b0559cbdea02e3a, type: 3}
 --- !u!82 &9219176663853599302
 AudioSource:
   m_ObjectHideFlags: 0
@@ -937,7 +958,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1278,7 +1299,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3575271495393656988
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1741,7 +1762,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rt: {fileID: 8400000, guid: a521eca9fdf5e37458401c64b7eefe31, type: 2}
-  defaultScale: 1.7777778
 --- !u!1 &6998174195029615981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1913,7 +1933,7 @@ MonoBehaviour:
   loopOuch: 1
   restartOuch: 0
   restartPlat: 1
-  animSpd: 5
+  animSpd: 2
   platTextureFrames:
   - {fileID: 2800000, guid: c71c064893f0aaf418608908adecb006, type: 3}
   - {fileID: 2800000, guid: 6c38f9b7badab1a46a05b4f7cf4d83b5, type: 3}
