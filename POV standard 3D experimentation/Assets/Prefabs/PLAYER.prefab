@@ -1935,16 +1935,7 @@ MonoBehaviour:
   restartPlat: 1
   animSpd: 2
   platTextureFrames:
-  - {fileID: 2800000, guid: c71c064893f0aaf418608908adecb006, type: 3}
-  - {fileID: 2800000, guid: 6c38f9b7badab1a46a05b4f7cf4d83b5, type: 3}
-  - {fileID: 2800000, guid: 94d79805fa4f9f74c9967ed893b9c494, type: 3}
-  - {fileID: 2800000, guid: 17fca1f80d71e194d9069ac5a4cc1316, type: 3}
-  - {fileID: 2800000, guid: 3734803014c169c439ed4c0a69893cbd, type: 3}
-  - {fileID: 2800000, guid: 15ba3057a94dbee4d939a4ed0cac354f, type: 3}
-  - {fileID: 2800000, guid: cef1b7dd308c39147902c3fa3bb7543e, type: 3}
-  - {fileID: 2800000, guid: 18a7fff9c259240428503bcc667011e5, type: 3}
-  - {fileID: 2800000, guid: 1dc9e93ef1640c945a046b9bc603384d, type: 3}
-  - {fileID: 2800000, guid: d1e740d2cbb1d3f4cb4f3e193024eeb7, type: 3}
+  - {fileID: 2800000, guid: a4ecd17bbcc3a3144a87bc4aa809bdcd, type: 3}
   ouchTextureFrames:
   - {fileID: 2800000, guid: 22729fa230eb3444fb81375eb16346c1, type: 3}
   - {fileID: 2800000, guid: d93a0b21320c17942a10a7edabba44ff, type: 3}

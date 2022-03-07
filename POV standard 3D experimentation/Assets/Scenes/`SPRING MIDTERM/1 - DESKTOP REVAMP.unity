@@ -452,6 +452,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3250473091471655406}
     m_Modifications:
+    - target: {fileID: 363145578010271745, guid: 7ef2b1664a1fc4d4699e5fee683c4b08, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4430658524103830549, guid: 7ef2b1664a1fc4d4699e5fee683c4b08, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4274,6 +4278,7 @@ GameObject:
   - component: {fileID: 1397965387}
   - component: {fileID: 1397965388}
   - component: {fileID: 1397965389}
+  - component: {fileID: 1397965390}
   m_Layer: 0
   m_Name: AudioListener
   m_TagString: Untagged
@@ -4416,6 +4421,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1397965390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397965385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5ea511970dc7b4a95c56f41d4ec578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1431314868
 GameObject:
   m_ObjectHideFlags: 0
