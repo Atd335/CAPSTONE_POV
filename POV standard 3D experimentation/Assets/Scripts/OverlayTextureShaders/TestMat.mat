@@ -64,11 +64,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OverlayTexture_1:
-        m_Texture: {fileID: 2800000, guid: a4ecd17bbcc3a3144a87bc4aa809bdcd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 62eb112d0e0dc44488e36a59e22fea58, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OverlayTexture_2:
-        m_Texture: {fileID: 2800000, guid: 4d7f2782dcf074d45af4a9efb92cf305, type: 3}
+        m_Texture: {fileID: 2800000, guid: 22729fa230eb3444fb81375eb16346c1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
