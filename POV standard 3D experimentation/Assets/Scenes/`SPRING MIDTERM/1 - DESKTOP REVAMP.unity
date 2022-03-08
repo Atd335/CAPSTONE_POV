@@ -456,6 +456,10 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 875532857714399348, guid: 7ef2b1664a1fc4d4699e5fee683c4b08, type: 3}
+      propertyPath: m_Text
+      value: POV.mp3
+      objectReference: {fileID: 0}
     - target: {fileID: 4430658524103830549, guid: 7ef2b1664a1fc4d4699e5fee683c4b08, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2215,6 +2219,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  logs: {fileID: 1986082453}
 --- !u!1 &817134235
 GameObject:
   m_ObjectHideFlags: 0
@@ -3967,7 +3972,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.6
   m_Text: Attempting to resolve file...
 --- !u!222 &1206794238
 CanvasRenderer:
@@ -5042,7 +5047,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: POV OS Inactive Liscence
+  m_Text: AGAVE OS Inactive Liscence
 --- !u!222 &1516955918
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6084,6 +6089,18 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3132933297797090320, guid: 9b039cf02cfb5744da44823e16324b7b, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132933297797090320, guid: 9b039cf02cfb5744da44823e16324b7b, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132933297797090320, guid: 9b039cf02cfb5744da44823e16324b7b, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b039cf02cfb5744da44823e16324b7b, type: 3}
 --- !u!1 &1986082450
@@ -6120,9 +6137,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 5, y: -277.5}
-  m_SizeDelta: {x: 944, y: 500}
-  m_Pivot: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 5, y: -357.75}
+  m_SizeDelta: {x: 944, y: 335.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1986082453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6136,7 +6153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6150,15 +6167,15 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 6
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'LOGS:
+  m_Text: '<color=blue>LOGS:</color>
 
-    >'
+'
 --- !u!222 &1986082454
 CanvasRenderer:
   m_ObjectHideFlags: 0
