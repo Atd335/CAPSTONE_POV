@@ -36,7 +36,6 @@ public class UpdateController : MonoBehaviour
         imageCap._Start();
         cc3D._Start();
         cc2D._Start();
-        //anim._Start();
         switcher._Start();
 
         qol._Start();

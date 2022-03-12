@@ -64,7 +64,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OverlayTexture_1:
+<<<<<<< HEAD
         m_Texture: {fileID: 2800000, guid: a4ecd17bbcc3a3144a87bc4aa809bdcd, type: 3}
+=======
+        m_Texture: {fileID: 2800000, guid: 62eb112d0e0dc44488e36a59e22fea58, type: 3}
+>>>>>>> 7e71b580c59f5213cb1c076d3ceefc4f0748bb87
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OverlayTexture_2:
