@@ -16,8 +16,6 @@ public class TransferToMainGame : MonoBehaviour
 
     public AnimationCurve loadUp;
 
-    public Text logs;
-
     private void Start()
     {
         window.gameObject.SetActive(false);
@@ -32,13 +30,6 @@ public class TransferToMainGame : MonoBehaviour
         print("Bring Up Window");
         StartCoroutine(bringUpWindowCoroutine());
     }
-
-    string[] logJargon = {
-        "scanning disk for related meta-data...",
-        "reformatting index...",
-        "checking file location...",
-        "attempting to extrapolate missing or corrupted data..."
-    };
 
     IEnumerator bringUpWindowCoroutine()
     {
@@ -75,7 +66,6 @@ public class TransferToMainGame : MonoBehaviour
             timer += Time.deltaTime * 2;
             timer = Mathf.Clamp(timer, 0, 1);
             yield return new WaitForSeconds(Time.deltaTime);
-            logs.text += $">{logJargon[Random.Range(0, logJargon.Length)]}\n";
             barFill.rectTransform.localScale = new Vector3(loadUp.Evaluate(timer),1,1);
             if (timer == 1) { break; }
         }
