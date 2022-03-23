@@ -17,49 +17,76 @@ public class ObjPropertiesInspector : Editor
 
         if (GUILayout.Button("Set Custom Color"))
         {
-            myScript.makeOverrideColor();
+            foreach (objProperties obj in targets)
+            {
+                obj.makeOverrideColor();
+            }
         }
 
         if (GUILayout.Button("Make Platform"))
         {
-            myScript.makePlat();
+            foreach (objProperties obj in targets)
+            {
+                obj.makePlat();
+            }
         }
 
         if (GUILayout.Button("Make Cut Out"))
         {
-            myScript.makeCutOut();
+            foreach (objProperties obj in targets)
+            {
+                obj.makeCutOut();
+            }
         }
 
         if (GUILayout.Button("Make Damage"))
         {
-            myScript.makeDamage();
+            foreach (objProperties obj in targets)
+            {
+                obj.makeDamage();
+            }
         }
 
         if (GUILayout.Button("Make Interactable"))
         {
-            myScript.makeInteractable();
+            foreach (objProperties obj in targets)
+            {
+                obj.makeInteractable();
+            }
         }
 
         if (GUILayout.Button("Make Material Flat"))
         {
-            myScript.makeFlat();
+            foreach (objProperties obj in targets)
+            {
+                obj.makeFlat();
+            }
         }
 
         if (GUILayout.Button("Make Material White Shaded"))
         {
-            myScript.makeWhiteShaded();
+            foreach (objProperties obj in targets)
+            {
+                obj.makeWhiteShaded();
+            }
         }
 
 
 
         if (GUILayout.Button("Make Transparent"))
         {
-            myScript.makeTransparent();
+            foreach (objProperties obj in targets)
+            {
+                obj.makeTransparent();
+            }
         }
 
         if (GUILayout.Button("Remove Component"))
         {
-            myScript.removeThisComponent();
+            foreach (objProperties obj in targets)
+            {
+                obj.removeThisComponent();
+            }
         }
     }
 }

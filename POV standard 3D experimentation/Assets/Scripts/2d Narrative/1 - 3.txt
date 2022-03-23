@@ -1,0 +1,5 @@
+[One moment, loading fragment…]
+. . .
+[That’s 2 fragments down, 9 to go.]
+
+-press 'E' to close-

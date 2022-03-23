@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class objProperties : MonoBehaviour
 {
+    [Header("018A89")]
     public Color overrideColor;
     
     [HideInInspector]

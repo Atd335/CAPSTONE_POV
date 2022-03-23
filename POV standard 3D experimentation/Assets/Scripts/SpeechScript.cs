@@ -23,14 +23,23 @@ public class SpeechScript : MonoBehaviour
     {
         AS = GetComponents<AudioSource>()[2];
         textBox = speechBubbleRT.GetComponentInChildren<Text>();
+
+        speechBubbleRT.gameObject.SetActive(false);
     }
 
+    float hideTimer;
+    float timeOut = 5;
     void LateUpdate()
     {
-        //if (Input.GetKeyDown(KeyCode.E)) { SpeakText("Squishtober"); }
+        if (!speechBubbleRT.gameObject.activeInHierarchy) { return; }
+        if (!speaking)
+        {
+            hideTimer += Time.deltaTime;
+        }
+        hideTimer = Mathf.Clamp(hideTimer,0,timeOut);
+        if ((Input.GetKeyDown(KeyCode.E)&&!speaking) || hideTimer==timeOut) { speechBubbleRT.gameObject.SetActive(false); hideTimer = 0;}
         
         speechBubbleRT.rotation = Quaternion.Euler(0,0,0);
-        textBox.rectTransform.sizeDelta = speechBubbleRT.sizeDelta - Vector2.one * 10;
     }
 
     public void SpeakText(string str, float volume = .15f, float pitch = 1)
@@ -41,22 +50,53 @@ public class SpeechScript : MonoBehaviour
 
     IEnumerator speaker(string str, float volume, float pitch)
     {
+        //enable bubble
+        speechBubbleRT.gameObject.SetActive(true);
+
         speaking = true;
         textBox.text = "";
+        
+        //textbox size;
+        //int rows = str.Split('\n').Length;
+        //foreach (string s in str.Split('\n')) 
+        //{
+        //    rows += Mathf.FloorToInt(s.Length / 27f);
+        //}
+
+        //rows = (22 * rows) + 20;
+        speechBubbleRT.sizeDelta = new Vector2(400,(22*1)+20);
+        // textbox size
+        
         int currentChar = 0;
         timeBetweenLetters = Mathf.Clamp(timeBetweenLetters,0.01f,999);
+
+        float rowCount = 1;
+        float charCount = 0;
         while (true)
         {
+            float timeMod = 0;
+            char chr = str[currentChar];
+            charCount++;
+
+            if (chr == '\n' || charCount==27) { rowCount++; charCount = 0; }
+            speechBubbleRT.sizeDelta = new Vector2(400, (22 * rowCount) + 20);
+
             AS.pitch = pitch;
-            AS.PlayOneShot(vocalSamples[intFromChar(str[currentChar])],volume);
-            textBox.text += str[currentChar].ToString();
+            AS.PlayOneShot(vocalSamples[intFromChar(chr)],volume);//play sound
+
+            
+            
+            textBox.text += chr.ToString();//add character
+
+            if (char.IsPunctuation(chr)) { timeMod = timeBetweenLetters; }//give pauses for punctuation.
             currentChar++;
-            if (currentChar >= str.Length) { break; }
-            yield return new WaitForSeconds(timeBetweenLetters);
+
+
+            if (currentChar >= str.Length) { break; }           
+            yield return new WaitForSeconds(timeBetweenLetters+timeMod);
         }     
         speaking = false;
     }
-
     public int intFromChar(char c)
     {
         char cc = c.ToString().ToUpper()[0];
@@ -115,7 +155,7 @@ public class SpeechScript : MonoBehaviour
             case 'Z':
                 return 25;
             default:
-                return 0;
+                return 26;
         }
     }
 }

@@ -33,7 +33,7 @@ public class NarrativeAudioSource : MonoBehaviour
 
         AL = GameObject.FindObjectOfType<AudioListener>();  
     }
-
+    bool trigger;
     void Update()
     {
         //is true if within the mimnimum range of being able to hear the soundclip
@@ -45,7 +45,7 @@ public class NarrativeAudioSource : MonoBehaviour
         if (staticTimer == 1) { staticTimer = 0; }
         AS_Static.volume = 1 - AS.volume;
 
-
+        
 
         if (!listenerWithinMinimumRange)
         {
@@ -68,12 +68,18 @@ public class NarrativeAudioSource : MonoBehaviour
             }
             else
             {
-                if (!AS.isPlaying) { AS.PlayOneShot(soundToLoop); }
+                if (trigger) { StartCoroutine(waitThenPlay()); }
             }
         }
 
 
     }
 
+    public float waitTime = 2.5f;
+    IEnumerator waitThenPlay()
+    {
+        yield return new WaitForSeconds(waitTime);
+        AS.PlayOneShot(soundToLoop);
+    }
 
 }

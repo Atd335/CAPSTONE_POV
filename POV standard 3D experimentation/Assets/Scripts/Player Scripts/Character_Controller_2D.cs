@@ -10,7 +10,8 @@ public class Character_Controller_2D : MonoBehaviour
     //Debugging 
     public bool startSim;
     int whileChecker;
-    int collisionTimeOut = 5000;
+    int collisionTimeOut = 2000;
+    public float stuckScaler = 1;
 
     //Simple Character
     public Transform player;
@@ -226,7 +227,7 @@ public class Character_Controller_2D : MonoBehaviour
 
             foreach (Vector3 cv in collisionVectors)
             {
-                player.position -= (cv * imageCap.scaledPixelSize);
+                player.position -= (cv * imageCap.scaledPixelSize * stuckScaler);
             }
 
             //for (int i = 0; i < collisionVectors.Count; i++)
@@ -270,7 +271,7 @@ public class Character_Controller_2D : MonoBehaviour
     bool isGroundedForjump()
     {
 
-        Vector3Int v = roundVectorToInt(player.position);
+        Vector3Int v = roundVectorToInt(player.position - new Vector3(0, 2, 0));
 
         Vector3Int p1 = new Vector3Int(v.x - (Mathf.RoundToInt(playerRadiusScaled) / 2), 
             v.y - (1*(Mathf.RoundToInt(playerRadiusScaled) + (Mathf.RoundToInt(8 * imageCap.scaledPixelSize)))), 0);

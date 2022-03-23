@@ -1,0 +1,11 @@
+Welcome back to the Agave Debugger! I’m here to help you recover this file:
+ * Name: asphodel.3dv
+ * Location: RapidDriveHD > Users > Brent > Documents > Memories
+ * Created: 12 May 2004
+
+[Just a moment while I run some diagnostics…]
+
+It looks like this file has 11 fragments and 0 of them have been recovered. 
+...Let’s do this!
+
+-press 'E' to close-
