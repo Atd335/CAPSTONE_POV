@@ -23,13 +23,13 @@ public class EdgeDetect : MonoBehaviour {
     RenderTexture depthTexture;
     RenderTexture normalsTexture;
     Camera cam;
-    [HideInInspector]
+    //[HideInInspector]
     public Shader encodedDepthShader;
     Material edgeDetectMat;
-    [HideInInspector]
+    //[HideInInspector]
     public Shader edgeDetectShader;
     public Camera depthCapturingCamera;
-    [HideInInspector]
+    //[HideInInspector]
     public Shader edgeCombineShader;
     RenderTexture edgeTexture;
     Material edgeCombineMat;
