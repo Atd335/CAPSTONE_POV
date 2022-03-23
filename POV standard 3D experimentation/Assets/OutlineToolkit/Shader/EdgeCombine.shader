@@ -115,6 +115,7 @@
 					weight = 0;
 				weight /= 0.75;
 				weight = clamp(weight, 0, 1);
+				//weight = clamp(weight, 0.5, 1);
 
 				i.uv.y = 1 - i.uv.y;
 				weight *= _Color.a;
