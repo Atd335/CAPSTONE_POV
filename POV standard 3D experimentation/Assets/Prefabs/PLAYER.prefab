@@ -1945,7 +1945,6 @@ GameObject:
   - component: {fileID: 1178929454819585219}
   - component: {fileID: 2205008210348341303}
   - component: {fileID: 4568859192848423416}
-  - component: {fileID: 1376779511378262616}
   m_Layer: 5
   m_Name: TextureOverlay
   m_TagString: Untagged
@@ -2020,19 +2019,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   white: {fileID: 5872693038757579268}
---- !u!114 &1376779511378262616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6410503418255485254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2ef2521794de054eab330785ca65a12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rt: {fileID: 8400000, guid: a521eca9fdf5e37458401c64b7eefe31, type: 2}
 --- !u!1 &6998174195029615981
 GameObject:
   m_ObjectHideFlags: 0
