@@ -460,6 +460,22 @@ PrefabInstance:
       propertyPath: m_Text
       value: POV.mp3
       objectReference: {fileID: 0}
+    - target: {fileID: 2410372166019498530, guid: 7ef2b1664a1fc4d4699e5fee683c4b08, type: 3}
+      propertyPath: toggleSprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2410372166019498530, guid: 7ef2b1664a1fc4d4699e5fee683c4b08, type: 3}
+      propertyPath: toggleSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 6e7cac601918b214abc60e80c517cd21, type: 3}
+    - target: {fileID: 2410372166019498530, guid: 7ef2b1664a1fc4d4699e5fee683c4b08, type: 3}
+      propertyPath: toggleSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: b752937e4e47db4468317ad0a3b46daa, type: 3}
+    - target: {fileID: 2410372166019498530, guid: 7ef2b1664a1fc4d4699e5fee683c4b08, type: 3}
+      propertyPath: toggleSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 6e7cac601918b214abc60e80c517cd21, type: 3}
     - target: {fileID: 4430658524103830549, guid: 7ef2b1664a1fc4d4699e5fee683c4b08, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -468,6 +484,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6965259429175798525, guid: 7ef2b1664a1fc4d4699e5fee683c4b08, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965259429209531266, guid: 7ef2b1664a1fc4d4699e5fee683c4b08, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 46d2b3374c6d13c4c97687af4196931d, type: 3}
     - target: {fileID: 6965259429209531267, guid: 7ef2b1664a1fc4d4699e5fee683c4b08, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -390
@@ -3069,6 +3093,14 @@ PrefabInstance:
     - target: {fileID: 3946336856514051640, guid: c7dd246add2185d49bd6a47c070d016a, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946336856514051641, guid: c7dd246add2185d49bd6a47c070d016a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 46d2b3374c6d13c4c97687af4196931d, type: 3}
+    - target: {fileID: 3946336856546932550, guid: c7dd246add2185d49bd6a47c070d016a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7dd246add2185d49bd6a47c070d016a, type: 3}
