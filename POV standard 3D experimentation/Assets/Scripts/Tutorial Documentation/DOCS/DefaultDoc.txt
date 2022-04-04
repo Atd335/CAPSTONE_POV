@@ -1,0 +1,1 @@
+This is the description box$This is the panel box, this contains a more in-depth explanation of the mechanic in question.

@@ -586,7 +586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformEnabled: 1
-  freeTransform: 1
+  freeTransform: 0
   WindowBase: {fileID: 6965259429209531266}
   contentSection: {fileID: 6965259430202936589}
   contentSectionRT: {fileID: 0}
@@ -654,7 +654,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6965259429871302154
 RectTransform:
   m_ObjectHideFlags: 0
