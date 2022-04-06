@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8c3dc345f75424abc4318ebd5002f3, type: 3}
+  m_Name: 2 - Anim Test
+  m_EditorClassIdentifier: 
+  imageAnimated: 1
+  img: {fileID: 21300000, guid: 62eb112d0e0dc44488e36a59e22fea58, type: 3}
+  animFrames:
+  - {fileID: 21300000, guid: 62eb112d0e0dc44488e36a59e22fea58, type: 3}
+  - {fileID: 21300000, guid: d3caed2de24ed9849b57ccf61d8fdbdb, type: 3}
+  - {fileID: 21300000, guid: 15d95d7b44cfc914e9f4e1267b4cdce2, type: 3}
+  - {fileID: 21300000, guid: 264cffff269af574fa15f3a3873059bc, type: 3}
+  - {fileID: 21300000, guid: 6637b6e6b6193ba45a0b6258a796f403, type: 3}
+  - {fileID: 21300000, guid: c377aadf0e760be45986fe7efa6e5d35, type: 3}
+  - {fileID: 21300000, guid: 1f5c6f2ac1e575e42abe02cc2b4af813, type: 3}
+  - {fileID: 21300000, guid: 3fdf5843485253e4795edff181c5d5fa, type: 3}
+  - {fileID: 21300000, guid: 3f3d0e351e73a934da2d4a5d7edd75fd, type: 3}
+  text: {fileID: 4900000, guid: 65ccee9057ac89a40b63adb694331b64, type: 3}

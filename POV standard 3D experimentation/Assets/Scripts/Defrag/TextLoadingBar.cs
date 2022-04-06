@@ -31,8 +31,9 @@ public class TextLoadingBar : MonoBehaviour
     void Update()
     {
         if (triggered) { return; }
-
-        loadTimer += Time.deltaTime;
+        if (loadSpeed != 0) { loadTimer += Time.deltaTime * loadSpeed; }
+        else { loadTimer += Time.deltaTime; }
+        
         loadTimer = Mathf.Clamp(loadTimer,0,1);
 
         loadprogress = Mathf.RoundToInt(loadCurve.Evaluate(loadTimer) * maxLoad);

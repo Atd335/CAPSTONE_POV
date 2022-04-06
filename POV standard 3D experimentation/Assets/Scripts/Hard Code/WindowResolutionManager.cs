@@ -82,7 +82,7 @@ public class WindowResolutionManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.N))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         }
