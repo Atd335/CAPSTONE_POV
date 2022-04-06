@@ -28,7 +28,7 @@ public class SpeechScript : MonoBehaviour
     }
 
     float hideTimer;
-    float timeOut = 5;
+    float timeOut = 9999999999;
     void LateUpdate()
     {
         if (!speechBubbleRT.gameObject.activeInHierarchy) { return; }
@@ -37,7 +37,7 @@ public class SpeechScript : MonoBehaviour
             hideTimer += Time.deltaTime;
         }
         hideTimer = Mathf.Clamp(hideTimer,0,timeOut);
-        if ((Input.GetKeyDown(KeyCode.E)&&!speaking) || hideTimer==timeOut) { speechBubbleRT.gameObject.SetActive(false); hideTimer = 0;}
+        if ((Input.GetKeyDown(KeyCode.Q)&&!speaking) || hideTimer==timeOut) { speechBubbleRT.gameObject.SetActive(false); hideTimer = 0;}
         
         speechBubbleRT.rotation = Quaternion.Euler(0,0,0);
     }

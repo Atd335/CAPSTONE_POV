@@ -4,4 +4,4 @@ Whoa! Who knew I could walk on these?
 . . .
 [OK! We’ve restored 4 fragments, and we have 7 left.]
 
--press 'E' to close-
+-press 'Q' to close-

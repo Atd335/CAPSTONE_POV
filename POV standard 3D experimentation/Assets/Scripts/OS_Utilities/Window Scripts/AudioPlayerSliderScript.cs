@@ -19,11 +19,19 @@ public class AudioPlayerSliderScript : MonoBehaviour
         cliplength = clip.length;
         GameObject.FindGameObjectWithTag("audioTitle").GetComponent<Text>().text = clip.name;
     }
+
+    bool playTriggered;
+
     void Update()
     {
-        
-        if (AS.isPlaying) { currentTime += Time.deltaTime; }
+
+        if (AS.isPlaying) 
+        {
+            if (!playTriggered) { currentTime = 0; playTriggered = true; }
+            currentTime += Time.deltaTime; 
+        }
         currentTime = Mathf.Clamp(currentTime,0,cliplength);
+        if (currentTime == cliplength) { playTriggered = false; }
         GetComponentInChildren<Slider>().value = currentTime / cliplength;
         GameObject.FindGameObjectWithTag("audioTimer").GetComponent<Text>().text = $"{secondToMinuteString(currentTime)}/{secondToMinuteString(cliplength)}";
 
