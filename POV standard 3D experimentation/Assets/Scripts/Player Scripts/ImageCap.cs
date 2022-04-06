@@ -40,7 +40,7 @@ public class ImageCap : MonoBehaviour
 
     void OnRenderImage(RenderTexture src, RenderTexture dest)
     {
-        if (UpdateController.switcher.fpsMode || UpdateController.pause.menuOpen) { return; }
+        if (UpdateController.switcher.fpsMode || (UpdateController.pause && UpdateController.pause.menuOpen)) { return; }
         // Read pixels from the source RenderTexture, apply the material, copy the updated results to the destination RenderTexture
         Graphics.Blit(src, dest, mat);
         GrabCameraTexture(src);

@@ -1641,7 +1641,7 @@ MonoBehaviour:
   maximizeStart: {x: 0, y: 0, z: 0}
   maximizeStartScale: {x: 0, y: 0, z: 0}
   maximizeTimer: 0
-  spawnpos: {x: 522, y: -55}
+  spawnpos: {x: 57, y: -60}
   growToSize: 0
   growSpeed: 20
 --- !u!114 &6965259429866240696
