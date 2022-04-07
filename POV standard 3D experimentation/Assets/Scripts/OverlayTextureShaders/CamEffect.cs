@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [ExecuteInEditMode]
 public class CamEffect : MonoBehaviour
@@ -31,15 +32,35 @@ public class CamEffect : MonoBehaviour
     public Texture2D[] ouchTextureFrames;
     int ouchFrame = 0;
 
+    public static RenderTexture RT_OVERLAY;
 
     private void Start()
     {
         ouchTexture = ouchTextureFrames[0];
         platTexture = platTextureFrames[0];
+        isRTSynced = false;
+        screendim = new Vector2(Screen.width, Screen.height);
     }
 
+    bool createdTex;
+    public RawImage textureOverlay;
+    bool isRTSynced;
+    Vector2 screendim;
     private void FixedUpdate()
     {
+        //this might be intense but what the hell...
+        if (!isRTSynced)
+        {
+            print(this.name + $" SYNCING RENDER TEXTURE...");
+            RT_OVERLAY = new RenderTexture(Screen.width, Screen.height, 0);
+            GetComponent<Camera>().targetTexture = RT_OVERLAY;
+            textureOverlay.texture = RT_OVERLAY;
+        }
+
+        isRTSynced = RT_OVERLAY!= null && RT_OVERLAY.width == Screen.width && RT_OVERLAY.height == Screen.height && (screendim == new Vector2(Screen.width, Screen.height));
+        screendim = new Vector2(Screen.width, Screen.height);
+
+
         animateTextures = !UpdateController.switcher.fpsMode;
         if (!animateTextures || !effectOn) 
         {

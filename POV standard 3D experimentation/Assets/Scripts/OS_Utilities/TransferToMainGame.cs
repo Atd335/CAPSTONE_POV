@@ -87,13 +87,13 @@ public class TransferToMainGame : MonoBehaviour
             timer += Time.deltaTime * 9;
             timer = Mathf.Clamp(timer, 0, 1);
             yield return new WaitForSeconds(Time.deltaTime);
-            fallBackBG.rectTransform.sizeDelta = Vector2.Lerp(new Vector2(480, 393), new Vector2(800,600), timer);//resize window
+            fallBackBG.rectTransform.sizeDelta = Vector2.Lerp(new Vector2(503, 316), new Vector2(Screen.width,Screen.height), timer);//resize window
             fallBackBG.rectTransform.anchoredPosition = Vector2.Lerp(new Vector2(-5, 5), new Vector2(0,0), timer);
 
             if (timer == 1) { break; }
         }
 
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(5);
 
         yield return null;
     }

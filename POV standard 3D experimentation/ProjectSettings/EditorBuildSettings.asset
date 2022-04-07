@@ -6,21 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/`SPRING MIDTERM/0 - Boot Up.unity
-    guid: 77810b1beea3c6d42a0efb578010b87f
+    path: Assets/Scenes/`SPRING MIDTERM/0 - OS BOOT.unity
+    guid: fcb6161ed70d03044a7fcef74e962269
   - enabled: 1
     path: Assets/Scenes/`SPRING MIDTERM/1 -LOGIN.unity
     guid: 771f2d56171e10547a11cf7fe0b3d06c
   - enabled: 1
-    path: Assets/Scenes/`SPRING MIDTERM/2 - DESKTOP REVAMP.unity
+    path: Assets/Scenes/`SPRING MIDTERM/2 - BIOS.unity
+    guid: 8dee0cf8967b0f645adb9ac236fdc09d
+  - enabled: 1
+    path: Assets/Scenes/`SPRING MIDTERM/3 - 2D Tutorial.unity
+    guid: 77810b1beea3c6d42a0efb578010b87f
+  - enabled: 1
+    path: Assets/Scenes/`SPRING MIDTERM/4 - DESKTOP REVAMP.unity
     guid: 04c7c67c78eb84142b3e24517ee489b1
   - enabled: 1
-    path: Assets/Scenes/`SPRING MIDTERM/3 - Level.unity
+    path: Assets/Scenes/`SPRING MIDTERM/5 - Level.unity
     guid: 026256b4649c2a342bbdb86a137179cd
   - enabled: 1
-    path: Assets/Scenes/`SPRING MIDTERM/4 - Completed_Level.unity
+    path: Assets/Scenes/`SPRING MIDTERM/6 - Completed_Level.unity
     guid: 078c25162fd7d254eb3130f87f8588e6
   - enabled: 1
-    path: Assets/Scenes/`SPRING MIDTERM/5 - End of Demo.unity
+    path: Assets/Scenes/`SPRING MIDTERM/7 - End of Demo.unity
     guid: 74dd68840a48e10438525cef19581f06
   m_configObjects: {}

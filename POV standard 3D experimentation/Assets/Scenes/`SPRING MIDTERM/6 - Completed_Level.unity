@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -421,6 +421,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 916351723}
   m_CullTransparentMesh: 1
+--- !u!1001 &977175935
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2801814765065252988, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801814765065252988, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801814765065252988, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801814765065252988, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801814765065252988, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801814765065252988, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801814765065252988, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801814765065252988, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801814765065252988, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801814765065252988, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801814765065252988, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801814765065252989, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
+      propertyPath: m_Name
+      value: GameWindowResolutionManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801814765065252991, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
+      propertyPath: lockMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801814765065252991, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
+      propertyPath: overrideFS
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801814765065252991, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
+      propertyPath: overrideRes.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801814765065252991, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
+      propertyPath: overrideRes.y
+      value: 540
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801814765065252991, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
+      propertyPath: overrideResData
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
 --- !u!1 &1383762652
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,8 +622,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8919c3d6268be244b90939ea33165d02, type: 3}
-    m_FontSize: 0
+    m_Font: {fileID: 12800000, guid: 392809ee1cc26f047ab5ecad4507f54d, type: 3}
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
