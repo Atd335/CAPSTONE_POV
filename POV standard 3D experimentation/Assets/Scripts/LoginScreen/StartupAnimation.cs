@@ -17,6 +17,7 @@ public class StartupAnimation : MonoBehaviour
     int fr;
     void FixedUpdate()
     {
+        Cursor.lockState = CursorLockMode.None;
         fr++;
         if (fr % 2 == 0)
         {

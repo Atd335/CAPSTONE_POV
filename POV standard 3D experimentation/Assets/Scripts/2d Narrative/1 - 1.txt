@@ -8,4 +8,4 @@ Welcome back to the Agave Debugger! I’m here to help you recover this file:
 It looks like this file has 11 fragments and 0 of them have been recovered. 
 ...Let’s do this!
 
--press 'E' to close-
+-press 'Q' to close-

@@ -10,17 +10,20 @@ public class FlatTexManager : MonoBehaviour
     float highPacity = 1f;
 
     public Image white;
+    public RawImage whiteRaw;
 
     void Update()
     {
         if (UpdateController.switcher.fpsMode)
         {
-            white.color = Color.Lerp(white.color, new Color(1,1,1,0), Time.deltaTime * 10);
+            if (white != null) {white.color = Color.Lerp(white.color, new Color(1, 1, 1, 0), Time.deltaTime * 10);}
+            if (whiteRaw!=null) { whiteRaw.color = Color.Lerp(whiteRaw.color, new Color(1, 1, 1, 0), Time.deltaTime * 10); }
             GetComponent<RawImage>().color = Color.Lerp(GetComponent<RawImage>().color, new Color(1,1,1,lowPacity), Time.deltaTime * 10);
         }
         else
         {
-            white.color = Color.Lerp(white.color, new Color(1, 1, 1, .8f), Time.deltaTime * 10);
+            if (white!=null) {white.color = Color.Lerp(white.color, new Color(1, 1, 1, .8f), Time.deltaTime * 10);}
+            if(whiteRaw != null) { whiteRaw.color = Color.Lerp(whiteRaw.color, new Color(1, 1, 1, .8f), Time.deltaTime * 10); }
             GetComponent<RawImage>().color = Color.Lerp(GetComponent<RawImage>().color, new Color(1, 1, 1, highPacity), Time.deltaTime * 10);
         }
     }

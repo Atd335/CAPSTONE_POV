@@ -23,6 +23,11 @@ public class CanvasTransferV2 : MonoBehaviour
 
     private void Awake()
     {
+        //init();
+    }
+
+    private void init()
+    {
         if (!GameObject.FindGameObjectWithTag("3D PLAYER")) { return; }
         camRT = new RenderTexture(Screen.width, Screen.height, 0);
         camRT.filterMode = FilterMode.Point;
@@ -72,12 +77,18 @@ public class CanvasTransferV2 : MonoBehaviour
     {
         //print($"{camRaw.rectTransform.anchoredPosition.x}|{camRaw.rectTransform.anchoredPosition.y}");
 
+        bool isRTSynced = (camRT != null && camRT.width == Screen.width && camRT.height == Screen.height) && (canvasRT != null && canvasRT.width == Screen.width && canvasRT.height == Screen.height);
+        
+        if (!isRTSynced)
+        {
+            print(this.name + $" SYNCING RENDER TEXTURE...");
+            init();
+        }
+
         if (!inWindow) { return; }
         Vector2 v = GameObject.FindGameObjectWithTag("GameWindow").GetComponent<Window_Resizer>().contentSection.rectTransform.sizeDelta;
 
         camRaw.rectTransform.sizeDelta = v;
         canvasRaw.rectTransform.sizeDelta = v;
-
-
     }
 }

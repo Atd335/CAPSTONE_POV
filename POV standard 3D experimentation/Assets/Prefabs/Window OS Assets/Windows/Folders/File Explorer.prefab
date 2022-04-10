@@ -2157,6 +2157,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: C.O.V.E.
       objectReference: {fileID: 0}
+    - target: {fileID: 3431011069629327188, guid: 19d24746b2e099d4cbe1082b167bbbb2, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 3431011070365968767, guid: 19d24746b2e099d4cbe1082b167bbbb2, type: 3}
       propertyPath: m_SizeDelta.x
       value: 50
@@ -2292,6 +2296,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: References
       objectReference: {fileID: 0}
+    - target: {fileID: 3431011069629327188, guid: 19d24746b2e099d4cbe1082b167bbbb2, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 3431011070365968767, guid: 19d24746b2e099d4cbe1082b167bbbb2, type: 3}
       propertyPath: m_SizeDelta.x
       value: 70
@@ -2422,6 +2430,10 @@ PrefabInstance:
     - target: {fileID: 3431011069629327188, guid: 19d24746b2e099d4cbe1082b167bbbb2, type: 3}
       propertyPath: m_Text
       value: Personal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3431011069629327188, guid: 19d24746b2e099d4cbe1082b167bbbb2, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3431011070365968767, guid: 19d24746b2e099d4cbe1082b167bbbb2, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2554,6 +2566,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: Asphodel
       objectReference: {fileID: 0}
+    - target: {fileID: 3431011069629327188, guid: 19d24746b2e099d4cbe1082b167bbbb2, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 3431011070365968767, guid: 19d24746b2e099d4cbe1082b167bbbb2, type: 3}
       propertyPath: m_SizeDelta.x
       value: 60
@@ -2684,6 +2700,10 @@ PrefabInstance:
     - target: {fileID: 3431011069629327188, guid: 19d24746b2e099d4cbe1082b167bbbb2, type: 3}
       propertyPath: m_Text
       value: Memories
+      objectReference: {fileID: 0}
+    - target: {fileID: 3431011069629327188, guid: 19d24746b2e099d4cbe1082b167bbbb2, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3431011070365968767, guid: 19d24746b2e099d4cbe1082b167bbbb2, type: 3}
       propertyPath: m_SizeDelta.x
