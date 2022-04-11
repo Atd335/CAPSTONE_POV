@@ -2630,6 +2630,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 6e443eaa0ff32ef41810fddcee88fb4e, type: 3}
   - {fileID: 2800000, guid: 586cc099dfed81e499743de761eb6b7c, type: 3}
   - {fileID: 2800000, guid: 7bf931663cb30eb47b1c620ebd2d6bca, type: 3}
+  textureOverlay: {fileID: 2205008210348341303}
 --- !u!1 &9210847683066109839
 GameObject:
   m_ObjectHideFlags: 0

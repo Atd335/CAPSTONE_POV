@@ -82,14 +82,17 @@ public class UpdateController : MonoBehaviour
             sfx._Update();
         }
         music._Update();
-        pause.manualUpdate();
+        if (pause)
+        {
+            pause.manualUpdate();
+        }
         //anim.manualUpdate();
 
         //Some universal stuff...
 
 
 
-        if (pause.menuOpen)
+        if (pause && pause.menuOpen)
         {
             Cursor.lockState = CursorLockMode.None;
         }

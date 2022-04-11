@@ -55,7 +55,7 @@ public class RayCastInfoPlayer : MonoBehaviour
             img.color = new Color(1,1,1,timer);
             if (timer == 1) { break; }
         }
-        SceneChangerEasy.changeSceneSimple(3,true);
+        SceneChangerEasy.changeSceneSimple(4,true);
     }
 
 }
