@@ -125,9 +125,10 @@ public class Character_Controller_2D : MonoBehaviour
         movePlayer();
         if (!withinBoundsOfTexture(roundVectorToInt(player.position), UpdateController.imageCap.texture)) { DIE("Died by falling out of world"); }
         playerRect.anchoredPosition3D = new Vector3(playerRect.anchoredPosition3D.x, playerRect.anchoredPosition3D.y, 0);
-
         DestroyImmediate(UpdateController.imageCap.texture);//THIS IS PROBABLY GOING TO CAUSE SOME ISSUE IN THE FUTURE!!!
     }
+
+
 
     void updateColor()
     {

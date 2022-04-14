@@ -10,6 +10,7 @@ public class Character_Controller_3D : MonoBehaviour
 
     public Transform head;
     public Transform headMast;
+    public Transform headCamTransform;
 
     Vector3 moveDirection;
     Vector3 movementVector;
@@ -22,6 +23,7 @@ public class Character_Controller_3D : MonoBehaviour
     public float playerZSpd; 
     public float playerXSpd;
     public float playerSpdMax;
+    public float playerSpdMaxSprint;
     [HideInInspector]
     public bool invertY;
     
@@ -45,6 +47,7 @@ public class Character_Controller_3D : MonoBehaviour
     {
         cc = GetComponent<CharacterController>();
         headCamera = head.GetComponentInChildren<Camera>();
+        headCamTransform = headCamera.transform;
         rot.x = head.transform.rotation.eulerAngles.x;
         rot.y = head.transform.rotation.eulerAngles.y;
         spawnPosition = transform.position;
@@ -105,8 +108,16 @@ public class Character_Controller_3D : MonoBehaviour
             moveDirection.y = jumpHeight;
         }
 
-        playerZSpd = Mathf.Clamp(playerZSpd, 0, playerSpdMax);
-        playerXSpd = Mathf.Clamp(playerXSpd, 0, playerSpdMax);
+        if (!Input.GetKey(KeyCode.LeftShift))//not sprinting
+        {
+            playerZSpd = Mathf.Clamp(playerZSpd, 0, playerSpdMax);
+            playerXSpd = Mathf.Clamp(playerXSpd, 0, playerSpdMax);
+        }
+        else
+        {
+            playerZSpd = Mathf.Clamp(playerZSpd, 0, playerSpdMaxSprint);
+            playerXSpd = Mathf.Clamp(playerXSpd, 0, playerSpdMaxSprint);
+        }
 
         movementVector = new Vector3(moveDirection.x * playerXSpd, moveDirection.y, moveDirection.z * playerZSpd);
 
@@ -119,7 +130,27 @@ public class Character_Controller_3D : MonoBehaviour
 
         position = head.position;
 
+        bobHead();
+
         checkFor2DCheckPoint();
+    }
+    float walkTimer;
+    float stopTimer;
+    void bobHead()
+    {
+        bool moving = new Vector2(playerXSpd,playerZSpd).magnitude>0;
+        
+        if (moving)
+        {
+            walkTimer += Time.deltaTime * new Vector2(playerXSpd, playerZSpd).magnitude * 2.75f;
+            headCamTransform.localPosition = new Vector3(0, Mathf.Sin(walkTimer) * .06f, 0);
+        }
+        else
+        {
+            
+            headCamTransform.localPosition = Vector3.Lerp(headCamTransform.localPosition, Vector3.zero,Time.deltaTime * 8f);
+            walkTimer = 0;
+        }
     }
 
     public void DIE()

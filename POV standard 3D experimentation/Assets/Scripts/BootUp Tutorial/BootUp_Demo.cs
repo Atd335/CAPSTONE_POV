@@ -25,12 +25,6 @@ public class BootUp_Demo : MonoBehaviour
         instructions.rectTransform.anchoredPosition = new Vector2((Screen.width / 2) - 85, -300);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     IEnumerator ConsoleSpew()
     {
         yield return new WaitForSeconds(.5f);
@@ -38,7 +32,7 @@ public class BootUp_Demo : MonoBehaviour
         {
             float f = Random.Range(0f, .25f);
             yield return new WaitForSeconds(f);
-            GameObject.FindObjectOfType<ASCII_ANIMATOR>().additionalString += $"\n> Completing process ({i+1}/30) || completed in {f*1000} ms...\n";
+            GameObject.FindObjectOfType<ASCII_ANIMATOR>().additionalString += $"\n> Completing process ({i+1}/30) || completed in {f*1000} ms...";
         }
     }
 
@@ -87,7 +81,7 @@ public class BootUp_Demo : MonoBehaviour
             timer += Time.deltaTime * 3;
             timer = Mathf.Clamp(timer, 0, 1);
 
-            instructions.rectTransform.anchoredPosition = Vector2.Lerp(new Vector2((Screen.width/2) - 85,-300),new Vector2(20,-20), instructionCurve.Evaluate(timer));
+            instructions.rectTransform.anchoredPosition = Vector2.Lerp(new Vector2((Screen.width/2) - 85,-300),new Vector2(10,-12), instructionCurve.Evaluate(timer));
 
             if (timer == 1) { break; }
             yield return new WaitForSeconds(Time.deltaTime);

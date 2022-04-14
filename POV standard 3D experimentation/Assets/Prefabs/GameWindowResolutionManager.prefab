@@ -46,5 +46,5 @@ MonoBehaviour:
   overrideResData: 0
   overrideRes: {x: 0, y: 0}
   overrideFS: 0
-  currentLevel: 0
-  testScene: 0
+  lockMode: 0
+  exhibitionCommandManager: {fileID: 583547680681693135, guid: c87304eeea40d8344a247cc09cac4ec3, type: 3}
