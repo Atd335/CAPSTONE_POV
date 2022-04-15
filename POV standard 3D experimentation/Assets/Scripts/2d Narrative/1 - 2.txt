@@ -1,5 +1,8 @@
+
 [Loading fragment…]
 . . .
 [Success! 1 / 11 fragments restored.]
+
+press 'R' to return to this checkpoint!
 
 -press 'Q' to close-

@@ -519,12 +519,13 @@ MonoBehaviour:
   headMast: {fileID: 433835548905065472}
   acceleration: 30
   decceleration: 45
-  jumpHeight: 13
+  jumpHeight: 10
   gravity: 45
   mouseSensitivity: 630
   playerZSpd: 0
   playerXSpd: 0
-  playerSpdMax: 9
+  playerSpdMax: 4.5
+  playerSpdMaxSprint: 9
   invertY: 0
   position: {x: 0, y: 0, z: 0}
   scrollSpd: 0.2

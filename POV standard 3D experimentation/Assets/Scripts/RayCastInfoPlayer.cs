@@ -41,6 +41,8 @@ public class RayCastInfoPlayer : MonoBehaviour
     }
 
     public GameObject fadePrefab;
+    public int nextLvl;
+
     IEnumerator fadeScreen()
     {
         GameObject g = Instantiate(fadePrefab);
@@ -55,7 +57,15 @@ public class RayCastInfoPlayer : MonoBehaviour
             img.color = new Color(1,1,1,timer);
             if (timer == 1) { break; }
         }
-        SceneChangerEasy.changeSceneSimple(4,true);
+        SceneChangerEasy.changeSceneSimple(nextLvl,true);
+    }
+
+    public static Vector3 RespawnCheckPoint;
+
+    public void setPlayerCheckPoint()
+    {
+        //set check point 
+        RespawnCheckPoint = transform.position;
     }
 
 }

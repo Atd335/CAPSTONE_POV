@@ -6,12 +6,15 @@ using UnityEngine.UI;
 public class PauseMenu_Manager : MonoBehaviour
 {
 
-    public KeyCode pauseKey = KeyCode.Tab;
+    public KeyCode pauseKey = KeyCode.Escape;
+    public KeyCode pauseKeyAlt = KeyCode.Tab;
 
     bool menuAnimating;
     public bool menuOpen;
     float animTimer;
     public float animSpd;
+
+    public float maxSensitivity = 800;
 
     public RectTransform taskBar;
     public RectTransform startMenu;
@@ -30,7 +33,7 @@ public class PauseMenu_Manager : MonoBehaviour
 
     public void manualUpdate()
     {
-        if (!menuAnimating && Input.GetKeyDown(pauseKey))
+        if (!menuAnimating && (Input.GetKeyDown(pauseKey)||Input.GetKeyDown(pauseKeyAlt)))
         {
             toggleMenu();
         }
@@ -49,7 +52,7 @@ public class PauseMenu_Manager : MonoBehaviour
     {
         UpdateController.sfx.AS.volume = volumeSlider.value / 100f;
         UpdateController.music.volume = volumeSlider.value / 100f;
-        UpdateController.cc3D.mouseSensitivity = (sensitivitySlider.value / 100f) * 1260f;
+        UpdateController.cc3D.mouseSensitivity = (sensitivitySlider.value / 100f) * maxSensitivity;
         if (muteButton.toggledOn) { UpdateController.music.volume = 0; }
         UpdateController.cc3D.invertY = invertButton.toggledOn;
 

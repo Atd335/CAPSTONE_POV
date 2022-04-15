@@ -18,6 +18,8 @@ public class TransferToMainGame : MonoBehaviour
 
     public Text logs;
 
+    public int nextScene;
+
     private void Start()
     {
         window.gameObject.SetActive(false);
@@ -93,7 +95,7 @@ public class TransferToMainGame : MonoBehaviour
             if (timer == 1) { break; }
         }
 
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(nextScene);
 
         yield return null;
     }
