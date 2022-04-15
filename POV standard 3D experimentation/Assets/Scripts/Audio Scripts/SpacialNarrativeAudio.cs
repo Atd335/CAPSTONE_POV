@@ -7,7 +7,8 @@ public class SpacialNarrativeAudio : MonoBehaviour
      public AudioClip soundToLoop;
     
     public bool listenerWithinMinimumRange;
-    bool loopTrigger;
+    public bool loopTrigger;
+    public bool trigger;
     
     AudioSource m_AudioSource;
     AudioSource AS_Static;
@@ -16,25 +17,42 @@ public class SpacialNarrativeAudio : MonoBehaviour
     public float timeTillReset = 3;
     public float m_StaticMultiplier;
     public float m_AudioTriggerMinDistance = 1f; 
-    float timer;
-
     public float volMultiplier = 1f; 
+    public float timer;
+    public float staticTimer;
+    public float staticTimerSpd = .3f;
+    public float waitTime = 2.5f;
+
+
+     float m_MoveSpeed = 1f; //~ half as fast as the user moves. 30 seconds for the whole level. 
 
     public AnimationCurve staticVolumeCurve;
 
-    float staticTimer;
-    public float staticTimerSpd = .3f;
+    private Transform m_OrignialLocation; 
+
+
 
     void Start()
     {
+
         m_AudioSource = GetComponent<AudioSource>();
         AS_Static = GetComponentsInChildren<AudioSource>()[1];
 
-        AL = GameObject.FindObjectOfType<AudioListener>();  
+        AL = GameObject.FindObjectOfType<AudioListener>();
+
+        //Look at a random destination, we'll move the object forward in Update();
+        transform.LookAt(DetermineDestination());  
     }
-    bool trigger;
+
+    
+
     void Update()
     {
+
+        //Move object foward based on DetermineDestination's resulting random target destination. 
+        transform.Translate(transform.forward * (Time.deltaTime * m_MoveSpeed));
+
+
         //is true if within the mimnimum range of being able to hear the soundclip
         listenerWithinMinimumRange = Vector3.Distance(transform.position, AL.transform.position) <= m_AudioTriggerMinDistance;
 
@@ -77,11 +95,27 @@ public class SpacialNarrativeAudio : MonoBehaviour
 
     }
 
-    public float waitTime = 2.5f;
+
+
     IEnumerator waitThenPlay()
     {
         yield return new WaitForSeconds(waitTime);
         m_AudioSource.PlayOneShot(soundToLoop);
+    }
+
+
+    //DetermineDestination takes the object's current location and return's a position on the same Y value to be used as a target to move towards. 
+    private Vector3 DetermineDestination(){
+
+        Random.InitState(System.DateTime.Now.Millisecond);
+
+        float randZ = Random.Range(-50, 50);
+        float randX = Random.Range(-50, 50);
+
+        Vector3 resultingPos = new Vector3(transform.position.x + randX, transform.position.y, transform.position.z + randZ); 
+
+        return resultingPos;
+
     }
 
 
