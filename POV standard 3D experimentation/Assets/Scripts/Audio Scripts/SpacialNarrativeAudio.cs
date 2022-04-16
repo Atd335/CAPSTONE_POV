@@ -49,12 +49,12 @@ public class SpacialNarrativeAudio : MonoBehaviour
     void Update()
     {
 
-        //Move object foward based on DetermineDestination's resulting random target destination. 
-        transform.Translate(transform.forward * (Time.deltaTime * m_MoveSpeed));
-
-
         //is true if within the mimnimum range of being able to hear the soundclip
         listenerWithinMinimumRange = Vector3.Distance(transform.position, AL.transform.position) <= m_AudioTriggerMinDistance;
+
+
+        //Move object foward based on DetermineDestination's resulting random target destination. 
+        if (listenerWithinMinimumRange == true)  { transform.Translate(transform.forward * (Time.deltaTime * m_MoveSpeed)); }
 
         staticTimer += Time.deltaTime * staticTimerSpd;
         staticTimer = Mathf.Clamp(staticTimer, 0, 1);
