@@ -17,6 +17,8 @@ public class WindowResolutionManager : MonoBehaviour
 
     public CursorLockMode lockMode = CursorLockMode.None;
 
+    public GameObject exhibitionCommandManager;
+
     private void Begin()
     {
         foreach (GameObject g in GameObject.FindGameObjectsWithTag("resManager"))
@@ -42,13 +44,7 @@ public class WindowResolutionManager : MonoBehaviour
     {
         Cursor.lockState = lockMode;
         SetRes();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.N)) {SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);}
-        
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyUp(KeyCode.R)) { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
+        if (GameObject.FindObjectOfType<exhibitionCommandManager>() == null) { Instantiate(exhibitionCommandManager); }
     }
 
     void OnEnable()

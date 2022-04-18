@@ -517,14 +517,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   head: {fileID: 433835549741805110}
   headMast: {fileID: 433835548905065472}
+  headCamTransform: {fileID: 0}
   acceleration: 30
   decceleration: 45
-  jumpHeight: 13
+  jumpHeight: 10
   gravity: 45
   mouseSensitivity: 630
   playerZSpd: 0
   playerXSpd: 0
-  playerSpdMax: 9
+  playerSpdMax: 4.5
+  playerSpdMaxSprint: 9
   invertY: 0
   position: {x: 0, y: 0, z: 0}
   scrollSpd: 0.2
@@ -1353,7 +1355,7 @@ Camera:
   m_GameObject: {fileID: 953587834157419800}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -1825,7 +1827,7 @@ Camera:
   m_GameObject: {fileID: 4914481734041047774}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -2162,7 +2164,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3af730c23a8174f41a1cadc21f6489db, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

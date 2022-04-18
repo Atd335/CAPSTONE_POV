@@ -12,7 +12,7 @@ public class GlitchIcon : MonoBehaviour
         fr++;
         if (fr % Random.Range(1, 10)==0)
         {
-            GetComponent<Image>().sprite = sprites[Random.Range(0,sprites.Length)];
+            GetComponent<Image>().sprite = sprites[Random.Range(0,sprites.Length)]; 
         }
     }
 
