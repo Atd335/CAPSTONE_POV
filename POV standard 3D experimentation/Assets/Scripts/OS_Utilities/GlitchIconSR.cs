@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class GlitchIcon : MonoBehaviour
+public class GlitchIconSR : MonoBehaviour
 {
     int fr;
     public Sprite[] sprites;
@@ -12,7 +12,7 @@ public class GlitchIcon : MonoBehaviour
         fr++;
         if (fr % Random.Range(1, 10)==0)
         {
-            GetComponent<Image>().sprite = sprites[Random.Range(0,sprites.Length)]; 
+            GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0,sprites.Length)];
         }
     }
 
