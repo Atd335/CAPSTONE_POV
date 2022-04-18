@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+///////////////////
+/*
+
+    This is obsolete, Try SpacialNarrativeAudio.cs
+
+*/
+///////////////////
+
+
 public class NarrativeAudioSource : MonoBehaviour
 {
     public AudioClip soundToLoop;
@@ -28,8 +37,6 @@ public class NarrativeAudioSource : MonoBehaviour
     {
         AS = GetComponent<AudioSource>();
         AS_Static = GetComponentsInChildren<AudioSource>()[1];
-        
-
 
         AL = GameObject.FindObjectOfType<AudioListener>();  
     }
