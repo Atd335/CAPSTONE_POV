@@ -21,15 +21,24 @@ EditorBuildSettings:
     path: Assets/Scenes/`SPRING MIDTERM/4 - 2D Tutorial.unity
     guid: 77810b1beea3c6d42a0efb578010b87f
   - enabled: 1
-    path: Assets/Scenes/`SPRING MIDTERM/5 - DESKTOP REVAMP.unity
-    guid: 04c7c67c78eb84142b3e24517ee489b1
+    path: Assets/Scenes/`SPRING MIDTERM/5 - Pre Tutorial Desktop.unity
+    guid: 152ac024127950f49b013f987d33005a
   - enabled: 1
-    path: Assets/Scenes/`SPRING MIDTERM/6 - Level.unity
-    guid: 026256b4649c2a342bbdb86a137179cd
+    path: Assets/Scenes/`SPRING MIDTERM/6 - 3D Tutorial.unity
+    guid: b95948b54b050ef4a8c93d5163712dba
   - enabled: 1
-    path: Assets/Scenes/`SPRING MIDTERM/7 - Completed_Level.unity
+    path: Assets/Scenes/`SPRING MIDTERM/7 - Completed_Tutorial.unity
     guid: 078c25162fd7d254eb3130f87f8588e6
   - enabled: 1
-    path: Assets/Scenes/`SPRING MIDTERM/8 - End of Demo.unity
+    path: Assets/Scenes/`SPRING MIDTERM/8 - DESKTOP REVAMP.unity
+    guid: 04c7c67c78eb84142b3e24517ee489b1
+  - enabled: 1
+    path: Assets/Scenes/`SPRING MIDTERM/9 - Level.unity
+    guid: 026256b4649c2a342bbdb86a137179cd
+  - enabled: 1
+    path: Assets/Scenes/`SPRING MIDTERM/10 - Completed_Level 1.unity
+    guid: cdd4e8a7c8edffc4e8e114e5eaccf0ca
+  - enabled: 1
+    path: Assets/Scenes/`SPRING MIDTERM/11 - End of Demo.unity
     guid: 74dd68840a48e10438525cef19581f06
   m_configObjects: {}
