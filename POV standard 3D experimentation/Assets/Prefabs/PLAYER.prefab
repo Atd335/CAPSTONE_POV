@@ -525,7 +525,7 @@ MonoBehaviour:
   mouseSensitivity: 630
   playerZSpd: 0
   playerXSpd: 0
-  playerSpdMax: 4.5
+  playerSpdMax: 5
   playerSpdMaxSprint: 9
   invertY: 0
   position: {x: 0, y: 0, z: 0}
