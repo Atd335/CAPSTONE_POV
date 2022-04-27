@@ -21,6 +21,8 @@ public class ModeSwitcher : MonoBehaviour
 
     public bool startInFPSMode;
 
+    public bool Movement_Paused = false;
+
     private void Awake()
     {
         UpdateController.switcher = this;
@@ -104,9 +106,17 @@ public class ModeSwitcher : MonoBehaviour
         {
             UpdateController.switcher.fpsMode = false;
         }
+
+        if (!fpsMode)
+        {
+            Movement_Paused = true;
+        }
+
+        if (fpsMode && Movement_Paused)
+        {
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)) { Movement_Paused = false; }
+        }
     }
-
-
     void checkForStickySurface()
     {
         //print("CHECKING FOR STICKY...");

@@ -36575,6 +36575,14 @@ PrefabInstance:
       propertyPath: stuckScaler
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 433835549099154637, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
+      propertyPath: playerRadius
+      value: 37.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 433835549099154639, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 433835549570037201, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
       propertyPath: mouseSensitivity
       value: 0
@@ -36721,7 +36729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3575271495393656988, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 50
+      value: 62.5
       objectReference: {fileID: 0}
     - target: {fileID: 3575271495538869444, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
       propertyPath: m_AnchorMax.x
@@ -36811,6 +36819,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5209507474782544283, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 12.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5872693038757579268, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
       propertyPath: m_Type
       value: 0
@@ -36862,6 +36874,10 @@ PrefabInstance:
     - target: {fileID: 7400800991435130381, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486274517585318520, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}

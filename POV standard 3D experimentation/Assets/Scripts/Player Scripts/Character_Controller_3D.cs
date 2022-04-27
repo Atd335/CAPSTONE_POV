@@ -59,7 +59,7 @@ public class Character_Controller_3D : MonoBehaviour
     public void manualUpdate()
     {
 
-        if (!UpdateController.switcher.fpsMode || !UpdateController.SUL.fpsCharacterEnabled || !UpdateController.UC.windowSelected) { return; }
+        if (!UpdateController.switcher.fpsMode || !UpdateController.SUL.fpsCharacterEnabled || !UpdateController.UC.windowSelected || UpdateController.switcher.Movement_Paused) { return; }
 
         if (!invertY)
         {
@@ -73,6 +73,7 @@ public class Character_Controller_3D : MonoBehaviour
         rot.y += Input.GetAxisRaw("Mouse X") * mouseSensitivity * Time.deltaTime;
 
         rot.x = Mathf.Clamp(rot.x,-90,90);
+
 
         if (Input.GetAxisRaw("Vertical") != 0)
         {
@@ -103,7 +104,7 @@ public class Character_Controller_3D : MonoBehaviour
             moveDirection.y -= gravity * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.Space) && cc.isGrounded)
+        if (Input.GetKeyUp(KeyCode.Space) && cc.isGrounded)
         {
             moveDirection.y = jumpHeight;
         }

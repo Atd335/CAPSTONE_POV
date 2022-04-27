@@ -60,7 +60,7 @@ public class exhibitionCommandManager : MonoBehaviour
 
         if (inputTimer == inputMax) { setScene(screenSaverSceneID); }// if theres no input for x seconds, send back to screen saver
 
-        if (Input.GetKeyDown(KeyCode.RightControl)) { devMode = !devMode; }
+        if (Input.GetKeyDown(KeyCode.RightControl) || Input.GetKeyDown(KeyCode.F12)) { devMode = !devMode; }
         
         if (!devMode) { return; }
         if (Input.GetKeyDown(KeyCode.N)){ SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); }//Next
