@@ -2248,7 +2248,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   logs: {fileID: 1986082453}
-  nextScene: 6
+  nextScene: 9
 --- !u!1 &817134235
 GameObject:
   m_ObjectHideFlags: 0

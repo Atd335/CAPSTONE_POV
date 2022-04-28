@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e1e91e5f22882b43b3f591f44448eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndex: 8
+  sceneIndex: 11
   click: {fileID: 8300000, guid: edf9bd96346f6c044a543ab1af67a4ad, type: 3}
 --- !u!81 &722239653
 AudioListener:
