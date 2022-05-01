@@ -37,6 +37,10 @@ public class Character_Controller_3D : MonoBehaviour
     public MeshRenderer bgQuad;
     Material bgMat;
 
+    public float startDelay = 0;
+    [HideInInspector]
+    public float startDelayTimer = 0;
+
     private void Awake()
     {
         UpdateController.cc3D = this;
@@ -58,8 +62,8 @@ public class Character_Controller_3D : MonoBehaviour
     // Update is called once per frame
     public void manualUpdate()
     {
-
-        if (!UpdateController.switcher.fpsMode || !UpdateController.SUL.fpsCharacterEnabled || !UpdateController.UC.windowSelected || UpdateController.switcher.Movement_Paused) { return; }
+        if (startDelayTimer < startDelay) { return; }
+        if (!UpdateController.switcher.fpsMode || !UpdateController.SUL.fpsCharacterEnabled || !UpdateController.UC.windowSelected) { return; }
 
         if (!invertY)
         {
@@ -171,7 +175,7 @@ public class Character_Controller_3D : MonoBehaviour
     {
         bool b = Physics.Raycast(head.position,head.forward, out RaycastHit rch);
 
-        if (Input.GetKeyDown(KeyCode.Mouse1) && b && rch.collider.tag == "checkPoint2D")
+        if (Input.GetKey(KeyCode.Mouse1) && b && rch.collider.tag == "checkPoint2D")
         {
             UpdateController.qol.Toggle2DCharacter(true);
             //print(UpdateController.switcher.hitPosition);

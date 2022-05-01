@@ -66,13 +66,14 @@ public class UpdateController : MonoBehaviour
 
     void Update()
     {
-
+        cc3D.startDelayTimer += Time.deltaTime;
         debugtimer += Time.deltaTime / waitDuration;
         debugtimer = Mathf.Clamp(debugtimer,0,1);
         if (debugtimer != 1) { return; }
 
         qol.manualUpdate();
-        if (pause == null || !pause.menuOpen)
+
+        if (pause == null || !pause.menuOpen && (DocumentationEnabler.de==null || !DocumentationEnabler.de.isDocUp))
         {
             imageCap.manualUpdate();
             switcher.manualUpdate();

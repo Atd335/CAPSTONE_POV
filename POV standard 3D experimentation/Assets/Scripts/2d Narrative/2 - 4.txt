@@ -1,5 +1,5 @@
-[Let’s get this fragment loaded…]
+Loading Fragment (9/10)
 . . .
-[Got it! We have all of the fragments now. Let’s bring it back to the root folder…]
-
--press 'Q' to close-
+Fragment Restored!
+------------------
+Only one more to go!

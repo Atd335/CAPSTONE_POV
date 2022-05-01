@@ -1,7 +1,3 @@
-
-Welcome back to the Agave Debugger! I’m here to help you recover your file.
-It looks like this file has 11 fragments and 0 of them have been recovered. 
-
-press 'Left Mouse' to toggle between 2D and 3D mode.
-
--press 'Q' to close-
+Is this... C.O.V.E.? Brent would never bring me here.
+. . .
+How do I recognize this place?

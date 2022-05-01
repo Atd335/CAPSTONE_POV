@@ -1,0 +1,8 @@
+How to Play
+$- Move the mouse to look around and use WASD or the arrow keys to move.
+
+- Left click to enter 2D  mode. Use the arrow keys to guide me to file fragments.
+
+- <color=red>Use 'Q' to close dialogs and windows, including this one.</color>
+$You have entered the Agave Recovery Tool. Welcome! This powerful software helps you visualize and recover corrupted data. I'm Echo, and I'm here to help!
+I see you're attempting to restore a .3dv file. The Debugger has rendered the file's contents in 3D. Click the left mouse button to enter 2D repair mode, where you can guide me to the data fragments.

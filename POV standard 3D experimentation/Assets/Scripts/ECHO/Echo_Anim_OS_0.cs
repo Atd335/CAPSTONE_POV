@@ -17,7 +17,7 @@ public class Echo_Anim_OS_0 : MonoBehaviour
 
     IEnumerator anim()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         echo.squish();
         echo.switchDirection();
@@ -28,7 +28,7 @@ public class Echo_Anim_OS_0 : MonoBehaviour
         yield return new WaitForSeconds(.25f);
 
         echo.boxSize = new Vector2(40, 30);
-        echo.setText("...", 2.5f);
+        echo.setText("...", 1f);
         yield return new WaitUntil(() => !echo.talking);
 
         yield return new WaitForSeconds(.25f);
@@ -58,7 +58,7 @@ public class Echo_Anim_OS_0 : MonoBehaviour
         yield return new WaitUntil(() => !echo.talking);
 
         echo.translateToPosition(echo.rt.anchoredPosition,
-                                 new Vector2(135, Screen.height-150),
+                                 new Vector2(135 , Screen.height-150),
                                  1.25f);
         yield return new WaitUntil(() => !echo.translating);
         echo.squish();

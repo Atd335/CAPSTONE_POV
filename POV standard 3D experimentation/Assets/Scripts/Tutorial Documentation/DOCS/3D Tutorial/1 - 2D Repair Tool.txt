@@ -1,0 +1,6 @@
+2D Repair Tool
+$- In 2D mode, you can navigate Echo across any surface.
+
+- If you're stuck, try changing your perspective in 3D mode! 
+$When you enter 2D  mode, everything in your field of vision is flattened onto a single plane. In this flattened perspective, you can guide me across any surface, no matter how far away. Position yourself to make creative use of surfaces! 
+It's always worth getting a good sense of the file space around you before you start to guide me. Walk around the space, look at things from different angles, and try to identify routes--then guide me from point A to point B. 

@@ -1,0 +1,5 @@
+Blocking Objects
+$- Hazards can make it difficult for Echo to reach certain fragments.
+
+- Try blocking hazards by placing objects in front of them.
+$You can use objects in the room to block potential hazards. If you encounter a hazard, try placing negative space or a platform in front of it. All hazards can be crossed in some way, so do your best to find a path that will get me to the next fragment unscathed!

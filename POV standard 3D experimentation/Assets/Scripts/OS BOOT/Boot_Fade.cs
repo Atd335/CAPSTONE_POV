@@ -17,10 +17,13 @@ public class Boot_Fade : MonoBehaviour
     public UnityEvent transparentEvent;
     public UnityEvent opaqueEvent;
 
+    float startVol;
+
     void Start()
     {
         img = GetComponent<Image>();
         startEvent.Invoke();
+        if (AS != null) { startVol = AS.volume; }
     }
 
     public void setToColorStart() {img.color = colorStart;}
@@ -28,7 +31,7 @@ public class Boot_Fade : MonoBehaviour
 
     public void fadeOpaque() { StartCoroutine(fadeToOpaque()); }
     public void fadeTransparent() { StartCoroutine(fadeToTransparent()); }
-
+    public AudioSource AS;
     IEnumerator fadeToOpaque()
     {
         float timer = 0;
@@ -38,9 +41,10 @@ public class Boot_Fade : MonoBehaviour
             timer = Mathf.Clamp(timer, 0, 1);
 
             img.color = Color.Lerp(colorEnd, colorStart, timer);
-
+            if (AS != null) { AS.volume = (1*startVol) - (timer*startVol); }
             if (timer == 1) { opaqueEvent.Invoke(); break; }
             yield return new WaitForSeconds(Time.deltaTime);
+            
         }
     }
 

@@ -1,0 +1,7 @@
+Object Perspective
+$- Enter 2D mode.
+
+- Move Echo all the way to one side.
+
+- Walk around the object in 3D.
+$Some objects can be used to access other platforms, if you look at them from the right angle. Try looking at the same object from different angles to get from one part of the room to another.

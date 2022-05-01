@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.Video;
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/DocumentationWindow", order = 2)]
 public class DocumentWindowContent : ScriptableObject
 {
-    public bool imageAnimated;
+    public bool isVideo;
     public Sprite img;
-    public Sprite[] animFrames;
     public TextAsset text;
+    public VideoClip videoClip;
 }

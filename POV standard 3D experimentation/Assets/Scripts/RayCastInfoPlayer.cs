@@ -30,10 +30,36 @@ public class RayCastInfoPlayer : MonoBehaviour
     {
         print("CollectedPage");
         UpdateController.speech.SpeakText(narr.textAsset.text,narr.volume, narr.pitch);
-        nextFile = transform.parent.GetChild(transform.GetSiblingIndex()+1);
-        GoToCanvasFromWorld.g.AssignTransform(nextFile);
+
+        try
+        {
+            nextFile = transform.parent.GetChild(transform.GetSiblingIndex() + 1);
+            GoToCanvasFromWorld.g.AssignTransform(nextFile);
+        }
+        catch { }
+
         Destroy(this.gameObject);
     }
+
+
+    public void SpeakText()
+    {
+        UpdateController.speech.SpeakText(narr.textAsset.text, narr.volume, narr.pitch);
+    }
+    public void DestroyMe()
+    {
+        Destroy(this.gameObject);
+    }
+    public void setnextFile()
+    {
+        try
+        {
+            nextFile = transform.parent.GetChild(transform.GetSiblingIndex() + 1);
+            GoToCanvasFromWorld.g.AssignTransform(nextFile);
+        }
+        catch { }
+    }
+
 
     public void finishLevel()
     {

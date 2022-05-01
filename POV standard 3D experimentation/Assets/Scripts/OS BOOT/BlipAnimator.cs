@@ -23,20 +23,20 @@ public class BlipAnimator : MonoBehaviour
 
     void FixedUpdate()
     {
-        fr++;
+        //fr++;
 
-        if (fr % boingSpd == 0)
-        {
-            blips[boingCounter].rectTransform.sizeDelta = new Vector2(18, 18);
-            boingCounter++;
+        //if (fr % boingSpd == 0)
+        //{
+        //    blips[boingCounter].rectTransform.sizeDelta = new Vector2(18, 18);
+        //    boingCounter++;
 
-            if (boingCounter >= blips.Length) { boingCounter = 0; }
-        }
+        //    if (boingCounter >= blips.Length) { boingCounter = 0; }
+        //}
 
-        foreach (Image blip in blips)
-        {
-            blip.rectTransform.sizeDelta = Vector2.Lerp(blip.rectTransform.sizeDelta, new Vector2(16,16), Time.deltaTime * 8);
-        }
+        //foreach (Image blip in blips)
+        //{
+        //    blip.rectTransform.sizeDelta = Vector2.Lerp(blip.rectTransform.sizeDelta, new Vector2(16,16), Time.deltaTime * 8);
+        //}
 
         xPos += Time.fixedDeltaTime * 200;
         xPos = Mathf.Clamp(xPos, -72, 634);

@@ -1,7 +1,5 @@
-Whoa! Who knew I could walk on these?
-
-[Hold on a second while I load this fragment…]
+Loading Fragment (5/10)
 . . .
-[OK! We’ve restored 4 fragments, and we have 7 left.]
-
--press 'Q' to close-
+Fragment Restored!
+------------------
+Whoa! Who knew I could walk on these?

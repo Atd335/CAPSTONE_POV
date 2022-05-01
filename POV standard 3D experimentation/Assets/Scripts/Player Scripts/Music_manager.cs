@@ -33,6 +33,7 @@ public class Music_manager : MonoBehaviour
 
     public void _Update(){
 
+        AS.volume = volume;
         // Removed AS.volume = volume; and put it in _Start(); 
         // Volumne is being changed by another script, constantly overriding any changes. At least this way, we can edit the volume in the inspector. 
         // This means the volume can be changed in inspector, but won't change at runtime through PauseMenu, etc.  
