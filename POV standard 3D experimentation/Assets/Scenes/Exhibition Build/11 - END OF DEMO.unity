@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311915, g: 0.3807396, b: 0.35872662, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1707,9 +1707,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5737107959157998622, guid: ab3fc41ed1216514283f4b23b64e03af, type: 3}
       propertyPath: m_Text
-      value: "Special Thanks To:\r\n\nKris Benavides\r\nSam Caines\r\nAshley Cameron\nAlexandra
-        Dahlberg\r\nClara Fern\xE1ndez-Vara\r\nAustin Grossman \r\nGreg Heffernan\r\nKyle
-        Marchessault\r\nFred Planz\r\nEric Zimmerman\r\n"
+      value: "SPECIAL THANKS\n\t~ Kris Benavides\r\n\t~ Sam Caines\r\n\t~ Ashley
+        Cameron\n\t~ Clara \n\tFern\xE1ndez-Vara\n\t~ Austin Grossman \r\n\t~ Greg
+        Heffernan\r\n\t~ Kyle Marchessault\r\n\t~ Fred Planz\r\n\t~ Eric Zimmerman\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 5737107959157998622, guid: ab3fc41ed1216514283f4b23b64e03af, type: 3}
       propertyPath: m_FontData.m_MaxSize
@@ -1717,7 +1717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5737107959157998622, guid: ab3fc41ed1216514283f4b23b64e03af, type: 3}
       propertyPath: m_FontData.m_MinSize
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5737107959157998622, guid: ab3fc41ed1216514283f4b23b64e03af, type: 3}
       propertyPath: m_FontData.m_FontSize
@@ -1733,7 +1733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6965259429181179924, guid: ab3fc41ed1216514283f4b23b64e03af, type: 3}
       propertyPath: m_Text
-      value: Special Thanks.txt
+      value: Credits (2).txt
       objectReference: {fileID: 0}
     - target: {fileID: 6965259429209531267, guid: ab3fc41ed1216514283f4b23b64e03af, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1846,6 +1846,10 @@ PrefabInstance:
     - target: {fileID: 6965259429866240698, guid: ab3fc41ed1216514283f4b23b64e03af, type: 3}
       propertyPath: m_Name
       value: TextBox (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965259429866240698, guid: ab3fc41ed1216514283f4b23b64e03af, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6965259430202936587, guid: ab3fc41ed1216514283f4b23b64e03af, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4713,14 +4717,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5737107959157998622, guid: ab3fc41ed1216514283f4b23b64e03af, type: 3}
       propertyPath: m_Text
-      value: "Programming:\r\n\tAndrew DiVittorio\r\n\tGabe Grow\r\nLevel Design:\r\n\tSantiago
-        Fern\xE1ndez\r\n\tJustin Vo\r\nNarrative Design:\r\n\tSam Blake\r\n\tSawyer
-        Smith\r\nInteraction Design:\r\n\tSam Blake\r\n\tAndrew DiVittorio\r\n\tSawyer
-        Smith\r\nVisual Design:\r\n\tDrew Caines\r\n\tAdi Dahlke\r\n\tGabi Dias\r\n\tAndrew
-        DiVittorio\r\n\tSiena Sockel\r\nProduction:\r\n\tSam Blake\r\n\tSantiago
-        Fern\xE1ndez\r\nMusic / Sound:\r\n\tAndrew DiVittorio\r\n\tDonovan Robinson\r\n\tSawyer
-        Smith\r\t\r\nVoice Acting:\r\n\tJeff Atwood\r\n\tMckenzie Atwood\r\n\tSam
-        Blake\r"
+      value: "Production -\n\t~ Sam K Blake\r\n\t~ Santiago Fern\xE1ndez\r\nProgramming
+        - \n\t~ Andrew DiVittorio\r\n\t~ Gabe Grow\r\nLevel Design - \n\t~ Santiago
+        Fern\xE1ndez\r\n\t~ Justin Vo\r\nNarrative Design - \n\t~ Sam K Blake\r\n\t~
+        Sawyer Smith\r\nInteraction Design - \n\t~ Sam Blake\r\n\t~ Andrew DiVittorio\r\n\t~
+        Sawyer Smith\r\nVisual Design - \n\t~ Drew Caines\r\n\t~ Adi Dahlke\r\n\t~
+        Gabi Dias\r\n\t~ Andrew DiVittorio\r\n\t~ Siena Sockel\r\nSound Effects -
+        \n\t~ Andrew DiVittorio\r\n\t~ Sawyer Smith\r\nMusic- Donovan Robinson\n\nVOICE
+        CAST\nBrent & Eloise Watters: \nJeff & McKenzie Atwood"
       objectReference: {fileID: 0}
     - target: {fileID: 5737107959157998622, guid: ab3fc41ed1216514283f4b23b64e03af, type: 3}
       propertyPath: m_FontData.m_MaxSize
@@ -4728,7 +4732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5737107959157998622, guid: ab3fc41ed1216514283f4b23b64e03af, type: 3}
       propertyPath: m_FontData.m_MinSize
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5737107959157998622, guid: ab3fc41ed1216514283f4b23b64e03af, type: 3}
       propertyPath: m_FontData.m_FontSize
@@ -4761,6 +4765,10 @@ PrefabInstance:
     - target: {fileID: 6965259429209531267, guid: ab3fc41ed1216514283f4b23b64e03af, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965259429209531268, guid: ab3fc41ed1216514283f4b23b64e03af, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6965259429866240695, guid: ab3fc41ed1216514283f4b23b64e03af, type: 3}
       propertyPath: spawnpos.x
