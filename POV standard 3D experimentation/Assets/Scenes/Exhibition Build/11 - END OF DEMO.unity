@@ -1707,9 +1707,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5737107959157998622, guid: ab3fc41ed1216514283f4b23b64e03af, type: 3}
       propertyPath: m_Text
-      value: "Special Thanks To:\r\n\nKris Benavides\r\nSam Caines\r\nAlexandra Dahlberg\r\nClara
-        Fern\xE1ndez-Vara\r\nAustin Grossman \r\nGreg Heffernan\r\nKyle Marchessault\r\nFred
-        Planz\r\nEric Zimmerman\r\n"
+      value: "Special Thanks To:\r\n\nKris Benavides\r\nSam Caines\r\nAshley Cameron\nAlexandra
+        Dahlberg\r\nClara Fern\xE1ndez-Vara\r\nAustin Grossman \r\nGreg Heffernan\r\nKyle
+        Marchessault\r\nFred Planz\r\nEric Zimmerman\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 5737107959157998622, guid: ab3fc41ed1216514283f4b23b64e03af, type: 3}
       propertyPath: m_FontData.m_MaxSize

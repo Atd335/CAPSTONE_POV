@@ -9,7 +9,7 @@ public class SpeechScript : MonoBehaviour
     public AudioSource AS;
     public AudioClip[] vocalSamples;
     public float timeBetweenLetters;
-    bool speaking;
+    public bool speaking;
 
     public RectTransform speechBubbleRT;
     Text textBox;

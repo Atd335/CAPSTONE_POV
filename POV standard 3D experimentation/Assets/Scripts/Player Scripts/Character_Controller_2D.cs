@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -430,9 +431,10 @@ public class Character_Controller_2D : MonoBehaviour
     {
         return v.x > 0 && v.x < tex.width && v.y > 0 && v.y < tex.height;
     }
-
+    public UnityEvent deathEvent;
     public void DIE(string dieThrow = "died.")
     {
+        deathEvent.Invoke();
         UpdateController.sfx.playSound(5,2.5f);
         player.localScale = Vector3.zero;
         UpdateController.switcher.fpsMode = true;

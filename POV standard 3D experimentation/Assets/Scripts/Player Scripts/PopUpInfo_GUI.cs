@@ -6,6 +6,8 @@ public class PopUpInfo_GUI : MonoBehaviour
 {
     public List<popUpBox> popUps;
 
+
+
     private void Awake()
     {
         UpdateController.POPUP = this;
@@ -14,6 +16,8 @@ public class PopUpInfo_GUI : MonoBehaviour
     void Start()
     {
         popUps = new List<popUpBox>();
+        UpdateController.cc2D.deathEvent.AddListener(incrementDeath);
+        StartCoroutine(remindPlayerOfRespawn());
     }
 
     public void spawnPopUp(string txt, Vector2 dim, Vector2 loc, float dur, int fon = 14)
@@ -61,6 +65,24 @@ public class PopUpInfo_GUI : MonoBehaviour
             this.BoxLocation = boxLocation;
             this.Duration = duration;
             this.FontSize = fontSize;
+        }
+
+    }
+
+    int deathCounter = 0;
+
+    void incrementDeath()
+    {
+        deathCounter++;    
+    }
+
+    IEnumerator remindPlayerOfRespawn()
+    {
+        while (true)
+        {
+            yield return new WaitUntil(() => (deathCounter>=8));
+            deathCounter = 0;
+            spawnPopUp("If you get stuck, you can press 'R' to respawn to the last checkpoint.", new Vector2(200,70), new Vector2((Screen.width/2)-100, (Screen.height - 90)), 2.5f);
         }
 
     }

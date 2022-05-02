@@ -57,6 +57,10 @@ public class DocumentationEnabler : MonoBehaviour
         {
             ToggleWindow();
         }
+        if (Input.GetKeyDown(KeyCode.E) && !isDocUp)
+        {
+            ToggleWindow();
+        }
 
         if (isDocUp)
         {
@@ -67,10 +71,11 @@ public class DocumentationEnabler : MonoBehaviour
             bg.color = Color.Lerp(bg.color, new Color(1, 1, 1, 0), Time.deltaTime * 15);
         }
     }
-
+    public int currentDoc;
     public DocumentWindowContent defaultDWC;
     public void setWindowContent(int id = 0)
     {
+        currentDoc = id;
         DocumentWindowContent content = docs.docs[id];
         WindowImage.sprite = content.img;
         docTitle.text = content.text.text.Split('$')[0];

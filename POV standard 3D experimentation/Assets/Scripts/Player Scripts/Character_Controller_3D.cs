@@ -108,7 +108,7 @@ public class Character_Controller_3D : MonoBehaviour
             moveDirection.y -= gravity * Time.deltaTime;
         }
 
-        if (Input.GetKeyUp(KeyCode.Space) && cc.isGrounded)
+        if (Input.GetKey(KeyCode.Space) && cc.isGrounded)
         {
             moveDirection.y = jumpHeight;
         }

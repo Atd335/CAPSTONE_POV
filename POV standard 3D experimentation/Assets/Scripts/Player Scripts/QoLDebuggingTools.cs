@@ -15,7 +15,7 @@ public class QoLDebuggingTools : MonoBehaviour
 
     public void _Start()
     {
-        Toggle2DCharacter(false);
+        //Toggle2DCharacter(false);
 
     }
 
