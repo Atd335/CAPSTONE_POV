@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PathCreation.Examples;
 
 public class SpacialNarrativeAudio : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class SpacialNarrativeAudio : MonoBehaviour
     public float timeTillReset = 3;
     public float m_StaticMultiplier;
     public float m_AudioTriggerMinDistance = 1f; 
+    public float m_AudioInnerRadius = 1f; 
     public float volMultiplier = 1f; 
     public float timer;
     public float staticTimer;
@@ -28,9 +30,11 @@ public class SpacialNarrativeAudio : MonoBehaviour
 
     public AnimationCurve staticVolumeCurve;
 
-    private Transform m_OrignialLocation; 
+    private Transform m_OrignialLocation;
 
+    public int loopCounter = 0;
 
+    PathFollower follower;
 
     void Start()
     {
@@ -40,12 +44,15 @@ public class SpacialNarrativeAudio : MonoBehaviour
 
         AL = GameObject.FindObjectOfType<AudioListener>();
 
+        follower = GetComponent<PathFollower>();
+
         //Look at a random destination, we'll move the object forward in Update();
-        transform.LookAt(DetermineDestination());  
+        //transform.LookAt(DetermineDestination());  
     }
 
-    
 
+    float spdMod;
+    public float accel = 3f;
     void Update()
     {
 
@@ -54,7 +61,7 @@ public class SpacialNarrativeAudio : MonoBehaviour
 
 
         //Move object foward based on DetermineDestination's resulting random target destination. 
-        if (listenerWithinMinimumRange == true)  { transform.Translate(transform.forward * (Time.deltaTime * m_MoveSpeed)); }
+        //if (listenerWithinMinimumRange == true)  { transform.Translate(transform.forward * (Time.deltaTime * m_MoveSpeed)); }
 
         staticTimer += Time.deltaTime * staticTimerSpd;
         staticTimer = Mathf.Clamp(staticTimer, 0, 1);
@@ -66,41 +73,63 @@ public class SpacialNarrativeAudio : MonoBehaviour
         AS_Static.volume *= volMultiplier;
         m_AudioSource.volume *= volMultiplier;
 
-
-        if (!listenerWithinMinimumRange)
+        if (!m_AudioSource.isPlaying && !doingWaitLoop)
         {
-            timer += Time.deltaTime;
-            timer = Mathf.Clamp(timer, 0,timeTillReset);
-            
-            if (timer == timeTillReset)
-            {
-                m_AudioSource.Stop();
-                loopTrigger = false;
-            }
+            StartCoroutine(waitThenPlay(1));            
+        }
+
+        if (listenerWithinMinimumRange)
+        {
+            spdMod += Time.deltaTime*accel;
         }
         else
         {
-            //if you exit and re-enter the range of the audiosource, it starts the clip over from the beginning. 
-            if (!loopTrigger)
-            {
-                m_AudioSource.PlayOneShot(soundToLoop);
-                loopTrigger = true;
-            }
-            else
-            {
-                if (trigger) { StartCoroutine(waitThenPlay()); }
-            }
+            spdMod -= Time.deltaTime*accel;
         }
+
+
+        spdMod = Mathf.Clamp(spdMod, 0, 1);
+        follower.distanceTravelled += Time.deltaTime * follower.speed * spdMod;
+
+        //if (!listenerWithinMinimumRange)
+        //{
+        //    timer += Time.deltaTime;
+        //    timer = Mathf.Clamp(timer, 0,timeTillReset);
+
+        //    if (timer == timeTillReset)
+        //    {
+        //        m_AudioSource.Stop();
+        //        loopTrigger = false;
+        //    }
+        //}
+        //else
+        //{
+        //    //if you exit and re-enter the range of the audiosource, it starts the clip over from the beginning. 
+        //    if (!loopTrigger)
+        //    {
+        //        m_AudioSource.PlayOneShot(soundToLoop);
+        //        loopTrigger = true;
+        //    }
+        //    else
+        //    {
+        //        if (trigger) { StartCoroutine(waitThenPlay()); }
+        //    }
+        //}
 
 
     }
 
 
 
-    IEnumerator waitThenPlay()
+    bool doingWaitLoop;
+    IEnumerator waitThenPlay(float time)
     {
-        yield return new WaitForSeconds(waitTime);
-        m_AudioSource.PlayOneShot(soundToLoop);
+        doingWaitLoop = true;
+        yield return new WaitForSeconds(time);
+        m_AudioSource.clip = soundToLoop;
+        m_AudioSource.Play();
+        loopCounter++;
+        doingWaitLoop = false;
     }
 
 
@@ -118,5 +147,16 @@ public class SpacialNarrativeAudio : MonoBehaviour
 
     }
 
+    private void OnValidate()
+    {
+        m_AudioSource = GetComponent<AudioSource>();
+        AS_Static = GetComponentsInChildren<AudioSource>()[1];
+
+        m_AudioSource.maxDistance = m_AudioTriggerMinDistance;
+        m_AudioSource.minDistance = m_AudioInnerRadius;
+
+        AS_Static.maxDistance = m_AudioTriggerMinDistance;
+        AS_Static.minDistance = m_AudioInnerRadius;
+    }
 
 }

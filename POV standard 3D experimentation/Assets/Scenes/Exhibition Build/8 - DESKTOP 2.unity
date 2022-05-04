@@ -5591,11 +5591,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2801814765065252991, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
       propertyPath: overrideRes.x
-      value: 960
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 2801814765065252991, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
       propertyPath: overrideRes.y
-      value: 540
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 2801814765065252991, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
       propertyPath: overrideResData
@@ -6191,6 +6191,7 @@ MonoBehaviour:
   opaqueEvent:
     m_PersistentCalls:
       m_Calls: []
+  AS: {fileID: 0}
 --- !u!1 &1986082450
 GameObject:
   m_ObjectHideFlags: 0

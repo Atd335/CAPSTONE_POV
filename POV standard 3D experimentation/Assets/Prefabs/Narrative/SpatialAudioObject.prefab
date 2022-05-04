@@ -51,7 +51,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1.5
+  MinDistance: 1
   MaxDistance: 10
   Pan2D: 0
   rolloffMode: 1
@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 8264224217072401244}
   - component: {fileID: -7050866511117716366}
   - component: {fileID: 8264224217072401245}
+  - component: {fileID: 6901329901084703330}
   m_Layer: 0
   m_Name: SpatialAudioObject
   m_TagString: Untagged
@@ -212,7 +213,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1.5
+  MinDistance: 1
   MaxDistance: 10
   Pan2D: 0
   rolloffMode: 1
@@ -307,6 +308,7 @@ MonoBehaviour:
   timeTillReset: 3
   m_StaticMultiplier: 0.8
   m_AudioTriggerMinDistance: 10
+  m_AudioInnerRadius: 1
   volMultiplier: 0.8
   timer: 0
   staticTimer: 0
@@ -372,6 +374,25 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  loopCounter: 0
+--- !u!114 &6901329901084703330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8264224217072401246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33aabe1a2dec93349b06e6e5dc51bc06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathCreator: {fileID: 0}
+  endOfPathInstruction: 0
+  speed: 5
+  distanceTravelled: 0
+  rotateWithCurve: 0
+  travelAutomatically: 0
 --- !u!1001 &7112976731229254679
 PrefabInstance:
   m_ObjectHideFlags: 0
