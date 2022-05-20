@@ -121,7 +121,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4363740293874222867}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.5215311
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2115,9 +2115,13 @@ PrefabInstance:
       propertyPath: m_Text
       value: brent.3dv
       objectReference: {fileID: 0}
+    - target: {fileID: 3431011069629327188, guid: e012b9aa301434a4aba8006b88d893cd, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 3431011070365968767, guid: e012b9aa301434a4aba8006b88d893cd, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 65
+      value: 85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e012b9aa301434a4aba8006b88d893cd, type: 3}
@@ -2266,9 +2270,13 @@ PrefabInstance:
       propertyPath: m_Text
       value: home.3dv
       objectReference: {fileID: 0}
+    - target: {fileID: 3431011069629327188, guid: e25b4eb63fb0e0742ba9f9c0550790d1, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 3431011070365968767, guid: e25b4eb63fb0e0742ba9f9c0550790d1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 65
+      value: 85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e25b4eb63fb0e0742ba9f9c0550790d1, type: 3}
@@ -2396,9 +2404,13 @@ PrefabInstance:
       propertyPath: m_Text
       value: Asphodel.3dv
       objectReference: {fileID: 0}
+    - target: {fileID: 3431011069629327188, guid: e012b9aa301434a4aba8006b88d893cd, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 3431011070365968767, guid: e012b9aa301434a4aba8006b88d893cd, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 80
+      value: 85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e012b9aa301434a4aba8006b88d893cd, type: 3}

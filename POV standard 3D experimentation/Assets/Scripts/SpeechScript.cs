@@ -9,7 +9,7 @@ public class SpeechScript : MonoBehaviour
     public AudioSource AS;
     public AudioClip[] vocalSamples;
     public float timeBetweenLetters;
-    bool speaking;
+    public bool speaking;
 
     public RectTransform speechBubbleRT;
     Text textBox;
@@ -28,7 +28,7 @@ public class SpeechScript : MonoBehaviour
     }
 
     float hideTimer;
-    float timeOut = 9999999999;
+    float timeOut = 1;
     void LateUpdate()
     {
         if (!speechBubbleRT.gameObject.activeInHierarchy) { return; }
@@ -37,7 +37,7 @@ public class SpeechScript : MonoBehaviour
             hideTimer += Time.deltaTime;
         }
         hideTimer = Mathf.Clamp(hideTimer,0,timeOut);
-        if ((Input.GetKeyDown(KeyCode.Q)&&!speaking) || hideTimer==timeOut) { speechBubbleRT.gameObject.SetActive(false); hideTimer = 0;}
+        if (hideTimer==timeOut) { speechBubbleRT.gameObject.SetActive(false); hideTimer = 0;}
         
         speechBubbleRT.rotation = Quaternion.Euler(0,0,0);
     }

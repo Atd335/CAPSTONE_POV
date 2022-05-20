@@ -66,13 +66,14 @@ public class UpdateController : MonoBehaviour
 
     void Update()
     {
-
+        cc3D.startDelayTimer += Time.deltaTime;
         debugtimer += Time.deltaTime / waitDuration;
         debugtimer = Mathf.Clamp(debugtimer,0,1);
         if (debugtimer != 1) { return; }
 
         qol.manualUpdate();
-        if (pause == null || !pause.menuOpen)
+
+        if (pause == null || !pause.menuOpen && (DocumentationEnabler.de==null || !DocumentationEnabler.de.isDocUp))
         {
             imageCap.manualUpdate();
             switcher.manualUpdate();
@@ -86,32 +87,21 @@ public class UpdateController : MonoBehaviour
         {
             pause.manualUpdate();
         }
-        //anim.manualUpdate();
 
-        //Some universal stuff...
-
-
-
-        if (pause && pause.menuOpen)
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-
-
-        //bool mouseWithinActiveArea = Input.mousePosition.x >= activeArea1.x && Input.mousePosition.x <= activeArea2.x && Input.mousePosition.y >= activeArea1.y && Input.mousePosition.y <= activeArea2.y; 
-
-        //if (Input.GetKeyDown(KeyCode.Mouse0) && mouseWithinActiveArea)
-        //{
-        //    Cursor.lockState = CursorLockMode.Locked;
-        //}
+        if (pause && pause.menuOpen) {Cursor.lockState = CursorLockMode.None;}
+        else {Cursor.lockState = CursorLockMode.Locked;}
 
         if (debugMousePos) { print(Input.mousePosition); }
 
-        //if (Input.GetKey(KeyCode.Alpha0)) { print(switcher.hitPosition); }
+        //CHECKPOINT TEST
+        if (Input.GetKeyDown(KeyCode.R) && RayCastInfoPlayer.RespawnCheckPoint != Vector3.zero) 
+        {
+            switcher.hitPosition = RayCastInfoPlayer.RespawnCheckPoint;
+            cc2D.DIE();
+            switcher.hitPosition = RayCastInfoPlayer.RespawnCheckPoint;
+            switcher.spawnPosition = RayCastInfoPlayer.RespawnCheckPoint;
+        }
+        //
     }
 
 

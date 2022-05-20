@@ -10,10 +10,12 @@ public class DrawWindow : MonoBehaviour
     GameObject prevTip;
 
     public static Color penColor;
+    public static float Size;
 
     void Start()
     {
         penColor = Color.black;
+        Size = 5;
     }
 
     private void Update()

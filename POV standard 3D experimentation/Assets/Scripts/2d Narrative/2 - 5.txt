@@ -1,6 +1,3 @@
-[Replacing fragments…]
+Loading Fragment (10/10)
 . . .
-Asphodel…
-I remember
-. . . 
-. . . 
+Fragment...

@@ -1,5 +1,3 @@
-[We’re close now. Let me load this fragment…]
+Loading Fragment (8/10)
 . . .
-[OK, we’ve recovered 4 fragments. Just one left.]
-
--press 'Q' to close-
+Fragment Restored!

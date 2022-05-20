@@ -1993,7 +1993,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8919c3d6268be244b90939ea33165d02, type: 3}
-    m_FontSize: 16
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -2004,7 +2004,18 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: hello
+  m_Text: "<size=14>Subject: REACHING OUT</size>\n\nTo: bWatters@cove.com\nFrom:
+    jasher@cove.com\n\nHi Brent!\n\nI tried to speak with you this afternoon, but
+    you disappeared into the executive offices and I didn't see you again.\nI'll
+    get right to it: The team and I are concerned about you. It must be difficult
+    to be a single father with the amount of hours you're putting in on this project\u2013\u2013please
+    let me know if you need someone to take some tasks off your plate.\nIt's good
+    to see you spending more of your time working from home. Do you have source control
+    set up? There are some corrupted files in <color=red>the Memories folder</color>
+    that we could use your help with\u2013\u2013it should be smoother sailing once
+    they're sorted out.\nPlease be careful\u2013\u2013remember that we're toying
+    with forces we don't fully understand. No one wants to see you get hurt.\n\n-
+    Judith"
 --- !u!1 &2812363298545185027
 GameObject:
   m_ObjectHideFlags: 0
@@ -3919,8 +3930,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 7482667652216324306, guid: 09af0b53b50c5f745b9264cb7cc8722b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

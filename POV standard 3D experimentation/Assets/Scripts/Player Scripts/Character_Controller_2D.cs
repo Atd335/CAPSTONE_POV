@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -20,7 +21,7 @@ public class Character_Controller_2D : MonoBehaviour
     List<Vector3> collisionVectors;
     Vector3 moveDirection;
 
-    float playerRadius = 25;
+    public float playerRadius = 75;
     float playerRadiusScaled;
     float inputDirection;
     float gravityMultiplier = 1;
@@ -76,7 +77,7 @@ public class Character_Controller_2D : MonoBehaviour
         imageCap = UpdateController.imageCap;
         player = GameObject.FindGameObjectWithTag("Player2D").transform;
         playerRect = GameObject.FindGameObjectWithTag("Player2D").GetComponent<RectTransform>();
-        playerRadius = playerRect.sizeDelta.x / 2;
+        //playerRadius = playerRect.sizeDelta.x / 2 - 25;// AHHHHHHHHHHHHHHH
         UpdateController.switcher.assign3DPoint(roundVectorToInt(player.position));
 
         platformColor = ColorContainer.black;
@@ -125,22 +126,23 @@ public class Character_Controller_2D : MonoBehaviour
         movePlayer();
         if (!withinBoundsOfTexture(roundVectorToInt(player.position), UpdateController.imageCap.texture)) { DIE("Died by falling out of world"); }
         playerRect.anchoredPosition3D = new Vector3(playerRect.anchoredPosition3D.x, playerRect.anchoredPosition3D.y, 0);
-
         DestroyImmediate(UpdateController.imageCap.texture);//THIS IS PROBABLY GOING TO CAUSE SOME ISSUE IN THE FUTURE!!!
     }
 
+
+    public Image coloringImage;
     void updateColor()
     {
-        playerImage.color = Color.white;
+        coloringImage.color = Color.white;
 
 
         if (UpdateController.switcher.colliderBetween)
         {
-            playerImage.color = Color.red;
+            coloringImage.color = Color.red;
         }
         if (!UpdateController.switcher.playerOnScreen || makeInvis)
         {
-            playerImage.color = Color.clear;
+            coloringImage.color = Color.clear;
         }
     }
     void updateRelativeUnits()
@@ -429,9 +431,10 @@ public class Character_Controller_2D : MonoBehaviour
     {
         return v.x > 0 && v.x < tex.width && v.y > 0 && v.y < tex.height;
     }
-
+    public UnityEvent deathEvent;
     public void DIE(string dieThrow = "died.")
     {
+        deathEvent.Invoke();
         UpdateController.sfx.playSound(5,2.5f);
         player.localScale = Vector3.zero;
         UpdateController.switcher.fpsMode = true;

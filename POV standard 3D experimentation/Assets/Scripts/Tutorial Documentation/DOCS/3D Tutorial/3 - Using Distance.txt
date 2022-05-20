@@ -1,0 +1,7 @@
+Using Distance
+$- Puzzles can span across rooms.
+
+- Find ways to traverse between them.
+
+- Think *way* outside the box.
+$I'll sometimes need you to guide me between multiple rooms. Make strategic use of perspective in 3D space! Remember that your distance from objects can affect your route. 

@@ -6,21 +6,39 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/`SPRING MIDTERM/0 - Boot Up.unity
+    path: Assets/Scenes/Exhibition Build/0 - SCREENSAVER.unity
+    guid: 4b62b739eb112ca45a70e7648b20a740
+  - enabled: 1
+    path: Assets/Scenes/Exhibition Build/1 - LOADING BAR.unity
+    guid: 905fc4381d594614686df3fd897fbcca
+  - enabled: 1
+    path: Assets/Scenes/Exhibition Build/2 -LOGIN SCREEN.unity
+    guid: b185a333ddf1814428b330cd7b5ffe53
+  - enabled: 1
+    path: Assets/Scenes/Exhibition Build/3 - ERROR SCREEN.unity
+    guid: d23621c669d53ef448e59ae2268b8b49
+  - enabled: 1
+    path: Assets/Scenes/Exhibition Build/4 - 2D TUTORIAL.unity
     guid: 77810b1beea3c6d42a0efb578010b87f
   - enabled: 1
-    path: Assets/Scenes/`SPRING MIDTERM/1 -LOGIN.unity
-    guid: 771f2d56171e10547a11cf7fe0b3d06c
+    path: Assets/Scenes/Exhibition Build/5 - DESKTOP 1.unity
+    guid: df1e27753fe076c4aa8b5792e03a6886
   - enabled: 1
-    path: Assets/Scenes/`SPRING MIDTERM/2 - DESKTOP REVAMP.unity
-    guid: 04c7c67c78eb84142b3e24517ee489b1
+    path: Assets/Scenes/Exhibition Build/6 - LEVEL 0.unity
+    guid: 67a3d13d71f20744f8607f967086bf5e
   - enabled: 1
-    path: Assets/Scenes/`SPRING MIDTERM/3 - Level.unity
-    guid: 026256b4649c2a342bbdb86a137179cd
+    path: Assets/Scenes/Exhibition Build/7 - TRANSITION.unity
+    guid: a2b954089053cf34b80aae4db2d032cd
   - enabled: 1
-    path: Assets/Scenes/`SPRING MIDTERM/4 - Completed_Level.unity
-    guid: 078c25162fd7d254eb3130f87f8588e6
+    path: Assets/Scenes/Exhibition Build/8 - DESKTOP 2.unity
+    guid: 8ede25e66241c4145aef33203bb19b57
   - enabled: 1
-    path: Assets/Scenes/`SPRING MIDTERM/5 - End of Demo.unity
+    path: Assets/Scenes/Exhibition Build/9 - LEVEL 1.unity
+    guid: 93615c57c42ca4847bf7a33e524351c6
+  - enabled: 1
+    path: Assets/Scenes/Exhibition Build/10 - END CUTSCENE.unity
+    guid: 9ecb74e579a9f734c986d9d7a6112907
+  - enabled: 1
+    path: Assets/Scenes/Exhibition Build/11 - END OF DEMO.unity
     guid: 74dd68840a48e10438525cef19581f06
   m_configObjects: {}

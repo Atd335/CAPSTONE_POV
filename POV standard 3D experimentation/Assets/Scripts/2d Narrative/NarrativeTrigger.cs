@@ -27,13 +27,13 @@ public class NarrativeTrigger : MonoBehaviour
 
     void Update()
     {
-        if ((!played || narrative_2D_input.repeat) && (Vector3.Distance(UpdateController.cc3D.position,transform.position)<=range) && !enteredRange)
+        if ((!played || narrative_2D_input.repeat) && (Vector3.Distance(UpdateController.cc3D.gameObject.transform.position, transform.position)<=range) && !enteredRange)
         {
             enteredRange = true;
             UpdateController.speech.SpeakText(narrative_2D_input.textAsset.text, narrative_2D_input.volume, narrative_2D_input.pitch);
             played = true;
         }
-        if (Vector3.Distance(UpdateController.cc3D.position, transform.position) > range) { enteredRange = false; }
+        if (Vector3.Distance(UpdateController.cc3D.gameObject.transform.position, transform.position) > range) { enteredRange = false; }
     }
 
     private void OnDrawGizmos()

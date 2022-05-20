@@ -1,3 +1,5 @@
+Loading Fragment (7/10)
+. . .
+Fragment Restored!
+------------------
 I’m starting to feel a little strange…
-
--press 'Q' to close-

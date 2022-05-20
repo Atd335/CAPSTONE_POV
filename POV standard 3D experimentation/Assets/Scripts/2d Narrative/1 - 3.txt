@@ -1,5 +1,3 @@
-[One moment, loading fragment…]
+Loading Fragment (2/10)
 . . .
-[That’s 2 fragments down, 9 to go.]
-
--press 'Q' to close-
+Fragment Restored!

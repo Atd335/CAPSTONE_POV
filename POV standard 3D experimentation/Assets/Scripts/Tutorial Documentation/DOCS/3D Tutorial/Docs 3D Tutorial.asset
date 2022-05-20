@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 271e58498720beb448b0b6f9d7075b0b, type: 3}
+  m_Name: Docs 3D Tutorial
+  m_EditorClassIdentifier: 
+  docs:
+  - {fileID: 11400000, guid: 45864c5e9feb6df4c9723c06c67a297e, type: 2}
+  - {fileID: 11400000, guid: 10d6dbba0b167244e8215dea921cb529, type: 2}
+  - {fileID: 11400000, guid: 98ca2c3af2c2e19478cd9c0c36a804e5, type: 2}
+  - {fileID: 11400000, guid: c91917fa7c45b9e4aa9384698970e818, type: 2}
+  - {fileID: 11400000, guid: 9334f491c72572049ae4a4d448285bdd, type: 2}
+  - {fileID: 11400000, guid: 6452c96860c64104d9b4bb5087f4f45c, type: 2}
+  - {fileID: 11400000, guid: 75bf6b5004142ec42957d0ace8dd89ac, type: 2}

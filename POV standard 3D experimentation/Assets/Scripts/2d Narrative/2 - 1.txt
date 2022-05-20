@@ -1,3 +1,5 @@
+Loading Fragment (6/10)
+. . .
+Fragment Restored!
+------------------
 Can you see any way up?
-
--press 'Q' to close-

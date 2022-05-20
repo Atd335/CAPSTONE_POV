@@ -1,3 +1,5 @@
+Loading Fragment (3/10)
+. . .
+Fragment Restored!
+------------------
 Debugging is just like life. If you’re feeling stuck, try adjusting your perspective.
-
--press 'Q' to close-

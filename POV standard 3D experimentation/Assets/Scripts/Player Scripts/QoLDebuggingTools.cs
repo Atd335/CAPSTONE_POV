@@ -15,7 +15,7 @@ public class QoLDebuggingTools : MonoBehaviour
 
     public void _Start()
     {
-        Toggle2DCharacter(false);
+        //Toggle2DCharacter(false);
 
     }
 
@@ -44,12 +44,12 @@ public class QoLDebuggingTools : MonoBehaviour
     // Update is called once per frame
     public void manualUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Toggle2DCharacter(true);
-        }
+        //if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //    Toggle2DCharacter(true);
+        //}
 
-        if (Input.GetKeyUp(KeyCode.R)) { UpdateController.cc3D.DIE(); }
+        //if (Input.GetKeyUp(KeyCode.R)) { UpdateController.cc3D.DIE(); }
     }
 
     public Vector3Int roundVectorToInt(Vector3 v)

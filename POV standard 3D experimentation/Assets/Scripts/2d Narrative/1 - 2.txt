@@ -1,5 +1,5 @@
-[Loading fragment…]
+Loading Fragment (1/10)
 . . .
-[Success! 1 / 11 fragments restored.]
-
--press 'Q' to close-
+Fragment Restored!
+-----------------
+You can press 'R' to return to the last fragment you collected.          

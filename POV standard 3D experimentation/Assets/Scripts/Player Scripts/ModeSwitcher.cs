@@ -21,6 +21,8 @@ public class ModeSwitcher : MonoBehaviour
 
     public bool startInFPSMode;
 
+    public bool Movement_Paused = false;
+
     private void Awake()
     {
         UpdateController.switcher = this;
@@ -46,15 +48,6 @@ public class ModeSwitcher : MonoBehaviour
 
     public void manualUpdate()
     {
-        foreach (KeyCode k in System.Enum.GetValues(typeof(KeyCode)))
-        {
-            char[] codes = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-            if (Input.GetKeyUp(k) && codes.Contains<char>(k.ToString()[k.ToString().Length - 1]) && k != KeyCode.Mouse0 && k != KeyCode.Mouse1)
-            {
-                SceneManager.LoadScene(int.Parse(k.ToString()[k.ToString().Length - 1].ToString()));
-            }
-        }
-
         Vignette.enabled = !fpsMode;
         if (!UpdateController.cc2D.player.gameObject.activeInHierarchy) { return; }
         bool LC = Physics.Linecast(UpdateController.cc3D.head.position,
@@ -99,9 +92,9 @@ public class ModeSwitcher : MonoBehaviour
         { 
             UpdateController.POPUP.spawnPopUp("Cannot enter 2D mode with an object between you and the 2D Character...",
                                               new Vector2(300,60),
-                                              new Vector2(((Screen.width / 2) - (150)), ((Screen.height / 1.5f) - (30))),
-                                              1,
-                                              16); 
+                                              new Vector2(((Screen.width / 2) - (150)), ((Screen.height - 80))),
+                                              2.5f,
+                                              15); 
         }
 
         if (isSticky)
@@ -113,9 +106,17 @@ public class ModeSwitcher : MonoBehaviour
         {
             UpdateController.switcher.fpsMode = false;
         }
+
+        if (!fpsMode)
+        {
+            Movement_Paused = true;
+        }
+
+        if (fpsMode && Movement_Paused)
+        {
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)) { Movement_Paused = false; }
+        }
     }
-
-
     void checkForStickySurface()
     {
         //print("CHECKING FOR STICKY...");

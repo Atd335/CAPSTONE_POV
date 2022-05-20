@@ -6,9 +6,10 @@ public class OverlayTextureResizer : MonoBehaviour
 {
     public RenderTexture rt;
 
-    public void Awake()
-    {
+    public void awake()
+    {  
         rt.width = Screen.width;
         rt.height = Screen.height;
     }
+
 }
