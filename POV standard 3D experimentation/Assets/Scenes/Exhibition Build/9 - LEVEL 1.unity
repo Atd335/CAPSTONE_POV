@@ -566,11 +566,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2801814765065252991, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
       propertyPath: overrideRes.x
-      value: 800
+      value: 960
       objectReference: {fileID: 0}
     - target: {fileID: 2801814765065252991, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
       propertyPath: overrideRes.y
-      value: 600
+      value: 540
       objectReference: {fileID: 0}
     - target: {fileID: 2801814765065252991, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
       propertyPath: overrideResData
@@ -37313,9 +37313,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1069443367558968741, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
+      propertyPath: volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069443367558968741, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
       propertyPath: currentTrack
       value: 
-      objectReference: {fileID: 8300000, guid: d8b216533d96a214b8ffbbf03611988b, type: 3}
+      objectReference: {fileID: 8300000, guid: 29bee389b740f4fab98bbb4a2d4c594f, type: 3}
     - target: {fileID: 2421895153785357090, guid: 35b9c7784d82e594cb5ed298fa1114a8, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5

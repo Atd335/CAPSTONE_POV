@@ -13,7 +13,7 @@ public class exhibitionCommandManager : MonoBehaviour
     float gameplayTimer = 0;
 
     float gameplayMax = 1800;//1800 seconds = 30 min
-    float inputMax = 90;// 90 seconds = 1m 30s
+    float inputMax = 120;// 90 seconds = 1m 30s
 
     public int screenSaverSceneID;
 
@@ -22,6 +22,8 @@ public class exhibitionCommandManager : MonoBehaviour
     ProfilerRecorder totalReservedMemoryRecorder;
     ProfilerRecorder gcReservedMemoryRecorder;
     ProfilerRecorder systemUsedMemoryRecorder;
+
+    
 
     void Start()
     {

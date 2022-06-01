@@ -9,7 +9,7 @@ public class PauseMenu_Manager : MonoBehaviour
     public KeyCode pauseKey = KeyCode.Escape;
     public KeyCode pauseKeyAlt = KeyCode.Tab;
 
-    bool menuAnimating;
+    public bool menuAnimating;
     public bool menuOpen;
     float animTimer;
     public float animSpd;

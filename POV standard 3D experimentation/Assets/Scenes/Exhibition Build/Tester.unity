@@ -319,31 +319,19 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: -2, y: 1, z: 0}
-      - {x: -1.5427207, y: 1, z: 0}
-      - {x: -0.68424976, y: 1, z: 0.000000053276445}
-      - {x: 0, y: 1, z: 0}
-      - {x: 3.0621002, y: 1, z: -0.00000023841852}
-      - {x: 0.9572805, y: 1, z: -3.7500005}
-      - {x: 3.75, y: 1, z: -3.7499998}
-      - {x: 7.6752186, y: 1, z: -3.7499988}
-      - {x: 7.8310957, y: 0.5, z: -4.027789}
-      - {x: 10.253889, y: 0.5, z: -1.7360197}
-      - {x: 12.676682, y: 0.5, z: 0.55574954}
-      - {x: 13.065743, y: 0.5, z: 5.708138}
-      - {x: 9.166491, y: 0.5, z: 5.717196}
+      - {x: -2, y: 1, z: 3.5}
+      - {x: -1, y: 1.5, z: 3.5}
+      - {x: 10.176045, y: 0.5, z: 3.500001}
+      - {x: 11.176045, y: 1, z: 3.500001}
       isClosed: 0
       space: 0
-      controlMode: 1
+      controlMode: 0
       autoControlLength: 0.3
       boundsUpToDate: 0
       bounds:
         m_Center: {x: 0, y: 0, z: 0}
         m_Extent: {x: 0, y: 0, z: 0}
       perAnchorNormalsAngle:
-      - 0
-      - 0
-      - 0
       - 0
       - 0
       globalNormalsAngle: 0
@@ -695,7 +683,7 @@ PrefabInstance:
       objectReference: {fileID: 747965809}
     - target: {fileID: 6901329901084703330, guid: caf636f0c18b71142b9e0d00243ebcbc, type: 3}
       propertyPath: speed
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6901329901084703330, guid: caf636f0c18b71142b9e0d00243ebcbc, type: 3}
       propertyPath: pathCreator

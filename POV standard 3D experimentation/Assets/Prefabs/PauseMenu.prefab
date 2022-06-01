@@ -1022,7 +1022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2067,7 +2067,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 951
   m_TargetDisplay: 0
 --- !u!114 &4036349741149345670
 MonoBehaviour:
@@ -2122,8 +2122,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseKey: 9
+  pauseKeyAlt: 9
+  menuAnimating: 0
   menuOpen: 0
   animSpd: 9
+  maxSensitivity: 800
   taskBar: {fileID: 4036349741109951438}
   startMenu: {fileID: 4036349741695595403}
   buttonRT: {fileID: 4036349740789957968}

@@ -375,6 +375,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   loopCounter: 0
+  fullVolume: 1
+  accel: 3
 --- !u!114 &6901329901084703330
 MonoBehaviour:
   m_ObjectHideFlags: 0

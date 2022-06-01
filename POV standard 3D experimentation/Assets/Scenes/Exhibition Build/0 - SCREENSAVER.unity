@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &417584581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9858,12 +9858,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 719538018}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1521009521}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &719538022
 MonoBehaviour:
@@ -14687,7 +14687,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1000031480
 MonoBehaviour:
@@ -14773,11 +14773,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2801814765065252991, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
       propertyPath: overrideRes.x
-      value: 800
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 2801814765065252991, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
       propertyPath: overrideRes.y
-      value: 600
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 2801814765065252991, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
       propertyPath: overrideResData
@@ -14785,6 +14785,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
+--- !u!4 &1521009521 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2801814765065252988, guid: 358d49d4eec11ff4fa9295ff21eb38e6, type: 3}
+  m_PrefabInstance: {fileID: 1521009520}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1539843851
 GameObject:
   m_ObjectHideFlags: 0
@@ -14879,7 +14884,7 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1539843855
 MonoBehaviour:

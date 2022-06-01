@@ -20,6 +20,12 @@ public class WelcomeButton : MonoBehaviour, IWindowButton
         }
     }
 
+    public void ERROREDCLICK()
+    {
+        GetComponent<AudioSource>().Play();
+        transform.localScale = new Vector3(1, .2f, 1);
+    }
+
     public void click()
     {
         clickEvent.Invoke();

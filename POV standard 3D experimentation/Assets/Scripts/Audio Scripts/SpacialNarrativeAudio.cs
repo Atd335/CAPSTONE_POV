@@ -36,9 +36,11 @@ public class SpacialNarrativeAudio : MonoBehaviour
 
     PathFollower follower;
 
+    Transform spriteTransform;
+
     void Start()
     {
-
+        spriteTransform = GetComponentInChildren<SpriteRenderer>().transform;
         m_AudioSource = GetComponent<AudioSource>();
         AS_Static = GetComponentsInChildren<AudioSource>()[1];
 
@@ -50,9 +52,11 @@ public class SpacialNarrativeAudio : MonoBehaviour
         //transform.LookAt(DetermineDestination());  
     }
 
-
+    public float fullVolume;
     float spdMod;
     public float accel = 3f;
+
+    bool poofed;
     void Update()
     {
 
@@ -68,10 +72,12 @@ public class SpacialNarrativeAudio : MonoBehaviour
 
         m_AudioSource.volume = 1 - (staticVolumeCurve.Evaluate(staticTimer)) * m_StaticMultiplier;
         if (staticTimer == 1) { staticTimer = 0; }
-        AS_Static.volume = 1 - m_AudioSource.volume;  
+        AS_Static.volume = 1 - m_AudioSource.volume;
+        AS_Static.volume *= fullVolume;
 
         AS_Static.volume *= volMultiplier;
         m_AudioSource.volume *= volMultiplier;
+        m_AudioSource.volume *= fullVolume;
 
         if (!m_AudioSource.isPlaying && !doingWaitLoop)
         {
@@ -90,36 +96,23 @@ public class SpacialNarrativeAudio : MonoBehaviour
 
         spdMod = Mathf.Clamp(spdMod, 0, 1);
         follower.distanceTravelled += Time.deltaTime * follower.speed * spdMod;
-
-        //if (!listenerWithinMinimumRange)
-        //{
-        //    timer += Time.deltaTime;
-        //    timer = Mathf.Clamp(timer, 0,timeTillReset);
-
-        //    if (timer == timeTillReset)
-        //    {
-        //        m_AudioSource.Stop();
-        //        loopTrigger = false;
-        //    }
-        //}
-        //else
-        //{
-        //    //if you exit and re-enter the range of the audiosource, it starts the clip over from the beginning. 
-        //    if (!loopTrigger)
-        //    {
-        //        m_AudioSource.PlayOneShot(soundToLoop);
-        //        loopTrigger = true;
-        //    }
-        //    else
-        //    {
-        //        if (trigger) { StartCoroutine(waitThenPlay()); }
-        //    }
-        //}
-
-
+        follower.distanceTravelled = Mathf.Clamp(follower.distanceTravelled, 0, follower.pathCreator.path.length);
+        
+        if ((follower.distanceTravelled == follower.pathCreator.path.length)||loopCounter>=3) 
+        { 
+            Poof();
+        }
+    
     }
 
+    public void Poof()
+    {
+        spriteTransform.localScale = Vector3.Lerp(spriteTransform.localScale, Vector3.one * 5.1f, Time.deltaTime*3);
+        spriteTransform.GetComponent<SpriteRenderer>().color = Color.Lerp(spriteTransform.GetComponent<SpriteRenderer>().color, new Color(1,1,1,0), Time.deltaTime*3.5f);
+        fullVolume = Mathf.Lerp(fullVolume, 0, Time.deltaTime*3.5f);
 
+        if (spriteTransform.localScale.x > 5) { Destroy(this.gameObject); }
+    }
 
     bool doingWaitLoop;
     IEnumerator waitThenPlay(float time)

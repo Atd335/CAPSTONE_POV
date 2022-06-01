@@ -45,7 +45,7 @@ public class Character_Controller_3D : MonoBehaviour
     {
         UpdateController.cc3D = this;
     }
-
+    Quaternion lerpRot;
     // Start is called before the first frame update
     public void _Start()
     {
@@ -63,18 +63,19 @@ public class Character_Controller_3D : MonoBehaviour
     public void manualUpdate()
     {
         if (startDelayTimer < startDelay) { return; }
-        if (!UpdateController.switcher.fpsMode || !UpdateController.SUL.fpsCharacterEnabled || !UpdateController.UC.windowSelected) { return; }
+        bool menuAnimating = (UpdateController.pause != null && UpdateController.pause.menuAnimating);
+        if (!UpdateController.switcher.fpsMode || !UpdateController.SUL.fpsCharacterEnabled || !UpdateController.UC.windowSelected || menuAnimating) { return; }
 
         if (!invertY)
         {
-            rot.x -= Input.GetAxisRaw("Mouse Y") * mouseSensitivity * Time.deltaTime;
+            rot.x -= Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
         }
         else
         {
-            rot.x += Input.GetAxisRaw("Mouse Y") * mouseSensitivity * Time.deltaTime;
+            rot.x += Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
         }
         
-        rot.y += Input.GetAxisRaw("Mouse X") * mouseSensitivity * Time.deltaTime;
+        rot.y += Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
 
         rot.x = Mathf.Clamp(rot.x,-90,90);
 
@@ -130,8 +131,9 @@ public class Character_Controller_3D : MonoBehaviour
 
         cc.Move(movementVector * Time.deltaTime);
 
-        head.rotation = Quaternion.Euler(rot);
-        headMast.rotation = Quaternion.Euler(0, rot.y, 0);
+        lerpRot = Quaternion.Lerp(lerpRot, Quaternion.Euler(rot), Time.deltaTime * 25f);
+        head.rotation = lerpRot;
+        headMast.rotation = Quaternion.Euler(0, lerpRot.eulerAngles.y, 0);
 
         position = head.position;
 

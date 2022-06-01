@@ -362,6 +362,9 @@ MonoBehaviour:
   makeInvis: 0
   coloringImage: {fileID: 8583202532240700795}
   heldObj2D: {fileID: 0}
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7486274517585318520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1095,6 +1098,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 003152dfad40b564b883e52f73c17862, type: 3}
   - {fileID: 0}
   timeBetweenLetters: 0.05
+  speaking: 0
   speechBubbleRT: {fileID: 3575271495393656988}
 --- !u!82 &1543107880043739685
 AudioSource:
@@ -2251,6 +2255,7 @@ GameObject:
   - component: {fileID: 1845202658774580954}
   - component: {fileID: 3230971303963778005}
   - component: {fileID: 4535221459090655739}
+  - component: {fileID: 7989084267274998147}
   m_Layer: 5
   m_Name: TargetIcon
   m_TagString: Untagged
@@ -2328,6 +2333,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformToGoTo: {fileID: 0}
+--- !u!114 &7989084267274998147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7400800991435130381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8252a1fc0d5dff4fa663d159ed18fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spr1: {fileID: 21300000, guid: 3af730c23a8174f41a1cadc21f6489db, type: 3}
+  spr2: {fileID: 21300000, guid: 951981498b3f5424c86ea59ac074af05, type: 3}
 --- !u!1 &7890108272663134631
 GameObject:
   m_ObjectHideFlags: 0
